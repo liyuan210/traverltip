@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绍兴二日游 - 江南旅游博客</title>
+    <meta name="description" content="探索历史文化名城绍兴的完美二日游攻略，包含鲁迅故里、沈园、书圣故里等景点推荐，以及特色美食、交通和住宿信息。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Article */
+        .article {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: #2e7d32;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h3 {
+            color: #388e3c;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content a {
+            color: #d4af37;
+            text-decoration: none;
+            border-bottom: 1px dotted #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .article-content a:hover {
+            color: #b8941f;
+            border-bottom: 1px solid #b8941f;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #c8e6c9;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-content .highlight {
+            background: #f1f8e9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .article-content .highlight h4 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Comments Section */
+        .comments {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .comments-title {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 2rem;
+        }
+
+        .comment {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .comment-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .comment-body {
+            color: #666;
+        }
+
+        .comment-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #c8e6c9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #43a047;
+            box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #27632a 0%, #388e3c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.5);
+        }
+
+        /* Language selector */
+        .language-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-image {
+                height: 250px;
+            }
+
+            .language-selector {
+                top: auto;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w20/cn.png" alt="中文">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../jiangnan_website.html">江南旅游博客</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../jiangnan_website.html#home">首页</a></li>
+                        <li><a href="../jiangnan_website.html#blog">旅游博客</a></li>
+                        <li><a href="../pricing.html">定价</a></li>
+                        <li><a href="../language.html">语言</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Section -->
+    <section class="article">
+        <div class="container">
+            <div class="article-header">
+                <h1 class="article-title">绍兴二日游：探索江南水乡的历史与文化</h1>
+                <div class="article-meta">2023年10月25日 | 作者：李文华</div>
+                <img src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="绍兴古镇风光" class="article-image">
+            </div>
+            
+            <div class="article-content">
+                <p>绍兴是一座历史文化名城，拥有丰富的人文景观和自然美景。这座有着2500多年历史的古城，曾是越国的都城，也是鲁迅、蔡元培、王羲之等历史名人的故乡。漫步在绍兴的小巷和水道间，仿佛穿越时空，感受着这座城市深厚的文化底蕴和独特的江南水乡风情。以下是一份精心设计的绍兴二日游攻略，带您领略这座城市的魅力。</p>
+                
+                <h2>第一天：人文历史之旅</h2>
+                
+                <h3>上午：鲁迅故里</h3>
+                <p>早晨8点左右到达<strong>鲁迅故里</strong>，这里是中国现代文学巨匠鲁迅先生的故乡。景区内包含周家老宅、新宅、百草园、三味书屋、鲁迅纪念馆等多个景点。漫步其中，您可以近距离了解鲁迅先生的生活环境和成长历程，感受那个时代的社会风貌。</p>
+                
+                <p>特别推荐参观<strong>三味书屋</strong>，这是鲁迅少年时代的私塾，也是《从百草园到三味书屋》中描述的场景。书屋内保留着当年的陈设，墙上还挂着"早"字，提醒学生要早起读书。</p>
+                
+                <p>景区内还可以体验坐<strong>乌篷船</strong>，船夫摇橹带您穿行于古老的水道之间，欣赏两岸的传统民居，感受绍兴独特的水乡风情。</p>
+                
+                <div class="highlight">
+                    <h4>旅行贴士</h4>
+                    <p>鲁迅故里景区免费开放，但需提前在"绍兴文旅"公众号预约。建议早上前往，游客较少，可以更好地感受环境的宁静与历史的厚重。</p>
+                </div>
+                
+                <h3>中午：品尝地道绍兴菜</h3>
+                <p>在游览完鲁迅故里后，可以前往附近的<strong>寻宝记绍兴菜（鲁迅路店）</strong>用餐。这家餐厅提供正宗的绍兴本地菜肴，环境雅致，价格适中。推荐品尝：</p>
+                <ul>
+                    <li><strong>黄酒醉鸡</strong>：绍兴名菜，用当地黄酒腌制的鸡肉，鲜嫩多汁，带有独特的酒香</li>
+                    <li><strong>黄酒肉粽</strong>：与普通粽子不同，加入了绍兴黄酒，香气四溢</li>
+                    <li><strong>臭豆腐</strong>：绍兴臭豆腐外酥里嫩，风味独特</li>
+                    <li><strong>茴香豆</strong>：用绍兴黄酒和茴香炒制，是下酒的绝佳小菜</li>
+                </ul>
+                <p>用餐时不妨点一壶温热的绍兴黄酒，小酌几杯，体验地道的绍兴饮食文化。</p>
+                
+                <h3>下午：沈园</h3>
+                <p>午餐后，前往<strong>沈园</strong>。这座始建于南宋的古典园林，因南宋诗人陆游与前妻唐婉在此重逢并写下千古绝唱《钗头凤》而闻名。园内亭台楼阁掩映在绿树红花之间，小桥流水，曲径通幽，是典型的江南园林风格。</p>
+                
+                <p>园内主要景点包括：</p>
+                <ul>
+                    <li><strong>陆游纪念馆</strong>：展示陆游的生平事迹和文学成就</li>
+                    <li><strong>钗头凤亭</strong>：陆游与唐婉邂逅的地方，亭内刻有《钗头凤》词</li>
+                    <li><strong>沧浪亭</strong>：可俯瞰整个园林景色</li>
+                    <li><strong>梅花厅</strong>：欣赏精美的园林建筑</li>
+                </ul>
+                
+                <p>若时间允许，可在15:00参加园内的<strong>《钗头凤》诗词吟诵会</strong>，聆听专业人士演绎这段凄美的爱情故事，感受古典诗词的魅力。</p>
+                
+                <h3>晚上：仓桥直街</h3>
+                <p>傍晚时分，漫步<strong>仓桥直街</strong>，这是一条保存完好的古街，两侧是传统的水乡民居，中间是蜿蜒的河道。街上灯火通明，古色古香的建筑倒映在水中，构成一幅美丽的水乡夜景。</p>
+                
+                <p>在这里，您可以品尝各种绍兴特色小吃：</p>
+                <ul>
+                    <li><strong>王老汉臭豆腐</strong>：当地最有名的臭豆腐店之一</li>
+                    <li><strong>高老太奶油小攀</strong>：一种当地特色点心，外酥内软</li>
+                    <li><strong>绍兴醉蟹</strong>：用黄酒腌制的螃蟹，鲜美可口</li>
+                    <li><strong>霉干菜扣肉</strong>：当地传统名菜，肥而不腻</li>
+                </ul>
+                
+                <p>街上还有许多特色小店，可以购买绍兴黄酒、手工艺品等纪念品带回家。</p>
+                
+                <h2>第二天：文化古迹与自然景观之旅</h2>
+                
+                <h3>上午：绍兴博物馆</h3>
+                <p>第二天上午，前往<strong>绍兴博物馆</strong>。这是绍兴地区最大的综合类博物馆，馆内收藏了大量珍贵文物，从越国青铜剑到明清时期的书画作品，从古代陶瓷到水乡民俗用品，全面展示了绍兴2500年的历史文化。</p>
+                
+                <p>博物馆分为几个主要展区：</p>
+                <ul>
+                    <li><strong>越国历史文化展</strong>：展示春秋战国时期越国的历史文物</li>
+                    <li><strong>书法艺术展</strong>：展示绍兴作为"书法之乡"的深厚底蕴</li>
+                    <li><strong>黄酒文化展</strong>：介绍绍兴黄酒的酿造工艺和文化内涵</li>
+                    <li><strong>水乡民俗展</strong>：展示绍兴传统民居和生活用品</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>参观提示</h4>
+                    <p>绍兴博物馆每周一闭馆，其他时间9:00-17:00开放（16:30停止入馆）。博物馆免费参观，但需要提前在官网或微信公众号预约。馆内定时有讲解员带队参观，可以更深入了解展品背后的故事。</p>
+                </div>
+                
+                <h3>中午：品尝地道美食</h3>
+                <p>中午可以在书圣故里附近的<strong>同心楼（解放北路店）</strong>用餐。这家老字号餐厅以传统绍兴菜为主，环境古朴，价格实惠。推荐品尝：</p>
+                <ul>
+                    <li><strong>绍兴生煎包</strong>：皮薄馅多，底部金黄酥脆</li>
+                    <li><strong>梅干菜烧肉</strong>：当地特色菜，咸香可口</li>
+                    <li><strong>三味臭豆腐</strong>：外酥里嫩，配以特制酱料</li>
+                    <li><strong>绍兴醉排骨</strong>：用黄酒腌制的排骨，香气扑鼻</li>
+                </ul>
+                
+                <h3>下午：书圣故里</h3>
+                <p>午餐后，前往<strong>书圣故里</strong>。这里是东晋著名书法家王羲之曾经生活过的地方，也是蔡元培的故乡。景区内环境幽静，古树参天，是了解中国书法艺术和传统文化的好去处。</p>
+                
+                <p>景区主要景点包括：</p>
+                <ul>
+                    <li><strong>蔡元培故居</strong>：中国近代著名教育家蔡元培的故居，保存完好</li>
+                    <li><strong>戒珠寺</strong>：始建于唐代的古寺，环境清幽，是王羲之常去的地方</li>
+                    <li><strong>王羲之陈列馆</strong>：展示王羲之的生平和书法艺术成就</li>
+                    <li><strong>题扇桥</strong>：相传王羲之曾在此为人题扇，是拍照打卡的好地方</li>
+                </ul>
+                
+                <p>在景区内的<strong>老爷爷旧书店</strong>，可以购买手写书签作为纪念品。这些书签由当地书法爱好者现场书写，既有艺术价值，又富有纪念意义。</p>
+                
+                <h2>实用信息</h2>
+                
+                <h3>门票信息</h3>
+                <p><strong>鲁迅故里</strong>免费，但需提前在"绍兴文旅"公众号预约；<strong>沈园</strong>白天门票40元。</p>
+                
+                <p>如果计划参观多个景点，建议购买<strong>绍兴古城联票（五选四）</strong>，提前购票145元/人，包含沈园（白天）、东湖景区、大禹陵、兰亭景区、阳明故里中的四个景点，比单独购票更经济实惠。</p>
+                
+                <h3>交通指南</h3>
+                <p>若从杭州出发，可乘坐杭州地铁1号线到"鲁迅故里站"直达绍兴市区，非常方便。</p>
+                
+                <p>绍兴市内景点相对集中，可以选择以下出行方式：</p>
+                <ul>
+                    <li><strong>步行</strong>：市区内多数景点步行可达，边走边看，感受城市风情</li>
+                    <li><strong>共享单车</strong>：市区内有大量共享单车，使用方便</li>
+                    <li><strong>公交车</strong>：绍兴公交系统发达，票价1-2元，可使用支付宝或微信扫码支付</li>
+                    <li><strong>出租车</strong>：起步价8元，市区内一般不超过30元</li>
+                </ul>
+                
+                <h3>住宿推荐</h3>
+                <ul>
+                    <li><strong>绍兴兰亭璞燊酒店</strong>：位于阳明路27号，徽派建筑风格，环境幽雅舒适，适合追求高品质住宿的游客。</li>
+                    <li><strong>绍兴东方山水·金沙酒店</strong>：地址为稽山南路88号，能看到整个游乐场，房间较大，适合亲子出游。</li>
+                    <li><strong>绍兴古城客栈</strong>：位于鲁迅故里附近，传统水乡建筑风格，价格适中，体验当地生活氛围。</li>
+                </ul>
+                
+                <h3>最佳旅游时间</h3>
+                <p>绍兴四季皆宜旅游，但最佳时间是春季（3-5月）和秋季（9-11月），此时气候宜人，既不会太热也不会太冷，非常适合徒步游览。</p>
+                
+                <p>每年11月中旬，绍兴还会举办"黄酒节"，届时可以参观黄酒酿造过程，品尝各种黄酒，体验更丰富的文化活动。</p>
+                
+                <h2>结语</h2>
+                
+                <p>绍兴是一座充满历史韵味和文化底蕴的城市，两天的时间虽然不能完全领略它的全部魅力，但足以让您感受到这座江南古城的独特风情。无论是追寻文学大师的足迹，还是品味地道的绍兴美食，亦或是欣赏古典园林的精巧，绍兴都能给您带来难忘的旅行体验。</p>
+                
+                <p>希望这份旅游攻略能帮助您规划一次完美的绍兴之旅，感受这座城市深厚的历史文化底蕴和迷人的水乡风情。</p>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments">
+                <h2 class="comments-title">评论 (2)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">张明</span>
+                        <span class="comment-date">2023年10月28日</span>
+                    </div>
+                    <div class="comment-body">
+                        <p>非常详细的攻略，上个月按照这个路线游览了绍兴，体验很棒！特别是鲁迅故里和沈园，感觉穿越回了古代。另外推荐一下东湖景区，虽然文章里没提到，但也很值得一去，湖光山色非常美。</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">李小华</span>
+                        <span class="comment-date">2023年11月5日</span>
+                    </div>
+                    <div class="comment-body">
+                        <p>感谢分享！我在寻宝记绍兴菜吃到了文章推荐的黄酒醉鸡，确实很美味。不过想提醒一下，现在鲁迅故里需要提前一天预约，不能当天预约了，我们差点没进去。另外，仓桥直街晚上真的很美，非常适合拍照。</p>
+                    </div>
+                </div>
+                
+                <form class="comment-form">
+                    <div class="form-group">
+                        <label for="commentName">姓名</label>
+                        <input type="text" id="commentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentEmail">邮箱（不会被公开）</label>
+                        <input type="email" id="commentEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentBody">评论内容</label>
+                        <textarea id="commentBody" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">提交评论</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../jiangnan_website.html">首页</a>
+                    <a href="../jiangnan_website.html#blog">博客</a>
+                    <a href="../pricing.html">定价</a>
+                    <a href="../language.html">语言</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 江南旅游博客. 保留所有权利.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            const selectedLanguage = select.value;
+            
+            if (selectedLanguage === 'en') {
+                localStorage.setItem('preferredLanguage', 'en');
+                window.location.href = 'shaoxing-tour_en.html';
+            } else {
+                localStorage.setItem('preferredLanguage', 'zh');
+                // 已经在中文页面
+            }
+        }
+        
+        // 页面加载时检查首选语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage === 'en') {
+                window.location.href = 'shaoxing-tour_en.html';
+            }
+            
+            // 处理评论表单提交
+            document.querySelector('.comment-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('感谢您的评论！审核后将会显示。');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

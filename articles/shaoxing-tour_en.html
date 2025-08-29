@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Days in Shaoxing - Jiangnan Travel Blog</title>
+    <meta name="description" content="Explore the perfect two-day itinerary for Shaoxing, a historic water town featuring Lu Xun's Former Residence, Shen Garden, and authentic local cuisine.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Article */
+        .article {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: #2e7d32;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h3 {
+            color: #388e3c;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content a {
+            color: #d4af37;
+            text-decoration: none;
+            border-bottom: 1px dotted #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .article-content a:hover {
+            color: #b8941f;
+            border-bottom: 1px solid #b8941f;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #c8e6c9;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-content .highlight {
+            background: #f1f8e9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .article-content .highlight h4 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Comments Section */
+        .comments {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .comments-title {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 2rem;
+        }
+
+        .comment {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .comment-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .comment-body {
+            color: #666;
+        }
+
+        .comment-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #c8e6c9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #43a047;
+            box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #27632a 0%, #388e3c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.5);
+        }
+
+        /* Language selector */
+        .language-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-image {
+                height: 250px;
+            }
+
+            .language-selector {
+                top: auto;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w20/us.png" alt="English">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../jiangnan_website_en.html">Jiangnan Travel Blog</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../jiangnan_website_en.html#home">Home</a></li>
+                        <li><a href="../jiangnan_website_en.html#blog">Travel Blog</a></li>
+                        <li><a href="../pricing_en.html">Pricing</a></li>
+                        <li><a href="../language.html">Language</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Section -->
+    <section class="article">
+        <div class="container">
+            <div class="article-header">
+                <h1 class="article-title">Two Days in Shaoxing: Exploring a Literary and Cultural Gem</h1>
+                <div class="article-meta">October 25, 2023 | By William Thompson</div>
+                <img src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shaoxing Ancient Town" class="article-image">
+            </div>
+            
+            <div class="article-content">
+                <p>Shaoxing, often overlooked by international travelers, is one of China's most historically significant cities with over 2,500 years of rich cultural heritage. Once the capital of the ancient Yue Kingdom, this enchanting water town in Zhejiang Province has nurtured some of China's most celebrated literary figures, including Lu Xun, Wang Xizhi, and Cai Yuanpei. With its network of canals, distinctive black-awning boats, and well-preserved ancient architecture, Shaoxing offers visitors an authentic glimpse into traditional Jiangnan (south of the Yangtze River) culture. Here's a carefully crafted two-day itinerary to help you discover the best this literary city has to offer.</p>
+                
+                <h2>Day One: Literary Heritage and Romantic Tales</h2>
+                
+                <h3>Morning: Lu Xun's Former Residence</h3>
+                <p>Begin your Shaoxing adventure around 8:00 AM at <strong>Lu Xun's Former Residence</strong>, the childhood home of China's most influential modern writer. This well-preserved complex includes several interconnected courtyards and buildings where Lu Xun (born Zhou Shuren) spent his formative years. The site encompasses the Old and New Family Houses, Hundred Herbs Garden, Three-Flavor Study Room, and the Lu Xun Memorial Hall.</p>
+                
+                <p>Pay special attention to the <strong>Three-Flavor Study Room</strong> (San Wei Shu Wu), the private school where young Lu Xun received his classical education. The room maintains its original furnishings, including the large character for "early" hanging on the wall—a reminder for students to rise early for their studies. This location inspired Lu Xun's famous essay "From the Hundred Herbs Garden to the Three-Flavor Study Room," offering insights into traditional Chinese education.</p>
+                
+                <p>While in the area, don't miss the opportunity to take a short ride on a traditional <strong>black-awning boat</strong> (wupeng chuan). These distinctive vessels have been Shaoxing's primary mode of water transportation for centuries. As your boatman poles through the narrow waterways, you'll gain a unique perspective of the ancient water town architecture and daily life along the canals.</p>
+                
+                <div class="highlight">
+                    <h4>Traveler's Tip</h4>
+                    <p>Lu Xun's Former Residence is free to visit, but requires advance reservation through the "Shaoxing Tourism" WeChat official account. Arriving early in the morning helps you avoid tour groups and provides a more contemplative atmosphere to appreciate the historical significance of the site.</p>
+                </div>
+                
+                <h3>Lunch: Authentic Shaoxing Cuisine</h3>
+                <p>For lunch, head to <strong>Xunbao Ji Shaoxing Restaurant</strong> (on Lu Xun Road), a local establishment serving traditional Shaoxing dishes in an elegant setting. The menu features several specialties worth trying:</p>
+                <ul>
+                    <li><strong>Yellow Wine Drunken Chicken</strong> (huang jiu zui ji): Tender chicken marinated in Shaoxing's famous yellow rice wine, creating a delicate flavor with subtle wine aromatics</li>
+                    <li><strong>Yellow Wine Zongzi</strong>: Glutinous rice dumplings infused with Shaoxing wine, offering a unique twist on this traditional food</li>
+                    <li><strong>Stinky Tofu</strong> (chou doufu): Shaoxing's version is less pungent than other regional varieties, with a crispy exterior and soft interior</li>
+                    <li><strong>Fennel Seeds with Yellow Wine</strong> (hui xiang dou): A perfect accompaniment to your meal, these beans are stir-fried with fennel seeds and Shaoxing wine</li>
+                </ul>
+                <p>Complement your meal with a pot of warm Shaoxing yellow wine (huang jiu), served in the traditional manner in small porcelain cups. This amber-colored rice wine, with a history spanning over 2,500 years, is integral to Shaoxing's cultural identity.</p>
+                
+                <h3>Afternoon: Shen Garden</h3>
+                <p>After lunch, make your way to <strong>Shen Garden</strong> (Shen Yuan), a classical Chinese garden dating back to the Southern Song Dynasty (1127-1279). This intimate garden gained fame as the setting for one of China's most poignant love stories—the chance meeting between the poet Lu You and his former wife Tang Wan, which inspired Lu's renowned poem "Phoenix Hairpin" (Chai Tou Feng).</p>
+                
+                <p>Key features of the garden include:</p>
+                <ul>
+                    <li><strong>Lu You Memorial Hall</strong>: Displaying artifacts and information about the poet's life and literary achievements</li>
+                    <li><strong>Phoenix Hairpin Pavilion</strong>: The legendary meeting place of Lu You and Tang Wan, with the famous poem inscribed inside</li>
+                    <li><strong>Canglang Pavilion</strong>: Offering panoramic views of the garden's landscape</li>
+                    <li><strong>Plum Blossom Hall</strong>: Showcasing exquisite garden architecture</li>
+                </ul>
+                
+                <p>If your timing allows, attend the <strong>Phoenix Hairpin Poetry Recital</strong> at 3:00 PM, where performers in period costumes bring the tragic love story to life through traditional Chinese performance arts.</p>
+                
+                <h3>Evening: Cangqiao Straight Street</h3>
+                <p>As evening approaches, take a leisurely stroll along <strong>Cangqiao Straight Street</strong> (Cangqiao Zhi Jie), a well-preserved ancient street flanked by traditional buildings and intersected by picturesque canals. The street comes alive at night with lanterns reflecting on the water, creating a magical atmosphere that captures the essence of old Shaoxing.</p>
+                
+                <p>This is the perfect place to sample local street food specialties:</p>
+                <ul>
+                    <li><strong>Wang Laohan's Stinky Tofu</strong>: A famous local stall serving what many consider the best stinky tofu in town</li>
+                    <li><strong>Gao Laotai's Cream Pastries</strong>: Delicate pastries with a creamy filling, made using traditional methods</li>
+                    <li><strong>Drunken Crabs</strong>: Fresh river crabs marinated in Shaoxing wine</li>
+                    <li><strong>Mei Gan Cai Kou Rou</strong>: Pork belly with preserved vegetables, a hearty local favorite</li>
+                </ul>
+                
+                <p>The street also houses numerous shops selling Shaoxing yellow wine, handcrafted souvenirs, and local art, perfect for picking up mementos of your visit.</p>
+                
+                <h2>Day Two: Cultural Heritage and Ancient Wisdom</h2>
+                
+                <h3>Morning: Shaoxing Museum</h3>
+                <p>Begin your second day at the <strong>Shaoxing Museum</strong>, the largest comprehensive museum in the region. Housing over 13,000 artifacts, the museum offers an excellent overview of Shaoxing's 2,500-year history, from the ancient Yue Kingdom to modern times.</p>
+                
+                <p>The museum is organized into several thematic exhibitions:</p>
+                <ul>
+                    <li><strong>Yue Kingdom History</strong>: Featuring bronze weapons, including the famous Yue Kingdom swords known for their exceptional craftsmanship</li>
+                    <li><strong>Calligraphy Art</strong>: Highlighting Shaoxing's reputation as the "City of Calligraphy" with works by Wang Xizhi and other masters</li>
+                    <li><strong>Yellow Wine Culture</strong>: Documenting the history and production techniques of Shaoxing's famous wine</li>
+                    <li><strong>Water Town Folk Customs</strong>: Displaying traditional tools, furniture, and everyday items that illustrate life in ancient Shaoxing</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>Visitor Information</h4>
+                    <p>The Shaoxing Museum is closed on Mondays. Opening hours are 9:00 AM to 5:00 PM (last entry at 4:30 PM). Admission is free, but advance reservation through the museum's official website or WeChat account is required. Guided tours in English are available at scheduled times and provide valuable context to the exhibits.</p>
+                </div>
+                
+                <h3>Lunch: Local Delicacies</h3>
+                <p>For lunch, try <strong>Tongxin Lou Restaurant</strong> (on Liberation North Road) near the Calligraphy Saint's Former Residence. This established eatery serves traditional Shaoxing cuisine in a charming setting. Recommended dishes include:</p>
+                <ul>
+                    <li><strong>Shaoxing Shengjianbao</strong>: Pan-fried dumplings with a crispy bottom and juicy filling</li>
+                    <li><strong>Mei Gan Cai Rou</strong>: Slow-cooked pork with preserved vegetables</li>
+                    <li><strong>Three-Flavor Stinky Tofu</strong>: Served with three different dipping sauces</li>
+                    <li><strong>Drunken Pork Ribs</strong>: Tender ribs marinated in Shaoxing wine</li>
+                </ul>
+                
+                <h3>Afternoon: Calligraphy Saint's Former Residence</h3>
+                <p>After lunch, visit the <strong>Calligraphy Saint's Former Residence</strong> (Shu Sheng Gu Li), dedicated to Wang Xizhi, widely regarded as China's greatest calligrapher. This tranquil complex is also the birthplace of Cai Yuanpei, a prominent educator and reformer in modern Chinese history.</p>
+                
+                <p>Key attractions within the site include:</p>
+                <ul>
+                    <li><strong>Cai Yuanpei's Former Residence</strong>: A well-preserved traditional home showcasing the living environment of this influential figure</li>
+                    <li><strong>Jiezhu Temple</strong>: A Tang Dynasty temple where Wang Xizhi often practiced his calligraphy</li>
+                    <li><strong>Wang Xizhi Exhibition Hall</strong>: Displaying reproductions of his most famous works and explaining his profound influence on Chinese calligraphy</li>
+                    <li><strong>Tieshan Bridge</strong>: A picturesque stone bridge where Wang Xizhi reportedly wrote inscriptions for fans, making it a popular photo spot</li>
+                </ul>
+                
+                <p>Don't miss the <strong>Old Gentleman's Bookstore</strong> within the complex, where you can purchase hand-written bookmarks created by local calligraphy enthusiasts. These personalized souvenirs make meaningful mementos of your visit to the home of Chinese calligraphy.</p>
+                
+                <h2>Practical Information</h2>
+                
+                <h3>Admission Fees</h3>
+                <p><strong>Lu Xun's Former Residence</strong> is free, but requires advance reservation. <strong>Shen Garden</strong> costs 40 yuan for daytime admission.</p>
+                
+                <p>For visitors planning to see multiple attractions, the <strong>Shaoxing Ancient City Pass</strong> (choose 4 out of 5 sites) offers good value at 145 yuan when purchased in advance. It includes Shen Garden (daytime), East Lake Scenic Area, Da Yu Mausoleum, Lan Ting Scenic Area, and Yangming's Former Residence.</p>
+                
+                <h3>Transportation</h3>
+                <p>From Hangzhou, take Hangzhou Metro Line 1 directly to "Lu Xun's Former Residence Station" to reach downtown Shaoxing—a convenient option that takes approximately 30 minutes.</p>
+                
+                <p>Within Shaoxing, most attractions are relatively close to each other. Transportation options include:</p>
+                <ul>
+                    <li><strong>Walking</strong>: Many sites are within walking distance of each other, allowing you to absorb the city's atmosphere</li>
+                    <li><strong>Shared Bicycles</strong>: Widely available throughout the city center</li>
+                    <li><strong>Public Buses</strong>: Shaoxing has an extensive bus network with fares of 1-2 yuan, payable via Alipay or WeChat</li>
+                    <li><strong>Taxis</strong>: Starting fare is 8 yuan, with most in-city trips costing less than 30 yuan</li>
+                </ul>
+                
+                <h3>Accommodation Recommendations</h3>
+                <ul>
+                    <li><strong>Shaoxing Lanting Pushi Hotel</strong>: Located at 27 Yangming Road, this hotel features Hui-style architecture and elegant surroundings, ideal for travelers seeking high-quality accommodation.</li>
+                    <li><strong>Shaoxing Oriental Mountain Water Golden Sand Hotel</strong>: Situated at 88 Jishan South Road, this hotel offers spacious rooms with views of the amusement park, making it perfect for families traveling with children.</li>
+                    <li><strong>Shaoxing Ancient City Inn</strong>: Near Lu Xun's Former Residence, this boutique hotel is housed in a traditional water town building, offering moderate prices and an authentic local atmosphere.</li>
+                </ul>
+                
+                <h3>Best Time to Visit</h3>
+                <p>Shaoxing is pleasant to visit year-round, but spring (March-May) and autumn (September-November) offer the most comfortable weather for exploring the city on foot, with mild temperatures and less rainfall.</p>
+                
+                <p>If you visit in mid-November, you might catch the annual <strong>Shaoxing Yellow Wine Festival</strong>, when you can tour wine-making facilities, sample various yellow wines, and enjoy cultural performances celebrating this important aspect of local heritage.</p>
+                
+                <h2>Conclusion</h2>
+                
+                <p>Shaoxing offers visitors a rare opportunity to step back in time and experience the literary and cultural heritage that has shaped Chinese civilization for millennia. While two days cannot encompass all of Shaoxing's treasures, this itinerary provides a balanced introduction to the city's most significant historical sites, culinary delights, and cultural experiences.</p>
+                
+                <p>Whether you're tracing the footsteps of literary giants, savoring the subtle flavors of Shaoxing cuisine, or simply absorbing the timeless atmosphere of its ancient waterways, Shaoxing rewards travelers with authentic experiences far removed from the tourist crowds of China's more famous destinations.</p>
+                
+                <p>We hope this guide helps you plan a memorable journey to one of China's most culturally significant yet underappreciated cities.</p>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments">
+                <h2 class="comments-title">Comments (2)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Robert Chen</span>
+                        <span class="comment-date">October 28, 2023</span>
+                    </div>
+                    <div class="comment-body">
+                        <p>This is an excellent guide! I followed this itinerary last month and had a wonderful experience. Lu Xun's Former Residence and Shen Garden were particularly moving—it felt like stepping back in time. I'd also recommend adding East Lake Scenic Area to your itinerary if you have extra time; the lake views are stunning.</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Emily Wong</span>
+                        <span class="comment-date">November 5, 2023</span>
+                    </div>
+                    <div class="comment-body">
+                        <p>Thank you for this detailed guide! I tried the Yellow Wine Drunken Chicken at Xunbao Ji as recommended and it was delicious. One important note for visitors: Lu Xun's Former Residence now requires reservations at least one day in advance, not same-day. Also, Cangqiao Straight Street is absolutely magical at night—perfect for photography!</p>
+                    </div>
+                </div>
+                
+                <form class="comment-form">
+                    <div class="form-group">
+                        <label for="commentName">Name</label>
+                        <input type="text" id="commentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentEmail">Email (will not be published)</label>
+                        <input type="email" id="commentEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentBody">Comment</label>
+                        <textarea id="commentBody" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Post Comment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../jiangnan_website_en.html">Home</a>
+                    <a href="../jiangnan_website_en.html#blog">Blog</a>
+                    <a href="../pricing_en.html">Pricing</a>
+                    <a href="../language.html">Language</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Jiangnan Travel Blog. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching function
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            const selectedLanguage = select.value;
+            
+            if (selectedLanguage === 'zh') {
+                localStorage.setItem('preferredLanguage', 'zh');
+                window.location.href = 'shaoxing-tour.html';
+            } else {
+                localStorage.setItem('preferredLanguage', 'en');
+                // Already on English page
+            }
+        }
+        
+        // Check preferred language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage === 'zh') {
+                window.location.href = 'shaoxing-tour.html';
+            }
+            
+            // Handle comment form submission
+            document.querySelector('.comment-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your comment! It will appear after moderation.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yiwu Two-Day Tour: Small Commodities & International Culture</title>
+    <style>
+        :root {
+            --primary-color: #e83e8c;
+            --secondary-color: #2c3e50;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --light-text: #666;
+            --card-bg: #fff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --spacing: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 70px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(232, 62, 140, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 20px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--light-text);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .highlight {
+            background-color: rgba(232, 62, 140, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        .highlight h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #c22d77;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: var(--card-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Yiwu Travel Guide</a>
+            <ul class="nav-links">
+                <li><a href="#overview">City Overview</a></li>
+                <li><a href="#hotels">Hotels</a></li>
+                <li><a href="#food">Dining</a></li>
+                <li><a href="#itinerary">Itinerary</a></li>
+                <li><a href="#tips">Travel Tips</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>Yiwu Two-Day Tour: Small Commodities & International Culture</h1>
+            <p>Explore the unique charm of the world's small commodity capital, experience the collision of tradition and modernity, and feel the fusion of diverse cultures</p>
+        </section>
+
+        <!-- City Overview -->
+        <section id="overview">
+            <h2>I. Yiwu: The Unique Charm of the World's Small Commodity Capital</h2>
+            
+            <h3>1.1 City Overview and Tourism Value</h3>
+            <p>Yiwu, known as the "World's Supermarket," is famous for being the largest small commodity distribution center globally. By 2025, Yiwu has developed into a highly internationalized commercial city, attracting merchants from over 200 countries and regions who reside here permanently.</p>
+            
+            <div class="highlight">
+                <p>Yiwu boasts a commercial area of 6.4 million square meters, with 75,000 booths, 210,000 merchants, and over 2.1 million types of products. It's not just a shopping paradise but also an international metropolis that integrates diverse cultures.</p>
+            </div>
+            
+            <h3>1.2 Best Time to Visit and Climate Characteristics</h3>
+            <p>In late August, Yiwu has a subtropical monsoon climate with temperatures ranging between 25-33°C (77-91°F), with moderate temperature differences between morning and evening, making it very suitable for tourism activities. This period marks the end of summer when the Yiwu International Trade City and major attractions have relatively fewer tourists, making it an ideal time to experience the city.</p>
+        </section>
+
+        <!-- Hotel Recommendations -->
+        <section id="hotels">
+            <h2>II. Selected Hotel Recommendations</h2>
+            
+            <p>For first-time foreign visitors to Yiwu, location, transportation convenience, and service quality are the most important factors when choosing a hotel. The following hotels are all located in downtown Yiwu or near the International Trade City, with convenient transportation and comprehensive facilities.</p>
+            
+            <h3>2.1 Luxury Hotel Recommendations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Yiwu Marriott Hotel</h4>
+                        <p><strong>Location:</strong> Located in the core area of Yiwu CBD, 188 Futian Road</p>
+                        <p><strong>Features:</strong> Staff can speak fluent Chinese and English, providing currency exchange services and comprehensive accessibility facilities</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Yiwu World Trade Center Hampton by Hilton</h4>
+                        <p><strong>Location:</strong> Located in the Yiwu CBD World Trade Center, surrounded by International Trade City Districts 1-5</p>
+                        <p><strong>Features:</strong> Pet-friendly accommodations, which is rare among Yiwu hotels</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dining Recommendations -->
+        <section id="food">
+            <h2>III. Dining Recommendations</h2>
+            
+            <p>As an international trade city, Yiwu's food culture is extremely diverse. Here you can find not only authentic traditional Yiwu cuisine but also specialties from around the world, forming a unique "United Nations of Food" phenomenon.</p>
+            
+            <h3>3.1 Yiwu Local Food Recommendations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Chicken Feather for Sugar Rustic Restaurant</h4>
+                        <p><strong>Location:</strong> Located on Changchun 10th Street, just a step away from International Trade City District 1</p>
+                        <p><strong>Recommended Dishes:</strong> Fotang Stir-fried Chicken, Donghe Meat Pie, Fotang Qianzhang Noodles</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Donghe Meat Pie Shop</h4>
+                        <p><strong>Location:</strong> Located at 105 Fourth Street, Binwang Commercial District</p>
+                        <p><strong>Recommended Dishes:</strong> Scallion Meat Pie (6 yuan/piece), Meat Pie with Egg (8 yuan/piece)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>3.2 International Cuisine Recommendations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>BEYTI Restaurant</h4>
+                        <p><strong>Location:</strong> Located at 479 Chouzhou North Road, near International Trade City</p>
+                        <p><strong>Recommended Dishes:</strong> Spicy Lentil Soup, Turkish Salad, Pistachio Cheese Grilled Meat</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h4>SULTAN Turkish Restaurant</h4>
+                        <p><strong>Location:</strong> Located at 475 Chouzhou North Road, Choucheng Street</p>
+                        <p><strong>Recommended Dishes:</strong> Rice Pudding, Turkish Barbecue, Cheese Chicken Cutlet</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary -->
+        <section id="itinerary">
+            <h2>IV. Two-Day Itinerary</h2>
+            
+            <h3>4.1 Day One: Explore International Trade City and City Nightlife</h3>
+            <p><strong>9:00-12:00</strong> - Yiwu International Trade City District 1</p>
+            <p><strong>12:30-13:30</strong> - Lunch at Ariana Restaurant</p>
+            <p><strong>15:00-17:00</strong> - Yiwu International Trade City Districts 4/5</p>
+            <p><strong>17:30-19:00</strong> - Santing Road Night Market</p>
+            <p><strong>19:30-21:30</strong> - Night Tour of Jimingge Tower</p>
+            
+            <h3>4.2 Day Two: Experience Ancient Town Atmosphere</h3>
+            <p><strong>9:00-11:30</strong> - Yiwu Tiandi</p>
+            <p><strong>12:00-13:30</strong> - Lunch</p>
+            <p><strong>14:00-18:00</strong> - In-depth Tour of Fotang Ancient Town</p>
+            <p><strong>18:30-19:30</strong> - Fotang Ancient Town Light Show</p>
+            <p><strong>20:00</strong> - Return to downtown or prepare for departure</p>
+        </section>
+
+        <!-- Travel Tips -->
+        <section id="tips">
+            <h2>V. Practical Travel Tips</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>City Transportation</h4>
+                        <ul>
+                            <li>Taxi starting fare is 8 yuan, then about 2.5 yuan per kilometer</li>
+                            <li>Bus fare is generally 2 yuan, supporting Alipay and WeChat Pay</li>
+                            <li>Free shuttle buses to International Trade City</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Shopping Tips</h4>
+                        <ul>
+                            <li>Prices at Trade City and night markets usually have room for negotiation, generally can be bargained down to 60%-70% of the marked price</li>
+                            <li>International Trade City mainly caters to wholesale customers, but many shops also accept retail</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Payment Methods</h4>
+                        <ul>
+                            <li>Yiwu merchants generally accept WeChat Pay and Alipay</li>
+                            <li>Some large merchants also accept international credit cards</li>
+                            <li>It's advisable to prepare some cash as backup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About This Guide</h3>
+                <p>This guide is carefully designed for first-time foreign visitors to Yiwu, aiming to provide comprehensive and practical travel information to help you fully experience the unique charm of Yiwu.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Information</h3>
+                <p>If you have any questions or suggestions, please contact us:</p>
+                <p>Email: info@yiwu-travel-guide.com</p>
+                <p>Phone: +86 579 8888 8888</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

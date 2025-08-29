@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Packages - Jiangnan Travel Blog</title>
+    <meta name="description" content="Explore our curated travel packages for the Jiangnan region, including guided tours, custom itineraries, and exclusive experiences.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: white;
+            padding: 4rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 2px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .pricing-header {
+            background: #f1f8e9;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .pricing-card h3 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: #999;
+            font-weight: normal;
+        }
+
+        .pricing-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .pricing-button {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .pricing-button:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .pricing-info {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f1f8e9;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .pricing-info h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .pricing-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Language selector */
+        .language-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .language-selector {
+                top: auto;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w20/us.png" alt="English">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="jiangnan_website_en.html">Jiangnan Travel Blog</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="jiangnan_website_en.html#home">Home</a></li>
+                        <li><a href="jiangnan_website_en.html#blog">Travel Blog</a></li>
+                        <li><a href="pricing_en.html">Pricing</a></li>
+                        <li><a href="language.html">Language</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h1 class="section-title">Travel Packages</h1>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free Plan</h3>
+                        <div class="pricing-price">¥0 <span>/ time</span></div>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Basic travel route recommendations</li>
+                            <li>Popular attractions introduction</li>
+                            <li>Public transportation guide</li>
+                            <li>Popular food recommendations</li>
+                            <li>Monthly content updates</li>
+                        </ul>
+                        <a href="search.html" class="pricing-button">Get Now</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card" style="position: relative;">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header pricing-popular">
+                        <h3>Standard Plan</h3>
+                        <div class="pricing-price">¥199 <span>/ time</span></div>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Personalized travel route customization</li>
+                            <li>In-depth attraction guides</li>
+                            <li>Transportation and accommodation advice</li>
+                            <li>Local specialty food map</li>
+                            <li>Emergency contact service</li>
+                            <li>3-month post-travel consultation</li>
+                        </ul>
+                        <a href="#" class="pricing-button">Buy Now</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Custom Plan</h3>
+                        <div class="pricing-price">¥499 <span>/ time</span></div>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Fully customized travel plans</li>
+                            <li>Private guide recommendations</li>
+                            <li>Premium accommodation and restaurant bookings</li>
+                            <li>Special experience activities arrangement</li>
+                            <li>24/7 consultation service</li>
+                            <li>Free plan modifications for 6 months after travel</li>
+                            <li>Exclusive travel souvenirs</li>
+                        </ul>
+                        <a href="#" class="pricing-button">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-info">
+                <h3>About Our Travel Plans</h3>
+                <p>Jiangnan Travel Blog is committed to providing you with the best travel experience in the Jiangnan region. Our team consists of experienced travel experts who have in-depth knowledge and rich experience in the history, culture, food, and attractions of the Jiangnan area.</p>
+                <p>Regardless of which plan you choose, we will tailor the most suitable travel experience based on your interests, time, and budget. From popular attractions to hidden alleys, from Michelin restaurants to authentic street food, we can provide you with professional advice and services.</p>
+                <p>If you have any questions or special requirements, please feel free to contact us. We look forward to adding wonderful memories to your Jiangnan journey!</p>
+                <p>Contact Email: <a href="mailto:danny@51ntoo.com" style="color: #2e7d32; text-decoration: underline;">danny@51ntoo.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="jiangnan_website_en.html#home">Home</a>
+                    <a href="jiangnan_website_en.html#blog">Blog</a>
+                    <a href="pricing_en.html">Pricing</a>
+                    <a href="language.html">Language</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Jiangnan Travel Blog. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching function
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            const selectedLanguage = select.value;
+            
+            if (selectedLanguage === 'zh') {
+                localStorage.setItem('preferredLanguage', 'zh');
+                window.location.href = 'pricing.html';
+            } else {
+                localStorage.setItem('preferredLanguage', 'en');
+                // Already on English page
+            }
+        }
+        
+        // Check preferred language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage === 'zh') {
+                window.location.href = 'pricing.html';
+            }
+        });
+    </script>
+</body>
+</html>

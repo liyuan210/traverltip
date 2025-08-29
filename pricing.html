@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游方案定价 - 江南旅游博客</title>
+    <meta name="description" content="江南旅游博客提供的各种旅游方案定价信息，包括免费方案、标准方案和定制方案。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: white;
+            padding: 4rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 2px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .pricing-header {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .pricing-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #2e7d32;
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pricing-button {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .pricing-button:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .pricing-popular {
+            background: #43a047;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 0;
+            right: 1.5rem;
+            background: #d4af37;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .pricing-info {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f1f8e9;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .pricing-info h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .pricing-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="jiangnan_website.html">江南旅游博客</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="jiangnan_website.html#home">首页</a></li>
+                        <li><a href="jiangnan_website.html#blog">旅游博客</a></li>
+                        <li><a href="pricing.html">定价</a></li>
+                        <li><a href="language.html">语言支持</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h1 class="section-title">旅游方案定价</h1>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>免费方案</h3>
+                        <div class="pricing-price">¥0<span>/次</span></div>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>基础旅游路线推荐</li>
+                            <li>热门景点介绍</li>
+                            <li>公共交通指南</li>
+                            <li>热门美食推荐</li>
+                            <li>每月更新内容</li>
+                        </ul>
+                        <a href="search.html" class="pricing-button">立即获取</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card" style="position: relative;">
+                    <div class="pricing-badge">最受欢迎</div>
+                    <div class="pricing-header pricing-popular">
+                        <h3>标准方案</h3>
+                        <div class="pricing-price">¥199<span>/次</span></div>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>个性化旅游路线定制</li>
+                            <li>深度景点攻略</li>
+                            <li>交通与住宿建议</li>
+                            <li>当地特色美食地图</li>
+                            <li>紧急联系人服务</li>
+                            <li>旅行后3个月内咨询服务</li>
+                        </ul>
+                        <a href="#" class="pricing-button">立即购买</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>定制方案</h3>
+                        <div class="pricing-price">¥499<span>/次</span></div>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>完全定制化旅游方案</li>
+                            <li>私人导游推荐</li>
+                            <li>高端住宿与餐厅预订</li>
+                            <li>特色体验活动安排</li>
+                            <li>全程24小时咨询服务</li>
+                            <li>旅行后6个月内免费修改方案</li>
+                            <li>专属旅行纪念品</li>
+                        </ul>
+                        <a href="#" class="pricing-button">联系我们</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-info">
+                <h3>关于我们的旅游方案</h3>
+                <p>江南旅游博客致力于为您提供最优质的江南地区旅游体验。我们的团队由资深旅游专家组成，他们对江南地区的历史、文化、美食和景点有着深入的了解和丰富的经验。</p>
+                <p>无论您选择哪种方案，我们都会根据您的兴趣、时间和预算，为您量身打造最适合的旅游体验。从热门景点到隐秘小巷，从米其林餐厅到地道小吃，我们都能为您提供专业的建议和服务。</p>
+                <p>如果您有任何疑问或特殊需求，请随时与我们联系。我们期待为您的江南之旅增添美好回忆！</p>
+                <p>联系邮箱：<a href="mailto:danny@51ntoo.com" style="color: #2e7d32; text-decoration: underline;">danny@51ntoo.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="jiangnan_website.html#home">首页</a>
+                    <a href="jiangnan_website.html#blog">博客</a>
+                    <a href="pricing.html">定价</a>
+                    <a href="language.html">语言</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 江南旅游博客 版权所有
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 江南旅游博客</title>
+    <meta name="description" content="在江南旅游博客中搜索您感兴趣的旅游内容、攻略和美食推荐。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* 导航菜单 */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* 移动端汉堡菜单 */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* 搜索部分 */
+        .search-section {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .search-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .search-header h1 {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #c8e6c9;
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #43a047;
+            box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: linear-gradient(135deg, #27632a 0%, #388e3c 100%);
+        }
+
+        .search-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-button {
+            background: #f1f8e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-button:hover, .filter-button.active {
+            background: #c8e6c9;
+            color: #1b5e20;
+        }
+
+        /* 搜索结果 */
+        .search-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .result-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .result-card:hover .result-image img {
+            transform: scale(1.05);
+        }
+
+        .result-content {
+            padding: 1.5rem;
+        }
+
+        .result-card h3 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .result-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .result-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .result-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #b8941f;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .no-results h2 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            margin-bottom: 2rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination-button {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            background: white;
+            color: #2e7d32;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-button:hover, .pagination-button.active {
+            background: #2e7d32;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-container {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: #2e7d32;
+                z-index: 100;
+                transition: all 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                padding: 4rem 1rem 2rem;
+            }
+
+            .nav-container.active {
+                right: 0;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 90;
+                display: none;
+            }
+
+            .overlay.active {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-input {
+                border-radius: 10px;
+                border-right: 2px solid #c8e6c9;
+            }
+
+            .search-button {
+                border-radius: 10px;
+                padding: 1rem;
+            }
+
+            .search-results {
+                grid-template-columns: 1fr;
+            }
+
+            .result-card {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="jiangnan_website.html">江南旅游博客</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="nav-container" id="navContainer">
+                    <nav>
+                        <ul class="nav-menu">
+                            <li><a href="jiangnan_website.html#home">首页</a></li>
+                            <li><a href="jiangnan_website.html#blog">旅游博客</a></li>
+                            <li><a href="pricing.html">定价</a></li>
+                            <li><a href="language.html">语言支持</a></li>
+                            <li><a href="admin.html">管理</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- 搜索部分 -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-header">
+                <h1>搜索结果</h1>
+                <p>搜索关键词: <strong id="searchKeyword">江南水乡</strong></p>
+            </div>
+            
+            <form class="search-form" id="searchForm">
+                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词搜索..." value="江南水乡">
+                <button type="submit" class="search-button">搜索</button>
+            </form>
+            
+            <div class="search-filters">
+                <button class="filter-button active">全部</button>
+                <button class="filter-button">景点游览</button>
+                <button class="filter-button">美食探索</button>
+                <button class="filter-button">文化体验</button>
+                <button class="filter-button">住宿推荐</button>
+            </div>
+            
+            <!-- 高德地图容器 -->
+            <div class="map-container">
+                <h2>景点地图</h2>
+                <div id="container" style="width: 100%; height: 400px; margin: 20px 0; border-radius: 15px; overflow: hidden;"></div>
+            </div>
+            
+            <div class="search-results" id="searchResults">
+                <div class="result-card">
+                    <div class="result-image">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="乌镇水乡风景">
+                    </div>
+                    <div class="result-content">
+                        <span class="result-category">景点游览</span>
+                        <h3>探索江南水乡：乌镇一日游</h3>
+                        <div class="result-date">2023年10月10日</div>
+                        <p class="result-excerpt">江南水乡以其独特的风景和文化吸引着无数游客。乌镇作为其中一颗明珠，拥有保存完好的古建筑和小桥流水。跟随我们的脚步，探索那些不为人知的小巷和美食，感受江南的诗意与宁静...</p>
+                        <a href="articles/wuzhen-tour.html" class="read-more">阅读更多 →</a>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-image">
+                        <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="苏州园林风景">
+                    </div>
+                    <div class="result-content">
+                        <span class="result-category">文化体验</span>
+                        <h3>苏州园林：古典与现代的交融</h3>
+                        <div class="result-date">2023年8月20日</div>
+                        <p class="result-excerpt">苏州园林被誉为"江南园林甲天下"，其精致的布局和深厚的文化底蕴令人叹为观止。从拙政园到留园，每一处都藏着历史的印迹。让我们一起漫步其中，感受古典与现代的完美交融...</p>
+                        <a href="articles/suzhou-gardens.html" class="read-more">阅读更多 →</a>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-image">
+                        <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="西塘夜景">
+                    </div>
+                    <div class="result-content">
+                        <span class="result-category">景点游览</span>
+                        <h3>西塘夜景：灯火阑珊处</h3>
+                        <div class="result-date">2023年11月5日</div>
+                        <p class="result-excerpt">西塘，这座被誉为"中国最后的水乡"的古镇，在夜幕降临后呈现出别样的魅力。红灯笼的映照下，古老的建筑与静谧的水面交相辉映，仿佛穿越回了几百年前的江南水乡...</p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="jiangnan_website.html">首页</a>
+                    <a href="pricing.html">定价</a>
+                    <a href="language.html">语言</a>
+                    <a href="admin.html">管理</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 江南旅游博客 版权所有
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navContainer = document.getElementById('navContainer');
+            const overlay = document.getElementById('overlay');
+            
+            // 点击汉堡菜单按钮
+            menuToggle.addEventListener('click', function() {
+                navContainer.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = navContainer.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // 点击遮罩层关闭菜单
+            overlay.addEventListener('click', function() {
+                navContainer.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // 点击菜单项关闭菜单
+            const menuItems = document.querySelectorAll('.nav-menu a');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navContainer.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // 地图功能 - 使用iframe嵌入百度地图
+            const mapContainer = document.getElementById('container');
+            if (mapContainer) {
+                // 初始化地图
+                updateMapWithLocation('江南水乡');
+            }
+            
+            // 搜索表单提交
+            const searchForm = document.getElementById('searchForm');
+            searchForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const searchInput = document.getElementById('searchInput');
+                const keyword = searchInput.value;
+                document.getElementById('searchKeyword').textContent = keyword;
+                
+                // 更新地图
+                updateMapWithLocation(keyword);
+                
+                // 更新搜索结果
+                updateSearchResults(keyword);
+            });
+            
+            // 更新地图位置
+            function updateMapWithLocation(location) {
+                const mapContainer = document.getElementById('container');
+                // 使用百度地图搜索，通过iframe嵌入
+                mapContainer.innerHTML = `<iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    src="https://map.baidu.com/search/${encodeURIComponent(location)}/?querytype=s&wd=${encodeURIComponent(location)}"
+                    allowfullscreen>
+                </iframe>`;
+            }
+            
+            // 更新搜索结果列表
+            function updateSearchResults(keyword) {
+                const resultsContainer = document.getElementById('searchResults');
+                
+                // 预定义的搜索结果数据
+                const searchData = {
+                    '江南水乡': [
+                        {
+                            name: '乌镇',
+                            type: '景点游览',
+                            image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                            date: '2023年10月10日',
+                            excerpt: '江南水乡以其独特的风景和文化吸引着无数游客。乌镇作为其中一颗明珠，拥有保存完好的古建筑和小桥流水。',
+                            link: 'articles/wuzhen-tour.html'
+                        },
+                        {
+                            name: '西塘',
+                            type: '景点游览',
+                            image: 'https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                            date: '2023年11月5日',
+                            excerpt: '西塘，这座被誉为"中国最后的水乡"的古镇，在夜幕降临后呈现出别样的魅力。',
+                            link: '#'
+                        }
+                    ],
+                    '杭州': [
+                        {
+                            name: '西湖',
+                            type: '景点游览',
+                            image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                            date: '2023年9月15日',
+                            excerpt: '西湖，杭州的标志性景点，以其秀丽的风景和丰富的文化底蕴吸引着世界各地的游客。',
+                            link: '#'
+                        },
+                        {
+                            name: '杭州美食',
+                            type: '美食探索',
+                            image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                            date: '2023年8月20日',
+                            excerpt: '杭州菜以其清淡、精致著称，是中国八大菜系之一的浙菜的重要组成部分。',
+                            link: 'articles/hangzhou-food.html'
+                        }
+                    ],
+                    '苏州': [
+                        {
+                            name: '苏州园林',
+                            type: '文化体验',
+                            image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                            date: '2023年8月20日',
+                            excerpt: '苏州园林被誉为"江南园林甲天下"，其精致的布局和深厚的文化底蕴令人叹为观止。',
+                            link: 'articles/suzhou-gardens.html'
+                        }
+                    ]
+                };
+                
+                // 查找匹配的结果
+                let results = [];
+                for (const key in searchData) {
+                    if (keyword.includes(key) || key.includes(keyword)) {
+                        results = results.concat(searchData[key]);
+                    }
+                }
+                
+                // 如果没有精确匹配，显示所有结果作为推荐
+                if (results.length === 0) {
+                    results = [].concat(...Object.values(searchData));
+                }
+                
+                // 更新DOM
+                resultsContainer.innerHTML = '';
+                
+                if (results.length > 0) {
+                    results.forEach(result => {
+                        const resultCard = document.createElement('div');
+                        resultCard.className = 'result-card';
+                        
+                        resultCard.innerHTML = `
+                            <div class="result-image">
+                                <img src="${result.image}" alt="${result.name}">
+                            </div>
+                            <div class="result-content">
+                                <span class="result-category">${result.type}</span>
+                                <h3>${result.name}</h3>
+                                <div class="result-date">${result.date}</div>
+                                <p class="result-excerpt">${result.excerpt}</p>
+                                <a href="${result.link}" class="read-more">阅读更多 →</a>
+                            </div>
+                        `;
+                        
+                        resultsContainer.appendChild(resultCard);
+                    });
+                } else {
+                    resultsContainer.innerHTML = `
+                        <div class="no-results">
+                            <h2>未找到相关结果</h2>
+                            <p>请尝试其他关键词或浏览我们的推荐内容</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            // 过滤按钮点击
+            const filterButtons = document.querySelectorAll('.filter-button');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 根据过滤器类型筛选结果
+                    const filterType = this.textContent;
+                    const resultCards = document.querySelectorAll('.result-card');
+                    
+                    resultCards.forEach(card => {
+                        const category = card.querySelector('.result-category').textContent;
+                        if (filterType === '全部' || category === filterType) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // 分页按钮点击
+            const paginationButtons = document.querySelectorAll('.pagination-button');
+            paginationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paginationButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // 在实际应用中，这里应该根据选中的页码更新搜索结果
+                    // 这里仅作演示
+                });
+            });
+        });
+    </script>
+</body>
+</html>

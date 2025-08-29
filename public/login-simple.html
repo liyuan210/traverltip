@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易登录 - 江南旅游博客</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+        .debug {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>管理员登录</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" id="email" value="admin@jiangnan.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" value="admin123" required>
+            </div>
+            <button type="submit">登录</button>
+        </form>
+        <div id="result" class="result"></div>
+        <div id="debug" class="debug"></div>
+        <p style="text-align: center; margin-top: 20px;">
+            <a href="#" id="createAdminBtn">创建管理员账户</a> | 
+            <a href="#" id="showUsersBtn">显示所有用户</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const resultDiv = document.getElementById('result');
+            const debugDiv = document.getElementById('debug');
+            
+            try {
+                resultDiv.textContent = '正在登录...';
+                resultDiv.className = 'result';
+                resultDiv.style.display = 'block';
+                
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                debugDiv.textContent = JSON.stringify(data, null, 2);
+                debugDiv.style.display = 'block';
+                
+                if (data.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = '登录成功！';
+                    
+                    // 保存token到本地存储
+                    localStorage.setItem('token', data.token);
+                    
+                    // 显示用户信息
+                    debugDiv.textContent = `登录成功!\n\n用户信息:\n${JSON.stringify(data.user, null, 2)}\n\nToken: ${data.token.substring(0, 20)}...`;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = '登录失败：' + (data.message || '未知错误');
+                }
+            } catch (err) {
+                console.error('登录错误:', err);
+                resultDiv.className = 'result error';
+                resultDiv.textContent = '登录失败：网络错误，请稍后再试';
+                debugDiv.textContent = err.toString();
+                debugDiv.style.display = 'block';
+            }
+        });
+        
+        document.getElementById('createAdminBtn').addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            const debugDiv = document.getElementById('debug');
+            
+            try {
+                resultDiv.textContent = '正在创建管理员账户...';
+                resultDiv.className = 'result';
+                resultDiv.style.display = 'block';
+                
+                const response = await fetch('/api/create-admin');
+                const data = await response.json();
+                
+                debugDiv.textContent = JSON.stringify(data, null, 2);
+                debugDiv.style.display = 'block';
+                
+                if (data.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = '管理员账户创建成功！';
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = data.message || '创建管理员账户失败';
+                }
+            } catch (err) {
+                console.error('创建管理员账户错误:', err);
+                resultDiv.className = 'result error';
+                resultDiv.textContent = '创建管理员账户失败：网络错误，请稍后再试';
+                debugDiv.textContent = err.toString();
+                debugDiv.style.display = 'block';
+            }
+        });
+        
+        document.getElementById('showUsersBtn').addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            const debugDiv = document.getElementById('debug');
+            
+            try {
+                resultDiv.textContent = '正在获取用户列表...';
+                resultDiv.className = 'result';
+                resultDiv.style.display = 'block';
+                
+                const response = await fetch('/api/users');
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = `成功获取 ${data.count} 个用户`;
+                    debugDiv.textContent = JSON.stringify(data.data, null, 2);
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = data.message || '获取用户列表失败';
+                    debugDiv.textContent = JSON.stringify(data, null, 2);
+                }
+                
+                debugDiv.style.display = 'block';
+            } catch (err) {
+                console.error('获取用户列表错误:', err);
+                resultDiv.className = 'result error';
+                resultDiv.textContent = '获取用户列表失败：网络错误，请稍后再试';
+                debugDiv.textContent = err.toString();
+                debugDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

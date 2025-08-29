@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏州园林：古典与现代的交融 - 江南旅游博客</title>
+    <meta name="description" content="探索苏州园林的精致布局和深厚文化底蕴，感受古典与现代的完美交融。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Article */
+        .article {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .article-date {
+            margin-right: 1.5rem;
+        }
+
+        .article-author {
+            font-style: italic;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: #2e7d32;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .article-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../jiangnan_website.html">江南旅游博客</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../jiangnan_website.html#home">首页</a></li>
+                        <li><a href="../jiangnan_website.html#blog">旅游博客</a></li>
+                        <li><a href="../jiangnan_website.html#pricing">定价</a></li>
+                        <li><a href="../jiangnan_website.html#language">语言支持</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Section -->
+    <section class="article">
+        <div class="container">
+            <div class="article-header">
+                <h1 class="article-title">苏州园林：古典与现代的交融</h1>
+                <div class="article-meta">
+                    <span class="article-date">发布日期：2023年8月20日</span>
+                    <span class="article-author">作者：王文化</span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="苏州园林风景" class="article-image">
+            </div>
+            <div class="article-content">
+                <p>苏州园林被誉为"江南园林甲天下"，其精致的布局和深厚的文化底蕴令人叹为观止。从拙政园到留园，每一处都藏着历史的印迹。让我们一起漫步其中，感受古典与现代的完美交融。</p>
+                
+                <h2>苏州园林的历史与特色</h2>
+                <p>苏州园林的历史可以追溯到公元前6世纪，当时的吴王阖闾建造了"姑苏台"，这被认为是苏州园林的起源。经过几千年的发展，苏州园林形成了独特的风格和特点，成为中国传统园林艺术的代表。</p>
+                <p>苏州园林以其"小中见大、移步换景"的艺术特色闻名于世。园林设计师们巧妙地利用有限的空间，通过假山、水池、亭台楼阁的精心布置，创造出层次丰富、变化多端的景观效果。这种设计理念体现了中国传统哲学中的"天人合一"思想，强调人与自然的和谐共处。</p>
+                <p>目前，苏州共有古典园林69处，其中9处被列入世界文化遗产名录，包括拙政园、留园、网师园、环秀山庄、沧浪亭、狮子林、艺圃、耦园和退思园。每一座园林都有其独特的风格和故事，共同构成了苏州这座"园林之城"的文化底蕴。</p>
+                
+                <h2>拙政园：苏州园林之首</h2>
+                <p>拙政园是苏州最大的古典园林，也是中国四大名园之一。始建于明朝正德年间（1513年），由当时的御史王献臣所建。园名取自《论语》中"为政以德，譬如北辰，居其所而众星拱之"的典故，表达了主人归隐田园、远离政治的心愿。</p>
+                <p>拙政园分为东、中、西三部分，各具特色：</p>
+                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>东园</strong>：以住宅为主，建筑精巧，环境幽静。</li>
+                    <li><strong>中园</strong>：以水池为中心，周围点缀亭台楼阁，景色秀丽。</li>
+                    <li><strong>西园</strong>：以山石为主，假山叠石，气势雄伟。</li>
+                </ul>
+                <p>拙政园的设计体现了"咫尺之内再造乾坤"的园林艺术理念，通过精心的布局和设计，在有限的空间内创造出无限的景观变化。园内的"远香堂"、"见山楼"、"倚玉轩"等建筑各具特色，与周围的山水景观相得益彰。</p>
+                
+                <h2>留园：精巧典雅的代表</h2>
+                <p>留园始建于明代，原名"寒碧山庄"，后经多次改建扩建，形成了现在的规模。"留"字取自《世说新语》中"留连不能去"之意，表达了园主对园林之美的喜爱和留恋。</p>
+                <p>留园以建筑艺术见长，园内建筑占地面积大，风格多样，装饰精美。其中最著名的是"冠云峰"，这是一座由太湖石堆砌而成的假山，高达6.5米，被誉为"天下第一假山"，展示了中国古代园林艺术的精湛技艺。</p>
+                <p>留园的布局巧妙，分为东、中、西、北四个部分，各有主题：</p>
+                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>东部</strong>：以住宅为主，典雅舒适。</li>
+                    <li><strong>中部</strong>：以山水景观为主，自然优美。</li>
+                    <li><strong>西部</strong>：以厅堂楼阁为主，气势恢宏。</li>
+                    <li><strong>北部</strong>：以田园风光为主，田畴交错。</li>
+                </ul>
+                <p>留园的设计体现了中国传统文人的审美情趣和生活理想，是苏州园林中不可错过的瑰宝。</p>
+                
+                <h2>网师园：小巧精致的典范</h2>
+                <p>网师园始建于南宋，原名"渔隐"，后改名"网师园"，取自《庄子·渔父》中"儒以渔父为网师"之意，表达了主人归隐山林、远离尘嚣的心境。</p>
+                <p>与拙政园、留园的宏大规模不同，网师园面积较小，但布局精巧，被誉为"小中见大"的典范。园内分为住宅区和园林区两部分，以中轴线为界，东西对称，布局紧凑而不拥挤。</p>
+                <p>网师园的主要景点包括"小沧浪"、"月到风来亭"、"见山楼"等，每一处都体现了设计者的匠心独运。特别是"小沧浪"水池，虽然面积不大，但通过巧妙的设计，营造出波光粼粼、水天一色的开阔感，充分体现了中国园林"虽由人作，宛自天开"的艺术境界。</p>
+                
+                <h2>苏州园林的文化内涵</h2>
+                <p>苏州园林不仅是建筑和景观的艺术结晶，更是中国传统文化的载体。园林中的亭台楼阁、匾额楹联、石刻书法等，无不渗透着中国古代文人的思想情感和审美追求。</p>
+                <p>苏州园林的设计理念深受儒、道、佛三家思想的影响：</p>
+                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>儒家思想</strong>：强调"中庸之道"，体现在园林布局的对称均衡和秩序感上。</li>
+                    <li><strong>道家思想</strong>：崇尚"天人合一"，体现在园林与自然的和谐融合上。</li>
+                    <li><strong>佛家思想</strong>：追求"清净无为"，体现在园林中的幽静空间和禅意氛围上。</li>
+                </ul>
+                <p>此外，苏州园林还是文人雅士交流的场所，历史上许多文人墨客在此吟诗作画、品茗论道，留下了丰富的文化遗产。如今，这些园林不仅是旅游胜地，也是传统文化教育和艺术创作的重要基地。</p>
+                
+                <h2>古典与现代的交融</h2>
+                <p>随着时代的发展，苏州园林也在不断与现代文化交融。一方面，传统园林艺术得到了保护和传承；另一方面，现代元素也被巧妙地融入其中，使古老的园林焕发出新的生机。</p>
+                <p>现代苏州在城市规划中注重保护和利用古典园林，将其作为城市的文化名片和精神象征。许多新建的公共空间和居住区也借鉴了传统园林的设计理念，形成了古今结合的独特风格。</p>
+                <p>此外，苏州园林也成为了现代艺术创作的灵感源泉。许多当代艺术家从中汲取养分，创作出融合传统与现代的艺术作品，展示了中国文化的生命力和创造力。</p>
+                
+                <h2>游览建议</h2>
+                <p><strong>最佳游览时间</strong>：春季（3-5月）和秋季（9-11月）是游览苏州园林的最佳季节，此时气候宜人，园内花木繁茂。</p>
+                <p><strong>游览路线</strong>：建议安排2-3天时间，按照"拙政园-留园-网师园-沧浪亭-狮子林"的顺序游览，既能欣赏到规模宏大的园林，也能体验小巧精致的庭院。</p>
+                <p><strong>参观方式</strong>：建议请专业导游讲解，或使用语音导览设备，以便更好地了解园林的历史和文化内涵。</p>
+                <p><strong>摄影建议</strong>：苏州园林光影变化丰富，早晨和傍晚是拍摄的黄金时段。拍摄时注意捕捉"框景"效果，通过窗户、门洞等构图，能创造出独特的画面感。</p>
+                
+                <p>苏州园林是中国传统文化的瑰宝，也是世界文化遗产的重要组成部分。通过游览这些精美的园林，我们不仅能欣赏到精湛的建筑艺术，更能感受到中国传统文化的深厚底蕴和永恒魅力。希望这篇文章能为您的苏州之旅提供一些参考和启发，让您在古典与现代的交融中，发现属于自己的江南记忆。</p>
+                
+                <a href="../jiangnan_website.html#blog" class="back-button">返回博客列表</a>
+                
+                <!-- 评论系统 -->
+                <div class="comments-section">
+                    <h2>评论 (4)</h2>
+                    
+                    <div class="comment-form">
+                        <h3>发表评论</h3>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="commentName">您的名字</label>
+                                <input type="text" id="commentName" placeholder="请输入您的名字" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="commentEmail">电子邮箱</label>
+                                <input type="email" id="commentEmail" placeholder="请输入您的电子邮箱" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="commentContent">评论内容</label>
+                                <textarea id="commentContent" placeholder="请输入您的评论内容" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-comment">提交评论</button>
+                        </form>
+                    </div>
+                    
+                    <div class="comments-list">
+                        <div class="comment">
+                            <div class="comment-avatar">刘</div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">刘先生</span>
+                                    <span class="comment-date">2023年11月15日</span>
+                                </div>
+                                <p>拙政园真的很美，我去年冬天去的时候，雪后的园林别有一番韵味。建议大家冬季也可以考虑去，游客少，更能体会到园林的宁静之美。</p>
+                                <div class="comment-actions">
+                                    <button class="like-button">👍 28</button>
+                                    <button class="reply-button">回复</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comment">
+                            <div class="comment-avatar">赵</div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">赵女士</span>
+                                    <span class="comment-date">2023年11月8日</span>
+                                </div>
+                                <p>文章中提到的几个园林我都去过，个人最喜欢的是狮子林，迷宫一样的石头布局很有趣，孩子们也很喜欢。不过人确实很多，建议早上开园就去。</p>
+                                <div class="comment-actions">
+                                    <button class="like-button">👍 19</button>
+                                    <button class="reply-button">回复</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comment">
+                            <div class="comment-avatar">孙</div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">孙先生</span>
+                                    <span class="comment-date">2023年10月30日</span>
+                                </div>
+                                <p>请问苏州园林有什么推荐的摄影角度吗？我是摄影爱好者，计划下个月去苏州专门拍摄园林。</p>
+                                <div class="comment-actions">
+                                    <button class="like-button">👍 12</button>
+                                    <button class="reply-button">回复</button>
+                                </div>
+                                
+                                <div class="comment-reply">
+                                    <div class="comment-avatar">管</div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">管理员</span>
+                                            <span class="comment-date">2023年10月31日</span>
+                                        </div>
+                                        <p>您好！苏州园林的摄影角度很多，拙政园的荷花池、留园的冠云峰、网师园的月洞门都是经典取景点。建议携带广角和长焦镜头，早晨和傍晚的光线最佳。我们会在近期发布一篇关于园林摄影的专题文章，敬请关注！</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comment">
+                            <div class="comment-avatar">周</div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">周小姐</span>
+                                    <span class="comment-date">2023年10月25日</span>
+                                </div>
+                                <p>文章写得很详细，但是没有提到门票价格和开放时间，希望能补充一下这方面的实用信息。另外，苏州园林周边有什么推荐的住宿吗？</p>
+                                <div class="comment-actions">
+                                    <button class="like-button">👍 15</button>
+                                    <button class="reply-button">回复</button>
+                                </div>
+                                
+                                <div class="comment-reply">
+                                    <div class="comment-avatar">管</div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">管理员</span>
+                                            <span class="comment-date">2023年10月25日</span>
+                                        </div>
+                                        <p>感谢您的建议！我们已经更新了文章，添加了各个园林的门票价格和开放时间。关于住宿，平江路附近有很多特色民宿，靠近拙政园和狮子林的观前街也有不少高性价比酒店。我们会在下一篇文章中详细介绍苏州的住宿选择。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* 评论系统样式 */
+        .comments-section {
+            margin-top: 4rem;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 2rem;
+        }
+        
+        .comments-section h2 {
+            color: #2e7d32;
+            margin-bottom: 2rem;
+        }
+        
+        .comment-form {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .comment-form h3 {
+            color: #2e7d32;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-comment {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-comment:hover {
+            background: #1b5e20;
+        }
+        
+        .comments-list {
+            margin-top: 2rem;
+        }
+        
+        .comment {
+            display: flex;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2e7d32;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .comment-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .comment-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .like-button,
+        .reply-button {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0.5rem;
+            border-radius: 3px;
+        }
+        
+        .like-button:hover,
+        .reply-button:hover {
+            background: #f1f8e9;
+            color: #2e7d32;
+        }
+        
+        .comment-reply {
+            margin-top: 1.5rem;
+            margin-left: 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            display: flex;
+        }
+        
+        .comment-reply .comment-avatar {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .comment {
+                flex-direction: column;
+            }
+            
+            .comment-avatar {
+                margin-bottom: 1rem;
+            }
+            
+            .comment-reply {
+                margin-left: 0;
+                flex-direction: column;
+            }
+            
+            .comment-reply .comment-avatar {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+    
+    <script>
+        // 评论系统功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentForm = document.getElementById('commentForm');
+            const commentsList = document.querySelector('.comments-list');
+            
+            // 提交评论
+            commentForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const name = document.getElementById('commentName').value;
+                const email = document.getElementById('commentEmail').value;
+                const content = document.getElementById('commentContent').value;
+                
+                // 创建新评论
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                
+                // 获取名字的第一个字作为头像
+                const firstChar = name.charAt(0);
+                
+                newComment.innerHTML = `
+                    <div class="comment-avatar">${firstChar}</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-author">${name}</span>
+                            <span class="comment-date">${getCurrentDate()}</span>
+                        </div>
+                        <p>${content}</p>
+                        <div class="comment-actions">
+                            <button class="like-button">👍 0</button>
+                            <button class="reply-button">回复</button>
+                        </div>
+                    </div>
+                `;
+                
+                // 添加到评论列表的顶部
+                commentsList.insertBefore(newComment, commentsList.firstChild);
+                
+                // 更新评论数量
+                const commentsTitle = document.querySelector('.comments-section h2');
+                const currentCount = parseInt(commentsTitle.textContent.match(/\d+/)[0]);
+                commentsTitle.textContent = `评论 (${currentCount + 1})`;
+                
+                // 重置表单
+                commentForm.reset();
+                
+                // 添加点赞和回复功能
+                addCommentActions(newComment);
+                
+                alert('评论已提交！');
+            });
+            
+            // 为现有评论添加点赞和回复功能
+            const comments = document.querySelectorAll('.comment');
+            comments.forEach(comment => {
+                addCommentActions(comment);
+            });
+            
+            // 添加评论交互功能
+            function addCommentActions(comment) {
+                const likeButton = comment.querySelector('.like-button');
+                const replyButton = comment.querySelector('.reply-button');
+                
+                // 点赞功能
+                if (likeButton) {
+                    likeButton.addEventListener('click', function() {
+                        const likeCount = parseInt(this.textContent.match(/\d+/)[0]);
+                        this.textContent = `👍 ${likeCount + 1}`;
+                    });
+                }
+                
+                // 回复功能
+                if (replyButton) {
+                    replyButton.addEventListener('click', function() {
+                        const commentContent = this.closest('.comment-content');
+                        
+                        // 检查是否已经有回复表单
+                        if (commentContent.querySelector('.reply-form')) {
+                            return;
+                        }
+                        
+                        // 创建回复表单
+                        const replyForm = document.createElement('div');
+                        replyForm.className = 'reply-form';
+                        replyForm.style.marginTop = '1rem';
+                        replyForm.innerHTML = `
+                            <textarea placeholder="请输入您的回复..." style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 0.8rem;"></textarea>
+                            <button class="submit-reply" style="background: #2e7d32; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">提交回复</button>
+                            <button class="cancel-reply" style="background: none; border: 1px solid #ddd; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-left: 0.5rem;">取消</button>
+                        `;
+                        
+                        // 插入回复表单
+                        this.parentNode.insertAdjacentElement('afterend', replyForm);
+                        
+                        // 提交回复
+                        const submitReply = replyForm.querySelector('.submit-reply');
+                        submitReply.addEventListener('click', function() {
+                            const replyContent = replyForm.querySelector('textarea').value;
+                            
+                            if (replyContent.trim() === '') {
+                                alert('请输入回复内容！');
+                                return;
+                            }
+                            
+                            // 创建回复元素
+                            const reply = document.createElement('div');
+                            reply.className = 'comment-reply';
+                            reply.innerHTML = `
+                                <div class="comment-avatar">游</div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">游客</span>
+                                        <span class="comment-date">${getCurrentDate()}</span>
+                                    </div>
+                                    <p>${replyContent}</p>
+                                </div>
+                            `;
+                            
+                            // 添加回复
+                            commentContent.appendChild(reply);
+                            
+                            // 移除回复表单
+                            replyForm.remove();
+                        });
+                        
+                        // 取消回复
+                        const cancelReply = replyForm.querySelector('.cancel-reply');
+                        cancelReply.addEventListener('click', function() {
+                            replyForm.remove();
+                        });
+                    });
+                }
+            }
+            
+            // 获取当前日期
+            function getCurrentDate() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = now.getMonth() + 1;
+                const day = now.getDate();
+                return `${year}年${month}月${day}日`;
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../jiangnan_website.html#home">首页</a>
+                    <a href="../jiangnan_website.html#blog">博客</a>
+                    <a href="../jiangnan_website.html#pricing">定价</a>
+                    <a href="../jiangnan_website.html#language">语言</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 江南旅游博客 版权所有
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

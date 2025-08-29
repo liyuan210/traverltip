@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语言支持 - 江南旅游博客</title>
+    <meta name="description" content="江南旅游博客提供多语言支持，包括中文、英文等多种语言选项，方便不同语言背景的用户访问内容。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Language Section */
+        .language {
+            background: white;
+            padding: 4rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 2px;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .language-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .language-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .language-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .language-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .language-card:hover .language-image img {
+            transform: scale(1.05);
+        }
+
+        .language-content {
+            padding: 1.5rem;
+        }
+
+        .language-card h3 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .language-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-available {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .status-coming {
+            background: #ffecb3;
+            color: #ff8f00;
+        }
+
+        .language-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .language-button {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .language-button:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .language-button.disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .language-button.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .language-info {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f1f8e9;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .language-info h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .language-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .language-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .language-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .language-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .language-selector {
+                top: auto;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w20/cn.png" alt="中文">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="jiangnan_website.html">江南旅游博客</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="jiangnan_website.html#home">首页</a></li>
+                        <li><a href="jiangnan_website.html#blog">旅游博客</a></li>
+                        <li><a href="pricing.html">定价</a></li>
+                        <li><a href="language.html">语言支持</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Language Section -->
+    <section class="language">
+        <div class="container">
+            <h1 class="section-title">语言支持</h1>
+            <div class="language-grid">
+                <div class="language-card">
+                    <div class="language-image">
+                        <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="中文支持">
+                    </div>
+                    <div class="language-content">
+                        <h3>中文</h3>
+                        <span class="language-status status-available">已支持</span>
+                        <p class="language-description">我们的网站提供地道的中文内容，由中文母语编辑撰写，完美呈现江南水乡的韵味与魅力，包括最地道的景点介绍、美食推荐和文化解析。</p>
+                        <a href="jiangnan_website.html" class="language-button" id="viewChinese">浏览中文版</a>
+                    </div>
+                </div>
+                
+                <div class="language-card">
+                    <div class="language-image">
+                        <img src="https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="英文支持">
+                    </div>
+                    <div class="language-content">
+                        <h3>English</h3>
+                        <span class="language-status status-available">Available</span>
+                        <p class="language-description">Our English version is crafted by native speakers to provide an authentic experience of Jiangnan's charm. Discover the poetic water towns, exquisite gardens, and culinary delights through culturally nuanced descriptions.</p>
+                        <a href="#" class="language-button" id="viewEnglish">Browse in English</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="language-info">
+                <h3>关于我们的语言支持</h3>
+                <p>江南旅游博客致力于提供最地道、最准确的旅游内容。我们深知，真正优质的旅游体验需要文化上的理解与共鸣，而语言是连接文化的桥梁。</p>
+                <p>我们的中文和英文内容均由相应语言的母语编辑撰写，而非简单翻译。中文版着重展现江南水乡的诗意与韵味，使用地道的表达方式描绘中国传统文化的精髓；英文版则专为英语读者量身打造，通过西方人熟悉的表达方式和文化参照，让他们能够真正理解并欣赏江南的独特魅力。</p>
+                <p>无论您使用哪种语言浏览，我们都致力于为您提供最地道、最贴近文化本质的旅游体验。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="jiangnan_website.html#home">首页</a>
+                    <a href="jiangnan_website.html#blog">博客</a>
+                    <a href="pricing.html">定价</a>
+                    <a href="language.html">语言</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 江南旅游博客 版权所有
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            const selectedLanguage = select.value;
+            const flagImage = document.querySelector('.language-selector img');
+            
+            // 更新国旗图标
+            if (selectedLanguage === 'zh') {
+                flagImage.src = 'https://flagcdn.com/w20/cn.png';
+                flagImage.alt = '中文';
+                
+                // 切换到中文界面
+                document.title = '语言支持 - 江南旅游博客';
+                document.querySelector('.section-title').textContent = '语言支持';
+                // 这里可以添加更多元素的语言切换
+                
+            } else if (selectedLanguage === 'en') {
+                flagImage.src = 'https://flagcdn.com/w20/us.png';
+                flagImage.alt = 'English';
+                
+                // 切换到英文界面
+                document.title = 'Language Support - Jiangnan Travel Blog';
+                document.querySelector('.section-title').textContent = 'Language Support';
+                // 这里可以添加更多元素的语言切换
+            }
+            
+            // 提示用户
+            if (selectedLanguage === 'zh') {
+                alert('已切换到中文界面');
+            } else {
+                alert('Switched to English interface');
+            }
+        }
+        
+        // 添加语言版本切换事件
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('viewChinese').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.setItem('preferredLanguage', 'zh');
+                window.location.href = 'jiangnan_website.html';
+            });
+            
+            document.getElementById('viewEnglish').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.setItem('preferredLanguage', 'en');
+                // 这里应该指向英文版主页，暂时使用同一个页面
+                alert('English version will be available soon. We are working on creating authentic English content.');
+                window.location.href = 'jiangnan_website.html';
+            });
+        });
+    </script>
+</body>
+</html>
