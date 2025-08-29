@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>江南旅游博客 - Jiangnan Travel Blog</title>
-    <meta name="description" content="分享江南地区的旅游故事和方案，随时更新最新内容。">
-    <!-- 添加缓存控制 -->
+    <title>Jiangnan Travel Blog - Discover the Poetic Water Towns of Southern China</title>
+    <meta name="description" content="Explore the enchanting water towns, exquisite gardens, and culinary delights of Jiangnan region in Southern China through our authentic travel guides.">
+    <!-- Add cache control -->
     <meta http-equiv="Cache-Control" content="max-age=86400, public">
     <style>
         * {
@@ -396,7 +396,7 @@
             }
         }
         
-        /* 懒加载图片样式 */
+        /* Lazy loading image styles */
         .lazy-image {
             transition: opacity 0.3s ease-in-out;
         }
@@ -409,7 +409,7 @@
             opacity: 1;
         }
         
-        /* 语言选择器 */
+        /* Language selector */
         .language-selector {
             position: fixed;
             top: 1rem;
@@ -441,14 +441,14 @@
     </style>
 </head>
 <body>
-    <!-- 图片懒加载脚本 -->
+    <!-- Image lazy loading script -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 检查浏览器是否支持 IntersectionObserver
+            // Check if browser supports IntersectionObserver
             if ('IntersectionObserver' in window) {
                 const imageObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
-                        // 当图片进入视口时
+                        // When image enters viewport
                         if (entry.isIntersecting) {
                             const img = entry.target;
                             const src = img.getAttribute('data-src');
@@ -458,19 +458,19 @@
                                 img.removeAttribute('data-src');
                             }
                             
-                            // 图片加载后，不再需要观察
+                            // After loading, no need to observe anymore
                             observer.unobserve(img);
                         }
                     });
                 });
                 
-                // 获取所有带有 data-src 属性的图片
+                // Get all images with data-src attribute
                 const lazyImages = document.querySelectorAll('img[data-src]');
                 lazyImages.forEach(img => {
                     imageObserver.observe(img);
                 });
             } else {
-                // 如果浏览器不支持 IntersectionObserver，则立即加载所有图片
+                // If browser doesn't support IntersectionObserver, load all images immediately
                 const lazyImages = document.querySelectorAll('img[data-src]');
                 lazyImages.forEach(img => {
                     img.src = img.getAttribute('data-src');
@@ -480,12 +480,12 @@
         });
     </script>
     
-    <!-- 语言选择器 -->
+    <!-- Language Selector -->
     <div class="language-selector">
-        <img src="https://flagcdn.com/w20/cn.png" alt="中文">
+        <img src="https://flagcdn.com/w20/us.png" alt="English">
         <select id="languageSelect" onchange="changeLanguage()">
-            <option value="zh">中文</option>
             <option value="en">English</option>
+            <option value="zh">中文</option>
         </select>
     </div>
     
@@ -494,16 +494,16 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    江南旅游博客
+                    Jiangnan Travel Blog
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#blog">旅游博客</a></li>
-                        <li><a href="pricing.html">定价</a></li>
-                        <li><a href="language.html">语言支持</a></li>
-                        <li><a href="login_register.html" id="login-link">登录/注册</a></li>
-                        <li><a href="#" onclick="showAdmin()">管理</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Travel Blog</a></li>
+                        <li><a href="pricing_en.html">Pricing</a></li>
+                        <li><a href="language.html">Language</a></li>
+                        <li><a href="login_register.html?lang=en">Login/Register</a></li>
+                        <li><a href="#" onclick="showAdmin()">Admin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -514,11 +514,11 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>欢迎来到江南旅游博客</h1>
-                <p>在这里，我们分享江南地区的最新旅游故事和方案。跟随我们的脚步，探索江南水乡的独特魅力，获取最新的旅行灵感。或者通过管理功能，上传您自己的旅游故事和方案，与更多人分享。</p>
+                <h1>Welcome to Jiangnan Travel Blog</h1>
+                <p>Discover the poetic charm of Jiangnan, a region where ancient water towns, exquisite gardens, and culinary delights await. Follow our journey through the enchanting landscapes of southern China, where tradition and modernity blend seamlessly.</p>
                 <div class="hero-buttons">
-                    <a href="#blog" class="cta-button">查看最新博客</a>
-                    <a href="search.html" class="cta-button secondary">搜索内容</a>
+                    <a href="#blog" class="cta-button">Latest Articles</a>
+                    <a href="search.html" class="cta-button secondary">Search Content</a>
                 </div>
             </div>
         </div>
@@ -527,64 +527,64 @@
     <!-- Blog Section -->
     <section id="blog" class="blog">
         <div class="container">
-            <h2 class="section-title">最新旅游博客</h2>
+            <h2 class="section-title">Latest Travel Stories</h2>
             <div class="blog-grid" id="blogGrid">
-                <!-- 博客内容将通过JavaScript动态添加 -->
+                <!-- Blog content will be dynamically added via JavaScript -->
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1578950435899-d1c1bf932b1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="义乌小商品城" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1578950435899-d1c1bf932b1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yiwu Small Commodity Market" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>义乌两天一夜"小商品+异域风情"深度游全攻略</h3>
-                        <div class="blog-date">2025年8月27日</div>
-                        <p class="blog-excerpt">义乌，这座被誉为"世界超市"的城市，以其全球最大的小商品集散中心而闻名于世。跟随我们的攻略，探索世界小商品之都的独特魅力，体验传统与现代的碰撞，感受多元文化的交融...</p>
-                        <a href="articles/义乌.html" class="read-more">阅读更多 →</a>
+                        <h3>Yiwu Two-Day Tour: Small Commodities & International Culture</h3>
+                        <div class="blog-date">August 27, 2025</div>
+                        <p class="blog-excerpt">Explore Yiwu, the "World's Supermarket" known for hosting the largest small commodity wholesale market on the planet. Follow our guide to discover the unique charm of this international trade hub, experience the blend of tradition and modernity, and immerse yourself in its diverse cultural atmosphere...</p>
+                        <a href="articles/yiwu-tour_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="绍兴古镇" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shaoxing Ancient Town" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>绍兴二日游：探索江南水乡的历史与文化</h3>
-                        <div class="blog-date">2023年10月25日</div>
-                        <p class="blog-excerpt">绍兴是一座历史文化名城，拥有鲁迅故里、沈园、书圣故里等人文景观，以及独特的水乡风情和美食。跟随我们的攻略，探索这座有着2500年历史的古城...</p>
-                        <a href="articles/shaoxing-tour.html" class="read-more">阅读更多 →</a>
+                        <h3>Two Days in Shaoxing: Exploring a Literary and Cultural Gem</h3>
+                        <div class="blog-date">October 25, 2023</div>
+                        <p class="blog-excerpt">Discover the ancient city of Shaoxing, birthplace of literary giants and home to 2,500 years of rich cultural heritage. From Lu Xun's Former Residence to the romantic Shen Garden, this comprehensive guide takes you through the hidden treasures of one of China's most historically significant water towns...</p>
+                        <a href="articles/shaoxing-tour_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="乌镇水乡风景" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wuzhen Water Town" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>探索江南水乡：乌镇一日游</h3>
-                        <div class="blog-date">2023年10月10日</div>
-                        <p class="blog-excerpt">江南水乡以其独特的风景和文化吸引着无数游客。乌镇作为其中一颗明珠，拥有保存完好的古建筑和小桥流水。跟随我们的脚步，探索那些不为人知的小巷和美食，感受江南的诗意与宁静...</p>
-                        <a href="articles/wuzhen-tour.html" class="read-more">阅读更多 →</a>
+                        <h3>A Day in Wuzhen: Exploring China's Venice of the East</h3>
+                        <div class="blog-date">October 10, 2023</div>
+                        <p class="blog-excerpt">Step back in time as you wander through the ancient water town of Wuzhen, where centuries-old wooden buildings line tranquil canals. Discover hidden alleyways, authentic local cuisine, and the gentle rhythm of life that has remained largely unchanged for generations...</p>
+                        <a href="articles/wuzhen-tour_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="杭州龙井虾仁美食" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Longjing Shrimp Dish" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>杭州美食探秘：龙井虾仁的味道</h3>
-                        <div class="blog-date">2023年9月15日</div>
-                        <p class="blog-excerpt">杭州不仅有西湖美景，还有令人垂涎的美食。龙井虾仁是当地一道经典菜肴，融合了龙井茶的清香和虾仁的鲜嫩。让我们带您走进杭州的街头巷尾，品尝这道美食背后的故事...</p>
-                        <a href="articles/hangzhou-food.html" class="read-more">阅读更多 →</a>
+                        <h3>Hangzhou's Culinary Treasures: The Story of Longjing Shrimp</h3>
+                        <div class="blog-date">September 15, 2023</div>
+                        <p class="blog-excerpt">Beyond the picturesque West Lake, Hangzhou offers a gastronomic adventure that captivates the senses. Longjing shrimp, a signature dish that marries the delicate flavor of tea leaves with fresh river shrimp, represents the essence of Jiangnan cuisine—subtle, refined, and deeply connected to the local landscape...</p>
+                        <a href="articles/hangzhou-food_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="苏州园林风景" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Suzhou Garden" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>苏州园林：古典与现代的交融</h3>
-                        <div class="blog-date">2023年8月20日</div>
-                        <p class="blog-excerpt">苏州园林被誉为"江南园林甲天下"，其精致的布局和深厚的文化底蕴令人叹为观止。从拙政园到留园，每一处都藏着历史的印迹。让我们一起漫步其中，感受古典与现代的完美交融...</p>
-                        <a href="articles/suzhou-gardens.html" class="read-more">阅读更多 →</a>
+                        <h3>Suzhou Gardens: Where Poetry Meets Landscape Design</h3>
+                        <div class="blog-date">August 20, 2023</div>
+                        <p class="blog-excerpt">The classical gardens of Suzhou are living masterpieces that embody Chinese philosophy and aesthetics. From the intricate rockeries of the Humble Administrator's Garden to the serene waters of the Lingering Garden, each space tells a story of harmony between humanity and nature, tradition and artistic innovation...</p>
+                        <a href="articles/suzhou-gardens_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
             </div>
@@ -594,17 +594,17 @@
     <!-- Pricing Section -->
     <section id="pricing" class="blog">
         <div class="container">
-            <h2 class="section-title">定价信息</h2>
+            <h2 class="section-title">Travel Packages</h2>
             <div class="blog-grid">
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="免费旅游方案" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Free Travel Itineraries" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>免费旅游方案</h3>
-                        <div class="blog-date">持续更新</div>
-                        <p class="blog-excerpt">我们提供免费的旅游方案供您参考，涵盖江南地区的多个目的地，包括行程规划、美食推荐和住宿建议。随时查看最新方案，规划您的江南之旅。</p>
-                        <a href="pricing.html" class="read-more">了解更多 →</a>
+                        <h3>Complimentary Travel Guides</h3>
+                        <div class="blog-date">Regularly Updated</div>
+                        <p class="blog-excerpt">Access our collection of free travel itineraries covering the most enchanting destinations across the Jiangnan region. Each guide includes carefully curated recommendations for accommodations, dining experiences, and hidden gems off the beaten path.</p>
+                        <a href="pricing_en.html" class="read-more">Learn More →</a>
                     </div>
                 </div>
             </div>
@@ -614,17 +614,17 @@
     <!-- Language Support Section -->
     <section id="language" class="blog">
         <div class="container">
-            <h2 class="section-title">语言支持</h2>
+            <h2 class="section-title">Language Options</h2>
             <div class="blog-grid">
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3E加载中...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="多语言支持" class="lazy-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Language Support" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>多语言选项</h3>
-                        <div class="blog-date">持续支持</div>
-                        <p class="blog-excerpt">网站支持中文和英文，方便不同语言背景的用户访问内容。未来将增加更多语言选项，让更多人了解江南的魅力。</p>
-                        <a href="language.html" class="read-more">选择语言 →</a>
+                        <h3>Multilingual Content</h3>
+                        <div class="blog-date">Ongoing Support</div>
+                        <p class="blog-excerpt">Our website offers content in both English and Chinese, with each version crafted by native speakers to ensure cultural authenticity. Experience Jiangnan through language that resonates with your cultural perspective.</p>
+                        <a href="language.html" class="read-more">Choose Language →</a>
                     </div>
                 </div>
             </div>
@@ -636,26 +636,26 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="#home">首页</a>
-                    <a href="#blog">博客</a>
-                    <a href="pricing.html">定价</a>
-                    <a href="language.html">语言</a>
+                    <a href="#home">Home</a>
+                    <a href="#blog">Blog</a>
+                    <a href="pricing_en.html">Pricing</a>
+                    <a href="language.html">Language</a>
                 </div>
                 <div class="copyright">
-                    &copy; 2023 江南旅游博客 版权所有
+                    &copy; 2023 Jiangnan Travel Blog. All Rights Reserved.
                 </div>
             </div>
         </div>
         
-        <!-- 添加Service Worker注册 -->
+        <!-- Add Service Worker registration -->
         <script>
-            // 检查浏览器是否支持Service Worker
+            // Check if browser supports Service Worker
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
                     navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                        console.log('ServiceWorker 注册成功: ', registration.scope);
+                        console.log('ServiceWorker registration successful: ', registration.scope);
                     }, function(err) {
-                        console.log('ServiceWorker 注册失败: ', err);
+                        console.log('ServiceWorker registration failed: ', err);
                     });
                 });
             }
@@ -666,91 +666,91 @@
     <div class="admin-panel" id="adminPanel">
         <div class="admin-content">
             <button class="close-admin" onclick="closeAdmin()">×</button>
-            <h2 style="color: #2e7d32; text-align: center; margin-bottom: 2rem;">上传新博客</h2>
+            <h2 style="color: #2e7d32; text-align: center; margin-bottom: 2rem;">Upload New Article</h2>
             <form id="blogForm" onsubmit="submitBlog(event)">
                 <div class="form-group">
-                    <label for="blogTitle">博客标题</label>
-                    <input type="text" id="blogTitle" placeholder="请输入标题" required>
+                    <label for="blogTitle">Article Title</label>
+                    <input type="text" id="blogTitle" placeholder="Enter title" required>
                 </div>
                 <div class="form-group">
-                    <label for="blogDate">发布日期</label>
+                    <label for="blogDate">Publication Date</label>
                     <input type="date" id="blogDate" required>
                 </div>
                 <div class="form-group">
-                    <label for="blogImage">图片URL</label>
-                    <input type="text" id="blogImage" placeholder="请输入图片URL" required>
+                    <label for="blogImage">Image URL</label>
+                    <input type="text" id="blogImage" placeholder="Enter image URL" required>
                 </div>
                 <div class="form-group">
-                    <label for="blogExcerpt">博客摘要</label>
-                    <textarea id="blogExcerpt" placeholder="请输入博客摘要内容" required></textarea>
+                    <label for="blogExcerpt">Article Excerpt</label>
+                    <textarea id="blogExcerpt" placeholder="Enter a brief summary" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="blogContent">博客正文</label>
-                    <textarea id="blogContent" placeholder="请输入博客正文内容" required></textarea>
+                    <label for="blogContent">Article Content</label>
+                    <textarea id="blogContent" placeholder="Enter the full article content" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">提交博客</button>
+                <button type="submit" class="submit-btn">Submit Article</button>
             </form>
         </div>
     </div>
 
     <script>
-        // 显示管理面板
+        // Show admin panel
         function showAdmin() {
             document.getElementById('adminPanel').style.display = 'block';
         }
         
-        // 关闭管理面板
+        // Close admin panel
         function closeAdmin() {
             document.getElementById('adminPanel').style.display = 'none';
         }
         
-        // 提交博客
+        // Submit blog
         function submitBlog(event) {
             event.preventDefault();
-            alert('博客已成功提交！');
+            alert('Article successfully submitted!');
             closeAdmin();
         }
         
-        // 语言切换功能
+        // Language switching
         function changeLanguage() {
             const select = document.getElementById('languageSelect');
             const selectedLanguage = select.value;
             
-            if (selectedLanguage === 'en') {
-                localStorage.setItem('preferredLanguage', 'en');
-                window.location.href = 'jiangnan_website_en.html';
-            } else {
+            if (selectedLanguage === 'zh') {
                 localStorage.setItem('preferredLanguage', 'zh');
-                // 已经在中文页面，无需跳转
+                window.location.href = 'jiangnan_website.html';
+            } else {
+                localStorage.setItem('preferredLanguage', 'en');
+                // Already on English page
             }
         }
         
-        // 移动端菜单功能
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // 图片懒加载功能已在页面顶部实现
+            // Lazy loading is implemented at the top of the page
             
-            // 添加性能监控
+            // Add performance monitoring
             if ('performance' in window && 'PerformanceObserver' in window) {
-                // 创建性能观察器来监控关键指标
+                // Create performance observer to monitor key metrics
                 const observer = new PerformanceObserver((list) => {
                     for (const entry of list.getEntries()) {
-                        // 记录性能指标
-                        console.log(`[性能监控] ${entry.name}: ${entry.startTime.toFixed(2)}ms`);
+                        // Log performance metrics
+                        console.log(`[Performance Monitor] ${entry.name}: ${entry.startTime.toFixed(2)}ms`);
                     }
                 });
                 
-                // 观察各种性能指标
+                // Observe various performance metrics
                 observer.observe({entryTypes: ['paint', 'largest-contentful-paint', 'first-input', 'layout-shift']});
             }
             
-            // 预加载关键资源
+            // Preload critical resources
             const preloadLinks = [
-                {href: 'articles/wuzhen-tour.html', as: 'document'},
-                {href: 'articles/hangzhou-food.html', as: 'document'},
-                {href: 'articles/suzhou-gardens.html', as: 'document'}
+                {href: 'articles/wuzhen-tour_en.html', as: 'document'},
+                {href: 'articles/hangzhou-food_en.html', as: 'document'},
+                {href: 'articles/suzhou-gardens_en.html', as: 'document'}
             ];
             
-            // 当用户悬停在链接上时预加载页面
+            // Preload pages when user hovers over links
             document.querySelectorAll('.read-more').forEach((link, index) => {
                 link.addEventListener('mouseenter', () => {
                     if (!link.dataset.preloaded && preloadLinks[index]) {
@@ -763,10 +763,10 @@
                 });
             });
             
-            // 检查首选语言
+            // Check preferred language
             const preferredLanguage = localStorage.getItem('preferredLanguage');
-            if (preferredLanguage === 'en') {
-                window.location.href = 'jiangnan_website_en.html';
+            if (preferredLanguage === 'zh') {
+                window.location.href = 'jiangnan_website.html';
             }
         });
     </script>
