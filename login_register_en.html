@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - Jiangnan Travel Blog</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .auth-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h1 {
+            color: #2e7d32;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: #666;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .auth-tab.active {
+            color: #2e7d32;
+            border-bottom-color: #2e7d32;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #2e7d32;
+            outline: none;
+        }
+        
+        .submit-btn {
+            background-color: #2e7d32;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1b5e20;
+        }
+        
+        .auth-message {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .auth-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .auth-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .remember-me input {
+            margin-right: 10px;
+            width: auto;
+        }
+        
+        .remember-me label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+        
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .forgot-password a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-login {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .social-login p {
+            margin-bottom: 15px;
+            color: #666;
+            position: relative;
+        }
+        
+        .social-login p::before,
+        .social-login p::after {
+            content: "";
+            display: inline-block;
+            width: 40%;
+            height: 1px;
+            background-color: #ddd;
+            position: absolute;
+            top: 50%;
+        }
+        
+        .social-login p::before {
+            left: 0;
+        }
+        
+        .social-login p::after {
+            right: 0;
+        }
+        
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            color: #757575;
+            border: 1px solid #ddd;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .google-btn:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        
+        .back-to-site {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-to-site a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+        
+        .back-to-site a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>Welcome to Jiangnan Travel</h1>
+            <p>Login or register to access exclusive content</p>
+        </div>
+        
+        <div id="authMessage" class="auth-message"></div>
+        
+        <div class="auth-tabs">
+            <div class="auth-tab active" id="loginTab" onclick="switchTab('login')">Login</div>
+            <div class="auth-tab" id="registerTab" onclick="switchTab('register')">Register</div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+            <div class="forgot-password">
+                <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="submit-btn">Login</button>
+            
+            <div class="social-login">
+                <p>or</p>
+                <button type="button" class="google-btn" onclick="signInWithGoogle()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                    Sign in with Google
+                </button>
+            </div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form">
+            <div class="form-group">
+                <label for="registerName">Full Name</label>
+                <input type="text" id="registerName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email Address</label>
+                <input type="email" id="registerEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" placeholder="Enter password (at least 6 characters)" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" required minlength="6">
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+            
+            <div class="social-login">
+                <p>or</p>
+                <button type="button" class="google-btn" onclick="signInWithGoogle()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                    Sign up with Google
+                </button>
+            </div>
+        </form>
+
+        <!-- Forgot Password Form -->
+        <form id="forgotPasswordForm" class="auth-form" style="display: none;">
+            <div class="form-group">
+                <label for="resetEmail">Email Address</label>
+                <input type="email" id="resetEmail" placeholder="Enter your email" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Reset Link</button>
+            
+            <div class="back-to-login" style="text-align: center; margin-top: 20px;">
+                <a href="#" onclick="switchTab('login')">Back to Login</a>
+            </div>
+        </form>
+        
+        <div class="back-to-site">
+            <a href="index.html">Back to Website</a>
+        </div>
+    </div>
+
+    <script>
+        // Supabase configuration
+        const SUPABASE_URL = 'https://uhhztcasbbrahnmonthd.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoaHp0Y2FzYmJyYWhuTW9udGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ5NTU5NzQsImV4cCI6MjA1MDUzMTk3NH0.Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8';
+
+        // Initialize Supabase client
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Set up form event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('registerForm').addEventListener('submit', handleRegister);
+            document.getElementById('forgotPasswordForm').addEventListener('submit', handleForgotPassword);
+        });
+
+        // Switch tabs
+        function switchTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+
+            // Hide all forms
+            loginForm.classList.remove('active');
+            registerForm.classList.remove('active');
+            forgotPasswordForm.style.display = 'none';
+
+            // Remove active state from all tabs
+            loginTab.classList.remove('active');
+            registerTab.classList.remove('active');
+
+            // Show selected form and activate corresponding tab
+            if (tab === 'login') {
+                loginForm.classList.add('active');
+                loginTab.classList.add('active');
+            } else if (tab === 'register') {
+                registerForm.classList.add('active');
+                registerTab.classList.add('active');
+            }
+
+            // Clear messages
+            document.getElementById('authMessage').style.display = 'none';
+        }
+
+        // Show forgot password form
+        function showForgotPassword() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+
+            // Hide login and register forms
+            loginForm.classList.remove('active');
+            registerForm.classList.remove('active');
+
+            // Remove active state from tabs
+            loginTab.classList.remove('active');
+            registerTab.classList.remove('active');
+
+            // Show forgot password form
+            forgotPasswordForm.style.display = 'block';
+
+            // Clear messages
+            document.getElementById('authMessage').style.display = 'none';
+        }
+
+        // Handle login
+        async function handleLogin(e) {
+            e.preventDefault();
+            const authMessage = document.getElementById('authMessage');
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    authMessage.textContent = 'Login failed. Please check your email and password.';
+                    authMessage.className = 'auth-message error';
+                } else {
+                    authMessage.textContent = 'Login successful!';
+                    authMessage.className = 'auth-message success';
+
+                    // Redirect to homepage
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                }
+                authMessage.style.display = 'block';
+            } catch (err) {
+                console.error('Login error:', err);
+                authMessage.textContent = 'Login failed. Please try again later.';
+                authMessage.className = 'auth-message error';
+                authMessage.style.display = 'block';
+            }
+        }
+
+        // Handle registration
+        async function handleRegister(e) {
+            e.preventDefault();
+            const authMessage = document.getElementById('authMessage');
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate passwords
+            if (password !== confirmPassword) {
+                authMessage.textContent = 'Passwords do not match.';
+                authMessage.className = 'auth-message error';
+                authMessage.style.display = 'block';
+                return;
+            }
+
+            try {
+                const { data, error } = await supabase.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: {
+                        data: {
+                            full_name: name
+                        }
+                    }
+                });
+
+                if (error) {
+                    authMessage.textContent = `Registration failed: ${error.message}`;
+                    authMessage.className = 'auth-message error';
+                } else {
+                    authMessage.textContent = 'Registration successful! Please check your email for verification.';
+                    authMessage.className = 'auth-message success';
+
+                    // Switch to login tab
+                    setTimeout(() => {
+                        switchTab('login');
+                    }, 2000);
+                }
+                authMessage.style.display = 'block';
+            } catch (err) {
+                console.error('Registration error:', err);
+                authMessage.textContent = 'Registration failed. Please try again later.';
+                authMessage.className = 'auth-message error';
+                authMessage.style.display = 'block';
+            }
+        }
+
+        // Handle forgot password
+        async function handleForgotPassword(e) {
+            e.preventDefault();
+            const authMessage = document.getElementById('authMessage');
+            const email = document.getElementById('resetEmail').value;
+
+            try {
+                const { error } = await supabase.auth.resetPasswordForEmail(email);
+
+                if (error) {
+                    authMessage.textContent = `Failed to send reset link: ${error.message}`;
+                    authMessage.className = 'auth-message error';
+                } else {
+                    authMessage.textContent = 'Password reset link has been sent to your email.';
+                    authMessage.className = 'auth-message success';
+
+                    // Switch to login tab
+                    setTimeout(() => {
+                        switchTab('login');
+                    }, 2000);
+                }
+                authMessage.style.display = 'block';
+            } catch (err) {
+                console.error('Reset password error:', err);
+                authMessage.textContent = 'Failed to send reset link. Please try again later.';
+                authMessage.className = 'auth-message error';
+                authMessage.style.display = 'block';
+            }
+        }
+
+        // Google sign in
+        async function signInWithGoogle() {
+            const authMessage = document.getElementById('authMessage');
+            
+            try {
+                const { data, error } = await supabase.auth.signInWithOAuth({
+                    provider: 'google'
+                });
+
+                if (error) {
+                    authMessage.textContent = `Google sign-in failed: ${error.message}`;
+                    authMessage.className = 'auth-message error';
+                    authMessage.style.display = 'block';
+                }
+            } catch (err) {
+                console.error('Google sign-in error:', err);
+                authMessage.textContent = 'Google sign-in failed. Please try again later.';
+                authMessage.className = 'auth-message error';
+                authMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

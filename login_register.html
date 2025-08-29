@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户登录/注册</title>
+    <title>Login/Register - Jiangnan Travel Blog</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
@@ -270,9 +270,9 @@
 </head>
 <body>
     <div class="auth-container">
-        <div class="auth-header zh-content">
-            <h1>欢迎来到江南旅游</h1>
-            <p>登录或注册以获取更多精彩内容</p>
+        <div class="auth-header">
+            <h1>Welcome to Jiangnan Travel</h1>
+            <p>Login or register to access exclusive content</p>
         </div>
         
         <div class="auth-header en-content">
@@ -282,9 +282,9 @@
         
         <div id="authMessage" class="auth-message"></div>
         
-        <div class="auth-tabs zh-content">
-            <div class="auth-tab active" id="loginTab" onclick="switchTab('login')">登录</div>
-            <div class="auth-tab" id="registerTab" onclick="switchTab('register')">注册</div>
+        <div class="auth-tabs">
+            <div class="auth-tab active" id="loginTab" onclick="switchTab('login')">Login</div>
+            <div class="auth-tab" id="registerTab" onclick="switchTab('register')">Register</div>
         </div>
         
         <div class="auth-tabs en-content">
