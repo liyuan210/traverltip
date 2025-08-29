@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const fileUpload = require('express-fileupload');
 require('dotenv').config();
 
@@ -24,6 +25,12 @@ app.use(fileUpload({
 
 // 静态文件服务
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
+
+// 根路由 - 提供index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // 路由
 app.use('/api/auth', require('./routes/auth'));
@@ -48,6 +55,29 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/traveltip',
 
 // 端口设置
 const PORT = process.env.PORT || 5000;
+
+// 通配符路由 - 处理所有其他请求
+app.get('*', (req, res) => {
+  // 如果请求的不是API路由，尝试提供HTML文件
+  if (!req.path.startsWith('/api/')) {
+    const requestedPath = req.path.substring(1); // 移除开头的'/'
+    const filePath = path.join(__dirname, requestedPath);
+    
+    try {
+      // 检查文件是否存在
+      if (fs.existsSync(filePath) && !fs.statSync(filePath).isDirectory()) {
+        return res.sendFile(filePath);
+      }
+      // 如果文件不存在，返回index.html
+      return res.sendFile(path.join(__dirname, 'index.html'));
+    } catch (err) {
+      return res.sendFile(path.join(__dirname, 'index.html'));
+    }
+  }
+  
+  // 如果是API路由但没有匹配，返回404
+  res.status(404).json({ message: '未找到请求的资源' });
+});
 
 // 启动服务器
 app.listen(PORT, () => console.log(`服务器运行在端口 ${PORT}`));
