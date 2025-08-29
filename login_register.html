@@ -439,11 +439,11 @@
         </form>
         
         <div class="back-to-site zh-content">
-            <a href="jiangnan_website.html">返回网站</a>
+            <a href="index.html">返回网站</a>
         </div>
         
         <div class="back-to-site en-content">
-            <a href="jiangnan_website.html">Back to Website</a>
+            <a href="index.html">Back to Website</a>
         </div>
         
         <div class="language-switch">
@@ -717,7 +717,7 @@
                 const { data, error } = await supabase.auth.signInWithOAuth({
                     provider: 'google',
                     options: {
-                        redirectTo: `${window.location.origin}/jiangnan_website.html`
+                    redirectTo: `${window.location.origin}/index.html`
                     }
                 });
                 

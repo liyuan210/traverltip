@@ -228,6 +228,107 @@
             color: #b8941f;
         }
 
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+
+        .admin-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 650px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .close-admin {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: #dc3545;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .close-admin:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #c8e6c9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: #f1f8e9;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #43a047;
+            box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #27632a 0%, #388e3c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.5);
+        }
+
         /* Footer */
         footer {
             background: #2e7d32;
@@ -264,36 +365,6 @@
             opacity: 0.8;
         }
 
-        /* Language Selector */
-        .language-selector {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: white;
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .language-selector select {
-            border: none;
-            background: transparent;
-            font-size: 0.9rem;
-            color: #2c3e50;
-            outline: none;
-            cursor: pointer;
-        }
-
-        .language-selector img {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -324,9 +395,91 @@
                 margin: 0 auto;
             }
         }
+        
+        /* Lazy loading image styles */
+        .lazy-image {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .lazy-image[data-src] {
+            opacity: 0.5;
+        }
+        
+        .lazy-image:not([data-src]) {
+            opacity: 1;
+        }
+        
+        /* Language selector */
+        .language-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
+    <!-- Image lazy loading script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if browser supports IntersectionObserver
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        // When image enters viewport
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const src = img.getAttribute('data-src');
+                            
+                            if (src) {
+                                img.src = src;
+                                img.removeAttribute('data-src');
+                            }
+                            
+                            // After loading, no need to observe anymore
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                // Get all images with data-src attribute
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // If browser doesn't support IntersectionObserver, load all images immediately
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                lazyImages.forEach(img => {
+                    img.src = img.getAttribute('data-src');
+                    img.removeAttribute('data-src');
+                });
+            }
+        });
+    </script>
+    
     <!-- Language Selector -->
     <div class="language-selector">
         <img src="https://flagcdn.com/w20/us.png" alt="English">
@@ -349,7 +502,8 @@
                         <li><a href="#blog">Travel Blog</a></li>
                         <li><a href="pricing_en.html">Pricing</a></li>
                         <li><a href="language.html">Language</a></li>
-                        <li><a href="login_register.html" id="login-link">Login/Register</a></li>
+                        <li><a href="login_register.html?lang=en">Login/Register</a></li>
+                        <li><a href="#" onclick="showAdmin()">Admin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -361,9 +515,9 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Welcome to Jiangnan Travel Blog</h1>
-                <p>Discover the enchanting water towns, exquisite gardens, and culinary delights of Jiangnan region in Southern China. Follow our authentic travel guides to experience the poetic beauty of this unique cultural landscape.</p>
+                <p>Discover the poetic charm of Jiangnan, a region where ancient water towns, exquisite gardens, and culinary delights await. Follow our journey through the enchanting landscapes of southern China, where tradition and modernity blend seamlessly.</p>
                 <div class="hero-buttons">
-                    <a href="#blog" class="cta-button">Latest Travel Guides</a>
+                    <a href="#blog" class="cta-button">Latest Articles</a>
                     <a href="search.html" class="cta-button secondary">Search Content</a>
                 </div>
             </div>
@@ -373,41 +527,104 @@
     <!-- Blog Section -->
     <section id="blog" class="blog">
         <div class="container">
-            <h2 class="section-title">Latest Travel Guides</h2>
+            <h2 class="section-title">Latest Travel Stories</h2>
             <div class="blog-grid" id="blogGrid">
+                <!-- Blog content will be dynamically added via JavaScript -->
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1578950435899-d1c1bf932b1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yiwu International Trade Market">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1578950435899-d1c1bf932b1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yiwu Small Commodity Market" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>Yiwu: Two-Day Deep Dive into the World's Largest Small Commodity Market</h3>
+                        <h3>Yiwu Two-Day Tour: Small Commodities & International Culture</h3>
                         <div class="blog-date">August 27, 2025</div>
-                        <p class="blog-excerpt">Known as the "World's Supermarket," Yiwu hosts the globe's largest small commodity wholesale market. Follow our guide to explore this unique city where tradition meets modernity and cultures from around the world converge...</p>
-                        <a href="articles/yiwu-market-guide_en.html" class="read-more">Read More →</a>
+                        <p class="blog-excerpt">Explore Yiwu, the "World's Supermarket" known for hosting the largest small commodity wholesale market on the planet. Follow our guide to discover the unique charm of this international trade hub, experience the blend of tradition and modernity, and immerse yourself in its diverse cultural atmosphere...</p>
+                        <a href="articles/yiwu-tour_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shaoxing Ancient Town">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shaoxing Ancient Town" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>Shaoxing: A Two-Day Journey Through History and Water Town Culture</h3>
+                        <h3>Two Days in Shaoxing: Exploring a Literary and Cultural Gem</h3>
                         <div class="blog-date">October 25, 2023</div>
-                        <p class="blog-excerpt">Shaoxing, with its 2,500 years of history, offers a perfect blend of cultural heritage sites like Lu Xun's Hometown and Shen Garden, along with distinctive water town scenery and local cuisine...</p>
+                        <p class="blog-excerpt">Discover the ancient city of Shaoxing, birthplace of literary giants and home to 2,500 years of rich cultural heritage. From Lu Xun's Former Residence to the romantic Shen Garden, this comprehensive guide takes you through the hidden treasures of one of China's most historically significant water towns...</p>
                         <a href="articles/shaoxing-tour_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wuzhen Water Town">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wuzhen Water Town" class="lazy-image">
                     </div>
                     <div class="blog-content">
-                        <h3>Exploring Jiangnan Water Towns: A Day in Wuzhen</h3>
+                        <h3>A Day in Wuzhen: Exploring China's Venice of the East</h3>
                         <div class="blog-date">October 10, 2023</div>
-                        <p class="blog-excerpt">The water towns of Jiangnan attract countless visitors with their unique landscapes and cultural heritage. Wuzhen, one of the region's gems, features well-preserved ancient architecture and picturesque canals...</p>
+                        <p class="blog-excerpt">Step back in time as you wander through the ancient water town of Wuzhen, where centuries-old wooden buildings line tranquil canals. Discover hidden alleyways, authentic local cuisine, and the gentle rhythm of life that has remained largely unchanged for generations...</p>
                         <a href="articles/wuzhen-tour_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Longjing Shrimp Dish" class="lazy-image">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Hangzhou's Culinary Treasures: The Story of Longjing Shrimp</h3>
+                        <div class="blog-date">September 15, 2023</div>
+                        <p class="blog-excerpt">Beyond the picturesque West Lake, Hangzhou offers a gastronomic adventure that captivates the senses. Longjing shrimp, a signature dish that marries the delicate flavor of tea leaves with fresh river shrimp, represents the essence of Jiangnan cuisine—subtle, refined, and deeply connected to the local landscape...</p>
+                        <a href="articles/hangzhou-food_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Suzhou Garden" class="lazy-image">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Suzhou Gardens: Where Poetry Meets Landscape Design</h3>
+                        <div class="blog-date">August 20, 2023</div>
+                        <p class="blog-excerpt">The classical gardens of Suzhou are living masterpieces that embody Chinese philosophy and aesthetics. From the intricate rockeries of the Humble Administrator's Garden to the serene waters of the Lingering Garden, each space tells a story of harmony between humanity and nature, tradition and artistic innovation...</p>
+                        <a href="articles/suzhou-gardens_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="blog">
+        <div class="container">
+            <h2 class="section-title">Travel Packages</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Free Travel Itineraries" class="lazy-image">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Complimentary Travel Guides</h3>
+                        <div class="blog-date">Regularly Updated</div>
+                        <p class="blog-excerpt">Access our collection of free travel itineraries covering the most enchanting destinations across the Jiangnan region. Each guide includes carefully curated recommendations for accommodations, dining experiences, and hidden gems off the beaten path.</p>
+                        <a href="pricing_en.html" class="read-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Support Section -->
+    <section id="language" class="blog">
+        <div class="container">
+            <h2 class="section-title">Language Options</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Language Support" class="lazy-image">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Multilingual Content</h3>
+                        <div class="blog-date">Ongoing Support</div>
+                        <p class="blog-excerpt">Our website offers content in both English and Chinese, with each version crafted by native speakers to ensure cultural authenticity. Experience Jiangnan through language that resonates with your cultural perspective.</p>
+                        <a href="language.html" class="read-more">Choose Language →</a>
                     </div>
                 </div>
             </div>
@@ -425,14 +642,76 @@
                     <a href="language.html">Language</a>
                 </div>
                 <div class="copyright">
-                    &copy; 2023-2025 Jiangnan Travel Blog. All Rights Reserved.
+                    &copy; 2023 Jiangnan Travel Blog. All Rights Reserved.
                 </div>
             </div>
         </div>
+        
+        <!-- Add Service Worker registration -->
+        <script>
+            // Check if browser supports Service Worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                        console.log('ServiceWorker registration successful: ', registration.scope);
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
     </footer>
 
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-content">
+            <button class="close-admin" onclick="closeAdmin()">×</button>
+            <h2 style="color: #2e7d32; text-align: center; margin-bottom: 2rem;">Upload New Article</h2>
+            <form id="blogForm" onsubmit="submitBlog(event)">
+                <div class="form-group">
+                    <label for="blogTitle">Article Title</label>
+                    <input type="text" id="blogTitle" placeholder="Enter title" required>
+                </div>
+                <div class="form-group">
+                    <label for="blogDate">Publication Date</label>
+                    <input type="date" id="blogDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="blogImage">Image URL</label>
+                    <input type="text" id="blogImage" placeholder="Enter image URL" required>
+                </div>
+                <div class="form-group">
+                    <label for="blogExcerpt">Article Excerpt</label>
+                    <textarea id="blogExcerpt" placeholder="Enter a brief summary" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="blogContent">Article Content</label>
+                    <textarea id="blogContent" placeholder="Enter the full article content" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Article</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Language switching functionality
+        // Show admin panel
+        function showAdmin() {
+            document.getElementById('adminPanel').style.display = 'block';
+        }
+        
+        // Close admin panel
+        function closeAdmin() {
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+        
+        // Submit blog
+        function submitBlog(event) {
+            event.preventDefault();
+            alert('Article successfully submitted!');
+            closeAdmin();
+        }
+        
+        // Language switching
         function changeLanguage() {
             const select = document.getElementById('languageSelect');
             const selectedLanguage = select.value;
@@ -442,12 +721,49 @@
                 window.location.href = 'jiangnan_website.html';
             } else {
                 localStorage.setItem('preferredLanguage', 'en');
-                // Already on English page, no need to redirect
+                // Already on English page
             }
         }
         
-        // Check preferred language
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Lazy loading is implemented at the top of the page
+            
+            // Add performance monitoring
+            if ('performance' in window && 'PerformanceObserver' in window) {
+                // Create performance observer to monitor key metrics
+                const observer = new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        // Log performance metrics
+                        console.log(`[Performance Monitor] ${entry.name}: ${entry.startTime.toFixed(2)}ms`);
+                    }
+                });
+                
+                // Observe various performance metrics
+                observer.observe({entryTypes: ['paint', 'largest-contentful-paint', 'first-input', 'layout-shift']});
+            }
+            
+            // Preload critical resources
+            const preloadLinks = [
+                {href: 'articles/wuzhen-tour_en.html', as: 'document'},
+                {href: 'articles/hangzhou-food_en.html', as: 'document'},
+                {href: 'articles/suzhou-gardens_en.html', as: 'document'}
+            ];
+            
+            // Preload pages when user hovers over links
+            document.querySelectorAll('.read-more').forEach((link, index) => {
+                link.addEventListener('mouseenter', () => {
+                    if (!link.dataset.preloaded && preloadLinks[index]) {
+                        const preloadLink = document.createElement('link');
+                        preloadLink.rel = 'prefetch';
+                        preloadLink.href = preloadLinks[index].href;
+                        document.head.appendChild(preloadLink);
+                        link.dataset.preloaded = 'true';
+                    }
+                });
+            });
+            
+            // Check preferred language
             const preferredLanguage = localStorage.getItem('preferredLanguage');
             if (preferredLanguage === 'zh') {
                 window.location.href = 'jiangnan_website.html';
