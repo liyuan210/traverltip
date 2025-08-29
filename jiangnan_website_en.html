@@ -3,10 +3,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiangnan Travel Blog</title>
-    <meta http-equiv="refresh" content="0; url=english-web.html">
+    <title>Jiangnan Travel Blog - Discover the Poetic Water Towns of Southern China</title>
+    <meta name="description" content="Explore the enchanting water towns, exquisite gardens, and culinary delights of Jiangnan region in Southern China through our authentic travel guides.">
+    <!-- Add cache control -->
+    <meta http-equiv="Cache-Control" content="max-age=86400, public">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(56, 142, 60, 0.8)), url('https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 2px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-card h3 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .blog-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #b8941f;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .blog-card {
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, please <a href="english-web.html">click here</a>.</p>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w20/us.png" alt="English">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    Jiangnan Travel Blog
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Travel Blog</a></li>
+                        <li><a href="pricing_en.html">Pricing</a></li>
+                        <li><a href="language.html">Language</a></li>
+                        <li><a href="login_register.html" id="login-link">Login/Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Jiangnan Travel Blog</h1>
+                <p>Discover the enchanting water towns, exquisite gardens, and culinary delights of Jiangnan region in Southern China. Follow our authentic travel guides to experience the poetic beauty of this unique cultural landscape.</p>
+                <div class="hero-buttons">
+                    <a href="#blog" class="cta-button">Latest Travel Guides</a>
+                    <a href="search.html" class="cta-button secondary">Search Content</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Latest Travel Guides</h2>
+            <div class="blog-grid" id="blogGrid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1578950435899-d1c1bf932b1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yiwu International Trade Market">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Yiwu: Two-Day Deep Dive into the World's Largest Small Commodity Market</h3>
+                        <div class="blog-date">August 27, 2025</div>
+                        <p class="blog-excerpt">Known as the "World's Supermarket," Yiwu hosts the globe's largest small commodity wholesale market. Follow our guide to explore this unique city where tradition meets modernity and cultures from around the world converge...</p>
+                        <a href="articles/yiwu-market-guide_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1566553253056-4cce3db6f4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shaoxing Ancient Town">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Shaoxing: A Two-Day Journey Through History and Water Town Culture</h3>
+                        <div class="blog-date">October 25, 2023</div>
+                        <p class="blog-excerpt">Shaoxing, with its 2,500 years of history, offers a perfect blend of cultural heritage sites like Lu Xun's Hometown and Shen Garden, along with distinctive water town scenery and local cuisine...</p>
+                        <a href="articles/shaoxing-tour_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wuzhen Water Town">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Exploring Jiangnan Water Towns: A Day in Wuzhen</h3>
+                        <div class="blog-date">October 10, 2023</div>
+                        <p class="blog-excerpt">The water towns of Jiangnan attract countless visitors with their unique landscapes and cultural heritage. Wuzhen, one of the region's gems, features well-preserved ancient architecture and picturesque canals...</p>
+                        <a href="articles/wuzhen-tour_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#blog">Blog</a>
+                    <a href="pricing_en.html">Pricing</a>
+                    <a href="language.html">Language</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023-2025 Jiangnan Travel Blog. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            const selectedLanguage = select.value;
+            
+            if (selectedLanguage === 'zh') {
+                localStorage.setItem('preferredLanguage', 'zh');
+                window.location.href = 'jiangnan_website.html';
+            } else {
+                localStorage.setItem('preferredLanguage', 'en');
+                // Already on English page, no need to redirect
+            }
+        }
+        
+        // Check preferred language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Since we're only using English version now, no need to check preferred language
+            // Just set English as the preferred language
+            localStorage.setItem('preferredLanguage', 'en');
+        });
+    </script>
 </body>
 </html>
