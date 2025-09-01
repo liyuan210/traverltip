@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>语言支持 - 江南旅游博客</title>
-    <meta name="description" content="江南旅游博客提供多语言支持，包括中文、英文等多种语言选项，方便不同语言背景的用户访问内容。">
+    <title>Price Converter - 江南旅游博客</title>
+    <meta name="description" content="江南旅游博客提供实用的价格转换工具，帮助您在旅行中快速换算不同货币的价值。">
     <style>
         * {
             margin: 0;
@@ -335,55 +335,107 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html">江南旅游博客</a>
+                    <a href="index.html">Jiangnan Travel Blog</a>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="index.html#home">首页</a></li>
-                        <li><a href="index.html#blog">旅游博客</a></li>
-                        <li><a href="pricing.html">定价</a></li>
-                        <li><a href="language.html">语言支持</a></li>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#blog">Travel Blog</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="language.html">Price Converter</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Language Section -->
+    <!-- Price Converter Section -->
     <section class="language">
         <div class="container">
-            <h1 class="section-title">语言支持</h1>
-            <div class="language-grid">
-                <div class="language-card">
-                    <div class="language-image">
-                        <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="中文支持">
+            <h1 class="section-title">Price Converter</h1>
+            
+            <!-- 货币转换器主体 -->
+            <div style="max-width: 500px; margin: 0 auto;">
+                <div style="background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 2rem;">
+                    <!-- 人民币输入 -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="cny-amount" style="display: block; font-size: 0.9rem; font-weight: 500; color: #666; margin-bottom: 0.5rem;">Chinese Yuan (¥)</label>
+                        <div style="position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; bottom: 0; display: flex; align-items: center; padding-left: 1rem; color: #666;">¥</span>
+                            <input 
+                                type="number" 
+                                id="cny-amount" 
+                                style="width: 100%; padding: 1rem 1rem 1rem 2.5rem; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1.1rem; outline: none; transition: all 0.3s ease;"
+                                placeholder="Enter amount"
+                                value="0"
+                                onfocus="this.style.borderColor='#2e7d32'"
+                                onblur="this.style.borderColor='#e0e0e0'"
+                            >
+                        </div>
+                        
+                        <!-- 数字按钮 -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-top: 1rem; max-width: 200px; margin-left: auto; margin-right: auto;">
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">1</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">2</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">3</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">4</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">5</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">6</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">7</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">8</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">9</button>
+                            <button id="clear-btn" style="height: 32px; width: 100%; background: #ffebee; border: none; border-radius: 6px; font-size: 0.7rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#f44336'; this.style.color='white'" onmouseout="this.style.background='#ffebee'; this.style.color='black'">C</button>
+                            <button class="number-btn" style="height: 32px; width: 100%; background: #f5f5f5; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#2e7d32'; this.style.color='white'" onmouseout="this.style.background='#f5f5f5'; this.style.color='black'">0</button>
+                            <button id="delete-btn" style="height: 32px; width: 100%; background: #fff3e0; border: none; border-radius: 6px; font-size: 0.7rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#ff9800'; this.style.color='white'" onmouseout="this.style.background='#fff3e0'; this.style.color='black'">⌫</button>
+                        </div>
                     </div>
-                    <div class="language-content">
-                        <h3>中文</h3>
-                        <span class="language-status status-available">已支持</span>
-                        <p class="language-description">我们的网站提供地道的中文内容，由中文母语编辑撰写，完美呈现江南水乡的韵味与魅力，包括最地道的景点介绍、美食推荐和文化解析。</p>
-                        <a href="index.html" class="language-button" id="viewChinese">浏览中文版</a>
+                    
+                    <!-- 货币选择 -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 0.9rem; font-weight: 500; color: #666; margin-bottom: 0.5rem;">Target Currency</label>
+                        <select id="currency-select" style="width: 100%; padding: 1rem; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1.1rem; outline: none; background: white; cursor: pointer;" onfocus="this.style.borderColor='#2e7d32'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="KRW" data-rate="195.14" data-symbol="₩">South Korea (KRW) - Won</option>
+                            <option value="USD" data-rate="0.1407" data-symbol="$">USA (USD) - Dollar</option>
+                            <option value="SGD" data-rate="0.1804" data-symbol="S$">Singapore (SGD) - Dollar</option>
+                            <option value="THB" data-rate="4.543" data-symbol="฿">Thailand (THB) - Baht</option>
+                            <option value="MYR" data-rate="0.5934" data-symbol="RM">Malaysia (MYR) - Ringgit</option>
+                            <option value="JPY" data-rate="20.665" data-symbol="¥">Japan (JPY) - Yen</option>
+                            <option value="RUB" data-rate="11.2408" data-symbol="₽">Russia (RUB) - Ruble</option>
+                            <option value="GBP" data-rate="0.1040" data-symbol="£">UK (GBP) - Pound</option>
+                            <option value="AUD" data-rate="0.2156" data-symbol="A$">Australia (AUD) - Dollar</option>
+                            <option value="IDR" data-rate="2293.57" data-symbol="Rp">Indonesia (IDR) - Rupiah</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 换算结果 -->
+                    <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem;">
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Equivalent to</p>
+                        <div style="display: flex; align-items: baseline;">
+                            <span id="result-amount" style="font-size: 2.5rem; font-weight: bold; color: #2e7d32;">0.00</span>
+                            <span id="result-currency" style="margin-left: 0.5rem; font-size: 1.5rem; font-weight: 500; color: #2e7d32;">₩</span>
+                        </div>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Exchange rate: 1 CNY = <span id="display-rate">195.14</span> <span id="display-code">KRW</span></p>
                     </div>
                 </div>
                 
-                <div class="language-card">
-                    <div class="language-image">
-                        <img src="https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="英文支持">
-                    </div>
-                    <div class="language-content">
-                        <h3>English</h3>
-                        <span class="language-status status-available">Available</span>
-                        <p class="language-description">Our English version is crafted by native speakers to provide an authentic experience of Jiangnan's charm. Discover the poetic water towns, exquisite gardens, and culinary delights through culturally nuanced descriptions.</p>
-                        <a href="#" class="language-button" id="viewEnglish">Browse in English</a>
+                <!-- 购买力说明 -->
+                <div style="background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 2rem;">
+                    <h2 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: #2e7d32;">💰 What can you buy with this amount?</h2>
+                    <div id="purchasing-power" style="color: #666; line-height: 1.6;">
+                        In South Korea, this amount (about 0 KRW) can buy:
+                        <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>One serving of traditional bibimbap</li>
+                            <li>Two cups of coffee at a café</li>
+                            <li>Three bottles of soft drinks</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            
-            <div class="language-info">
-                <h3>关于我们的语言支持</h3>
-                <p>江南旅游博客致力于提供最地道、最准确的旅游内容。我们深知，真正优质的旅游体验需要文化上的理解与共鸣，而语言是连接文化的桥梁。</p>
-                <p>我们的中文和英文内容均由相应语言的母语编辑撰写，而非简单翻译。中文版着重展现江南水乡的诗意与韵味，使用地道的表达方式描绘中国传统文化的精髓；英文版则专为英语读者量身打造，通过西方人熟悉的表达方式和文化参照，让他们能够真正理解并欣赏江南的独特魅力。</p>
-                <p>无论您使用哪种语言浏览，我们都致力于为您提供最地道、最贴近文化本质的旅游体验。</p>
+                
+                <!-- 页脚信息 -->
+                <div style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 2rem;">
+                    <p>Exchange rates based on People's Bank of China data (August 28, 2025)</p>
+                    <p style="margin-top: 0.5rem;">For reference only. Actual rates may vary.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -393,10 +445,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="index.html#home">首页</a>
-                    <a href="index.html#blog">博客</a>
-                    <a href="pricing.html">定价</a>
-                    <a href="language.html">语言</a>
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#blog">Blog</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="language.html">Price Converter</a>
                 </div>
                 <div class="copyright">
                     &copy; 2023 江南旅游博客 版权所有
@@ -406,55 +458,199 @@
     </footer>
 
     <script>
-        // 语言切换功能
+        // 货币转换器功能
+        const cnyInput = document.getElementById('cny-amount');
+        const currencySelect = document.getElementById('currency-select');
+        const resultAmount = document.getElementById('result-amount');
+        const resultCurrency = document.getElementById('result-currency');
+        const displayRate = document.getElementById('display-rate');
+        const displayCode = document.getElementById('display-code');
+        const purchasingPower = document.getElementById('purchasing-power');
+        const numberButtons = document.querySelectorAll('.number-btn');
+        const clearButton = document.getElementById('clear-btn');
+        const deleteButton = document.getElementById('delete-btn');
+        
+        // 购买力数据
+        const purchasingPowerData = {
+            KRW: {
+                intro: "In South Korea, this amount (about {{amount}} KRW) can buy:",
+                items: [
+                    "One serving of traditional bibimbap",
+                    "Two cups of coffee at a café", 
+                    "Three bottles of soft drinks"
+                ]
+            },
+            USD: {
+                intro: "In the United States, this amount (about {{amount}} USD) can buy:",
+                items: [
+                    "A fast food meal combo",
+                    "Two to three cups of coffee",
+                    "Four to five bottles of water"
+                ]
+            },
+            SGD: {
+                intro: "In Singapore, this amount (about {{amount}} SGD) can buy:",
+                items: [
+                    "A plate of Hainanese chicken rice",
+                    "Two MRT/LRT tickets",
+                    "Three cans of local beer"
+                ]
+            },
+            THB: {
+                intro: "In Thailand, this amount (about {{amount}} THB) can buy:",
+                items: [
+                    "One serving of pad thai with drink",
+                    "Three coconuts",
+                    "Two rides on a tuk-tuk (short distance)"
+                ]
+            },
+            MYR: {
+                intro: "In Malaysia, this amount (about {{amount}} MYR) can buy:",
+                items: [
+                    "Two plates of nasi lemak",
+                    "Four cups of teh tarik",
+                    "One movie ticket (matinee)"
+                ]
+            },
+            JPY: {
+                intro: "In Japan, this amount (about {{amount}} JPY) can buy:",
+                items: [
+                    "One bowl of ramen",
+                    "Two cans of coffee from a vending machine",
+                    "Three onigiri rice balls"
+                ]
+            },
+            RUB: {
+                intro: "In Russia, this amount (about {{amount}} RUB) can buy:",
+                items: [
+                    "Two servings of borscht with bread",
+                    "Five cups of tea or coffee",
+                    "Three subway tickets in Moscow"
+                ]
+            },
+            GBP: {
+                intro: "In the United Kingdom, this amount (about {{amount}} GBP) can buy:",
+                items: [
+                    "A pub meal",
+                    "Two cups of coffee at a café",
+                    "Three pints of beer"
+                ]
+            },
+            AUD: {
+                intro: "In Australia, this amount (about {{amount}} AUD) can buy:",
+                items: [
+                    "A casual lunch",
+                    "Two large coffees",
+                    "Four bottles of water"
+                ]
+            },
+            IDR: {
+                intro: "In Indonesia, this amount (about {{amount}} IDR) can buy:",
+                items: [
+                    "Three servings of nasi goreng",
+                    "Ten cups of local coffee",
+                    "Five rides on a becak (rickshaw)"
+                ]
+            }
+        };
+        
+        // 计算器功能
+        numberButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (cnyInput.value === '0' || cnyInput.value === '') {
+                    cnyInput.value = button.textContent;
+                } else {
+                    cnyInput.value += button.textContent;
+                }
+                updateResult();
+            });
+        });
+        
+        // 清除按钮
+        clearButton.addEventListener('click', () => {
+            cnyInput.value = '0';
+            updateResult();
+        });
+        
+        // 删除按钮
+        deleteButton.addEventListener('click', () => {
+            if (cnyInput.value.length > 1) {
+                cnyInput.value = cnyInput.value.slice(0, -1);
+            } else {
+                cnyInput.value = '0';
+            }
+            updateResult();
+        });
+        
+        // 计算并更新结果
+        function updateResult() {
+            const cnyAmount = parseFloat(cnyInput.value) || 0;
+            const selectedOption = currencySelect.options[currencySelect.selectedIndex];
+            const exchangeRate = parseFloat(selectedOption.dataset.rate);
+            const currencySymbol = selectedOption.dataset.symbol;
+            const currencyCode = selectedOption.value;
+            
+            // 计算结果
+            const result = cnyAmount * exchangeRate;
+            
+            // 更新显示
+            resultAmount.textContent = result.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            resultCurrency.textContent = currencySymbol;
+            displayRate.textContent = exchangeRate;
+            displayCode.textContent = currencyCode;
+            
+            // 更新购买力说明
+            updatePurchasingPower(currencyCode, result);
+        }
+        
+        // 更新购买力说明
+        function updatePurchasingPower(currencyCode, amount) {
+            const data = purchasingPowerData[currencyCode];
+            if (!data) return;
+            
+            const formattedAmount = amount.toLocaleString(undefined, {
+                maximumFractionDigits: 0
+            });
+            
+            let html = `<p>${data.intro.replace('{{amount}}', formattedAmount)}</p>`;
+            html += '<ul style="list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem;">';
+            data.items.forEach(item => {
+                html += `<li>${item}</li>`;
+            });
+            html += '</ul>';
+            
+            purchasingPower.innerHTML = html;
+        }
+        
+        // 事件监听
+        cnyInput.addEventListener('input', updateResult);
+        currencySelect.addEventListener('change', updateResult);
+        
+        // 语言切换功能（保留原有功能）
         function changeLanguage() {
             const select = document.getElementById('languageSelect');
             const selectedLanguage = select.value;
             const flagImage = document.querySelector('.language-selector img');
             
-            // 更新国旗图标
             if (selectedLanguage === 'zh') {
                 flagImage.src = 'https://flagcdn.com/w20/cn.png';
                 flagImage.alt = '中文';
-                
-                // 切换到中文界面
-                document.title = '语言支持 - 江南旅游博客';
-                document.querySelector('.section-title').textContent = '语言支持';
-                // 这里可以添加更多元素的语言切换
-                
+                document.title = 'Price Converter - 江南旅游博客';
+                document.querySelector('.section-title').textContent = 'Price Converter';
             } else if (selectedLanguage === 'en') {
                 flagImage.src = 'https://flagcdn.com/w20/us.png';
                 flagImage.alt = 'English';
-                
-                // 切换到英文界面
-                document.title = 'Language Support - Jiangnan Travel Blog';
-                document.querySelector('.section-title').textContent = 'Language Support';
-                // 这里可以添加更多元素的语言切换
-            }
-            
-            // 提示用户
-            if (selectedLanguage === 'zh') {
-                alert('已切换到中文界面');
-            } else {
-                alert('Switched to English interface');
+                document.title = 'Price Converter - Jiangnan Travel Blog';
+                document.querySelector('.section-title').textContent = 'Price Converter';
             }
         }
         
-        // 添加语言版本切换事件
+        // 初始化
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('viewChinese').addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.setItem('preferredLanguage', 'zh');
-                window.location.href = 'index.html';
-            });
-            
-            document.getElementById('viewEnglish').addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.setItem('preferredLanguage', 'en');
-                // 这里应该指向英文版主页，暂时使用同一个页面
-                alert('English version will be available soon. We are working on creating authentic English content.');
-                window.location.href = 'index.html';
-            });
+            updateResult();
         });
     </script>
 </body>

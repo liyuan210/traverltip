@@ -197,6 +197,18 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
 
+        /* Stripe按钮样式 */
+        stripe-buy-button {
+            display: block !important;
+            margin-top: auto;
+            width: 100%;
+        }
+        
+        stripe-buy-button iframe {
+            width: 100% !important;
+            border-radius: 50px !important;
+        }
+
         .pricing-info {
             max-width: 800px;
             margin: 0 auto;
@@ -381,7 +393,14 @@
                             <li>Emergency contact service</li>
                             <li>3-month post-travel consultation</li>
                         </ul>
-                        <a href="#" class="pricing-button">Buy Now</a>
+                        <div style="margin-top: auto;">
+                            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+                            <stripe-buy-button
+                              buy-button-id="buy_btn_1S25Go03BnmWbC1Ydivhr8R6"
+                              publishable-key="pk_live_51RPHUc03BnmWbC1YfdAbmYZSlnu8v1OtlLGObcQA1E1T0Beifs8BItErrxx8SaSSldJXEeNEHhB6Td78vmco3qYu00o9s3z9sm"
+                            >
+                            </stripe-buy-button>
+                        </div>
                     </div>
                 </div>
                 
