@@ -176,6 +176,25 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
+        .blog-card.featured {
+            border: 2px solid #d4af37;
+            position: relative;
+        }
+
+        .blog-card.featured::before {
+            content: "FEATURED";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #d4af37;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+
         .blog-image {
             height: 200px;
             background-size: cover;
@@ -529,6 +548,18 @@
             <h2 class="section-title">Latest Travel Stories</h2>
             <div class="blog-grid" id="blogGrid">
                 <!-- Blog content will be dynamically added via JavaScript -->
+                <div class="blog-card featured">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Shanghai-Hangzhou Business & Leisure Journey" class="lazy-image">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Shanghai-Hangzhou Business & Leisure Journey: Perfect Balance of Work and Travel</h3>
+                        <div class="blog-date">September 2, 2025</div>
+                        <p class="blog-excerpt">Complete travel guide from USA to Shanghai and Hangzhou, combining business work with leisure vacation. Detailed transportation, accommodation, and dining recommendations. Experience The Bund's dazzling night views and Thousand Island Lake's serene beauty...</p>
+                        <a href="articles/shanghai-hangzhou-tour_en.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                
                 <div class="blog-card">
                     <div class="blog-image">
                         <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="西湖美景" class="lazy-image">
