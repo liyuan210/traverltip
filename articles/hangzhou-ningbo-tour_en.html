@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangzhou & Ningbo 5-Day Deep Travel Guide - Jiangnan Travel Blog</title>
+    <meta name="description" content="Comprehensive 5-day travel guide for Hangzhou and Ningbo, including transportation, accommodation, dining, and attractions to make your Jiangnan journey perfect.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFDMK2E8WB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VFDMK2E8WB');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1203497357786022"
+         crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #43a047 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Article */
+        .article {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .article-date {
+            margin-right: 1.5rem;
+        }
+
+        .article-author {
+            font-style: italic;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: #2e7d32;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .article-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">Jiangnan Travel Blog</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <li><a href="../index.html#pricing">Pricing</a></li>
+                        <li><a href="../index.html#language">Language</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Section -->
+    <section class="article">
+        <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-navigation" style="margin-bottom: 2rem; padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
+                <a href="../index.html" style="display: inline-flex; align-items: center; color: #2e7d32; text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border: 1px solid #2e7d32; border-radius: 5px; transition: all 0.3s ease;">
+                    <i class="fa fa-arrow-left" style="margin-right: 0.5rem;"></i>
+                    Back to Home
+                </a>
+            </div>
+            
+            <div class="article-header">
+                <h1 class="article-title">Hangzhou & Ningbo 5-Day Deep Travel Guide</h1>
+                <div class="article-meta">
+                    <span class="article-date">Published: January 16, 2025</span>
+                    <span class="article-author">Author: Jiangnan Travel Expert</span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Beautiful scenery of Hangzhou West Lake" class="article-image">
+            </div>
+            <div class="article-content">
+                <p>The Jiangnan region is renowned worldwide for its profound historical and cultural heritage and beautiful natural scenery. Hangzhou and Ningbo, as two pearls of Jiangnan, each possess unique charm. This 5-day deep travel guide will take you to experience the poetry of West Lake, the Zen spirit of Lingyin Temple, as well as Ningbo's maritime culture and scholarly atmosphere.</p>
+                
+                <h2>I. Transportation Arrangements</h2>
+                
+                <h3>(1) Shanghai - Hangzhou</h3>
+                <p>There are multiple train options from Shanghai to Hangzhou. Here are some train information for your reference:</p>
+                <div style="overflow-x: auto; margin: 1rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                        <thead>
+                            <tr style="background-color: #f5f5f5;">
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Train No.</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Departure</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Arrival</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Dep. Time</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Arr. Time</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Duration</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">G7541</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">Shanghai Hongqiao</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">Hangzhou East</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">05:52</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">06:51</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">59 minutes</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">2nd Class ¥58</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">G1321</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">Shanghai Hongqiao</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">Hangzhou East</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">06:10</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">06:56</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">46 minutes</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">2nd Class ¥73</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>(2) Hangzhou - Ningbo</h3>
+                <p>Train services from Hangzhou to Ningbo are also abundant. Recommended trains:</p>
+                <ul>
+                    <li><strong>G7659</strong>: Hangzhou East 06:25 - Ningbo 07:44, 2nd Class ¥57</li>
+                    <li><strong>G7541</strong>: Hangzhou East 06:55 - Ningbo 07:49, 2nd Class ¥57</li>
+                    <li><strong>D3123</strong>: Hangzhou East 07:20 - Ningbo 08:18, 2nd Class ¥57</li>
+                </ul>
+
+                <h2>II. Detailed Itinerary</h2>
+                
+                <h3>Day 1: Hangzhou - West Lake Area</h3>
+                <p><strong>Morning</strong>: After arriving in Hangzhou, check into your hotel. Then visit West Lake Scenic Area, Hangzhou's iconic attraction, famously described as "West Lake is like a beautiful woman, charming in both light and heavy makeup."</p>
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beautiful scenery of Hangzhou West Lake" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏞️ West Lake Scenic Area</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Ticket Price</strong>: Free</p>
+                    <p><strong>Visit Duration</strong>: About 4 hours</p>
+                    <p><strong>Introduction</strong>: West Lake is surrounded by mountains on three sides, with streams flowing into it and numerous springs beneath. This elegant and beautiful lake has been praised by many poets and scholars. The scenic area includes one mountain, two pagodas, three islands, three causeways, ten scenes, and many other natural and cultural landscapes.</p>
+                </div>
+                
+                <p><strong>Noon</strong>: Enjoy Hangzhou specialties at restaurants around West Lake, such as Shrimp and Eel Noodles - smooth noodles, tender shrimp, crispy eel, and delicious flavor.</p>
+                
+                <p><strong>Afternoon</strong>: Visit Yue Fei Temple, a memorial site for the anti-Jin hero Yue Fei.</p>
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yue Fei Temple scenic area" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏛️ Yue Fei Temple Scenic Area</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Ticket Price</strong>: ¥25</p>
+                    <p><strong>Visit Duration</strong>: About 2 hours</p>
+                    <p><strong>Introduction</strong>: Yue Fei Temple was first built in the 14th year of Jiading in the Southern Song Dynasty (1221). It was renamed "Zhonglie Temple" during the Jingtai period of Ming Dynasty, and has survived through Yuan, Ming, Qing, and Republican periods.</p>
+                </div>
+
+                <p><strong>Evening</strong>: Enjoy the night view by West Lake, with the option to watch the "Impression West Lake - Memories of Hangzhou" performance.</p>
+
+                <h3>Day 2: Hangzhou - Lingyin Temple & Feilai Peak - Faxi Temple</h3>
+                <p><strong>Morning</strong>: Visit Lingyin Temple and Feilai Peak Scenic Area, which features numerous stone carvings and ancient temples.</p>
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lingyin Temple Feilai Peak" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏔️ Lingyin Temple & Feilai Peak Scenic Area</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Ticket Price</strong>: ¥50 (Lingyin Temple requires separate ticket ¥30)</p>
+                    <p><strong>Visit Duration</strong>: About 3 hours</p>
+                    <p><strong>Introduction</strong>: The peaks and strange rocks around Lingyin are magnificent, with extraordinary scenery. Indian monk Huili said: "This is a small ridge of Vulture Peak in Central India, but I don't know how it flew here?" Hence the name "Feilai Peak" (Flying Peak).</p>
+                </div>
+
+                <p><strong>Afternoon</strong>: Visit Faxi Temple (Upper Tianzhu), a famous temple in Hangzhou known for answered prayers, and the birthplace of China's White-robed Guanyin.</p>
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Faxi Temple" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏯 Upper Tianzhu Faxi Temple</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Ticket Price</strong>: ¥10</p>
+                    <p><strong>Visit Duration</strong>: About 2 hours</p>
+                    <p><strong>Introduction</strong>: Faxi Temple was built in the 10th century with over a thousand years of history. The temple has buildings like Sutra Repository, Liangfeng Hall, and Thousand Buddha Pavilion, surrounded by scenic spots like Baiyun Peak and Rudou Peak.</p>
+                </div>
+
+                <h3>Day 3: Hangzhou - Nine Creeks & Misty Trees - Hangzhou Songcheng</h3>
+                <p><strong>Morning</strong>: Visit Nine Creeks & Misty Trees, where beautiful "misty tree" scenery forms after rain, making it a popular family destination.</p>
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nine Creeks & Misty Trees natural scenery" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🌿 Nine Creeks & Misty Trees</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Ticket Price</strong>: Free</p>
+                    <p><strong>Visit Duration</strong>: About 3 hours</p>
+                    <p><strong>Introduction</strong>: Nine Creeks is formed by numerous small streams converging into a "Y"-shaped creek, lined with lush trees and extensive tea gardens.</p>
+                </div>
+
+                <p><strong>Afternoon</strong>: Visit Hangzhou Songcheng, a theme park that transcends time and challenges imagination, featuring the large-scale song and dance show "Songcheng Eternal Love."</p>
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hangzhou Songcheng scenic area" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🎭 Hangzhou Songcheng</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Ticket Price</strong>: ¥320</p>
+                    <p><strong>Visit Duration</strong>: About 4 hours</p>
+                    <p><strong>Introduction</strong>: The main show "Songcheng Eternal Love" is ranked alongside Las Vegas' "O" show and Paris' Moulin Rouge as one of the "World's Top Three Shows." The park features East Street, West Street, North Street, presenting a prosperous Song Dynasty atmosphere.</p>
+                </div>
+
+                <h3>Day 4: Ningbo - Tianyi Pavilion Museum - Old Bund</h3>
+                <p><strong>Morning</strong>: Take the train to Ningbo, then visit Tianyi Pavilion Museum, China's oldest surviving private library.</p>
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ningbo Tianyi Pavilion Museum" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>📚 Tianyi Pavilion Museum</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Ticket Price</strong>: ¥30</p>
+                    <p><strong>Visit Duration</strong>: About 3 hours</p>
+                    <p><strong>Introduction</strong>: Tianyi Pavilion Museum features book culture as its specialty. The main building, Tianyi Pavilion Library, is one of the world's three earliest surviving private libraries. The park has East Garden and South Garden with rockeries, ponds, and pavilions.</p>
+                </div>
+
+                <p><strong>Afternoon</strong>: Visit Ningbo Old Bund, one of China's earliest bunds, featuring many European-style buildings and bars.</p>
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ningbo Old Bund night view" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🌃 Ningbo Old Bund</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Ticket Price</strong>: Free</p>
+                    <p><strong>Visit Duration</strong>: About 3 hours</p>
+                    <p><strong>Introduction</strong>: Old Bund opened in 1844 and is one of the birthplaces of Ningbo's modern commercial culture. It features numerous bars, restaurants, and cafes, making it a great place for leisure and entertainment.</p>
+                </div>
+
+                <h3>Day 5: Ningbo - Departure</h3>
+                <p><strong>Morning</strong>: Free time in downtown Ningbo to purchase local specialties like Ningbo rice cakes and Fenghua honey peaches.</p>
+                <p><strong>Afternoon</strong>: According to your booked train schedule, head to the railway station and take the train back to Shanghai, ending your pleasant journey.</p>
+
+                <h2>III. Accommodation Recommendations</h2>
+                
+                <h3>Hangzhou Accommodation</h3>
+                <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏨 Hangzhou West Lake State Guesthouse</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Price Range</strong>: ¥2000-5000/night</p>
+                    <p><strong>Features</strong>: Located within West Lake core scenic area with beautiful environment and pleasant scenery. Complete hotel facilities with attentive service.</p>
+                </div>
+                
+                <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏨 Hangzhou Huagang HNA Resort Hotel</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Price Range</strong>: ¥500-1000/night</p>
+                    <p><strong>Features</strong>: Close to West Lake with convenient transportation. Clean and comfortable rooms with good value for money.</p>
+                </div>
+
+                <h3>Ningbo Accommodation</h3>
+                <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏨 Park Hyatt Ningbo</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Price Range</strong>: ¥1500-3000/night</p>
+                    <p><strong>Features</strong>: Located by East Qian Lake with beautiful scenery and unique architectural style. Provides high-end accommodation services and rich leisure facilities.</p>
+                </div>
+
+                <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🏨 Ningbo Nanyuan Universal Hotel</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Price Range</strong>: ¥400-800/night</p>
+                    <p><strong>Features</strong>: Located in city center with convenient transportation. Complete hotel facilities with good service quality.</p>
+                </div>
+
+                <h2>IV. Food Recommendations</h2>
+                
+                <h3>Hangzhou Cuisine</h3>
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hangzhou Shrimp and Eel Noodles" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #fff8dc; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🍜 Shrimp and Eel Noodles</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Price</strong>: ¥30-50/bowl</p>
+                    <p><strong>Features</strong>: Uses fresh, robust yellow eel, stir-fried with vegetable oil, cooked with lard, and finished with sesame oil until crispy; fresh river shrimp cleaned and coated with egg white, stir-fried until tender and white.</p>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hangzhou Beggar's Chicken" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #fff8dc; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🐔 Beggar's Chicken</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Price</strong>: ¥80-150/whole</p>
+                    <p><strong>Features</strong>: Uses tender young chicken, marinated with Shaoxing wine and soy sauce, wrapped in pork caul fat, lotus leaves, and bamboo shells, sealed with wine jar clay, and roasted over charcoal fire.</p>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hangzhou West Lake Fish in Vinegar Gravy" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #fff8dc; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🐟 West Lake Fish in Vinegar Gravy</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Price</strong>: ¥50-100/serving</p>
+                    <p><strong>Features</strong>: Uses fresh grass carp, first blanched in boiling water, then topped with sweet and sour sauce. The fish meat is tender and the flavor is sweet and sour.</p>
+                </div>
+
+                <h3>Ningbo Cuisine</h3>
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ningbo Tangyuan" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #fff8dc; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🥟 Ningbo Tangyuan (Sweet Rice Balls)</strong></p>
+                    <p><strong>Rating</strong>: ★★★★★</p>
+                    <p><strong>Price</strong>: ¥10-20/bowl</p>
+                    <p><strong>Features</strong>: Made with finely ground glutinous rice flour as skin, filled with lard, white sugar, and black sesame powder. The tangyuan skin is thin and smooth, white as mutton fat, with an oily shine.</p>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ningbo Snow Vegetable with Yellow Croaker" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #fff8dc; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🐟 Snow Vegetable with Yellow Croaker</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Price</strong>: ¥80-200/serving</p>
+                    <p><strong>Features</strong>: Yellow croaker meat is tender and fresh, while snow vegetable is salty and delicious. The combination complements each other perfectly.</p>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ningbo Red Paste Marinated Crab" style="width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: #fff8dc; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p><strong>🦀 Red Paste Marinated Crab</strong></p>
+                    <p><strong>Rating</strong>: ★★★★</p>
+                    <p><strong>Price</strong>: ¥100-300/jin</p>
+                    <p><strong>Features</strong>: Uses fresh swimming crabs, marinated in salt brine. The crab meat is tender, the roe is full, and the taste is delicious.</p>
+                    <p><strong>Note</strong>: As this is raw food, people with sensitive stomachs should consume with caution.</p>
+                </div>
+
+                <h2>Travel Tips</h2>
+                <div style="background: #e8f5e9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                    <p><strong>📅 Best Travel Season</strong>: Spring (March-May) and autumn (September-November) are the best times to visit Hangzhou and Ningbo, with pleasant weather and beautiful scenery.</p>
+                    <p><strong>🎫 Ticket Booking</strong>: It's recommended to book tickets in advance on official websites or major travel platforms, especially during holidays.</p>
+                    <p><strong>🚄 Transportation Advice</strong>: High-speed rail is the most convenient transportation method. It's recommended to book train tickets in advance.</p>
+                    <p><strong>🏨 Accommodation Booking</strong>: It's recommended to book hotels in advance, especially during peak seasons. Choose hotels near scenic areas for convenient sightseeing.</p>
+                    <p><strong>🍽️ Food Experience</strong>: Don't miss local specialties. You can learn about recommended restaurant locations and business hours in advance.</p>
+                    <p><strong>📱 Useful Apps</strong>: It's recommended to download practical apps such as map navigation, weather forecast, and food reviews.</p>
+                </div>
+                
+                <p>This comprehensive 5-day travel guide for Hangzhou and Ningbo covers transportation, accommodation, attractions, and cuisine, hoping to provide comprehensive reference for your Jiangnan journey. The beautiful scenery of Hangzhou's West Lake and Ningbo's scholarly culture will leave you with unforgettable memories. Have a pleasant trip!</p>
+                
+                <a href="../index.html#blog" class="back-button">Back to Blog List</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../index.html#home">Home</a>
+                    <a href="../index.html#blog">Blog</a>
+                    <a href="../index.html#pricing">Pricing</a>
+                    <a href="../index.html#language">Language</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Jiangnan Travel Blog. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
