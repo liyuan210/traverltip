@@ -368,6 +368,24 @@ footer {
     text-decoration: underline;
 }
 
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 .copyright {
     margin-top: 1rem;
     font-size: 0.9rem;

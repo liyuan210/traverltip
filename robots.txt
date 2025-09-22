@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jiangnan-travel.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /supabase-admin.html
+Disallow: /api/
+Disallow: /config/
+Disallow: /middleware/
+Disallow: /models/
+Disallow: /controllers/
+Disallow: /routes/
+Disallow: /scripts/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.codebuddy/
+
+# Allow important pages
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /articles/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay (optional)
+Crawl-delay: 1
