@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f6ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lakeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0277bd;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boatGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8d6e63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d4c41;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="800" height="350" fill="url(#skyGrad)"/>
+  
+  <!-- Lake -->
+  <rect x="0" y="350" width="800" height="250" fill="url(#lakeGrad)"/>
+  
+  <!-- Red boat (famous in Nanhu) -->
+  <ellipse cx="400" cy="450" rx="80" ry="15" fill="#d32f2f"/>
+  <rect x="320" y="440" width="160" height="10" fill="#b71c1c"/>
+  <!-- Boat cabin -->
+  <rect x="360" y="420" width="80" height="20" fill="url(#boatGrad)"/>
+  <polygon points="360,420 400,400 440,420" fill="#8d6e63"/>
+  
+  <!-- Pavilion on island -->
+  <ellipse cx="200" cy="380" rx="60" ry="15" fill="#4caf50"/>
+  <rect x="170" y="320" width="60" height="60" fill="#f5f5f5" stroke="#bdbdbd"/>
+  <polygon points="150,320 200,280 250,320" fill="#d32f2f"/>
+  <!-- Pavilion pillars -->
+  <rect x="180" y="320" width="6" height="60" fill="#8d6e63"/>
+  <rect x="214" y="320" width="6" height="60" fill="#8d6e63"/>
+  
+  <!-- Willow trees -->
+  <ellipse cx="100" cy="340" rx="8" ry="40" fill="#8bc34a"/>
+  <ellipse cx="650" cy="345" rx="10" ry="45" fill="#8bc34a"/>
+  
+  <!-- Willow branches -->
+  <path d="M 100 300 Q 120 320 110 350 Q 130 370 120 400" stroke="#4caf50" stroke-width="3" fill="none"/>
+  <path d="M 100 310 Q 80 330 90 360 Q 70 380 80 410" stroke="#4caf50" stroke-width="3" fill="none"/>
+  <path d="M 650 300 Q 670 320 660 350 Q 680 370 670 400" stroke="#4caf50" stroke-width="3" fill="none"/>
+  <path d="M 650 310 Q 630 330 640 360 Q 620 380 630 410" stroke="#4caf50" stroke-width="3" fill="none"/>
+  
+  <!-- Lotus leaves -->
+  <ellipse cx="300" cy="420" rx="20" ry="12" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="500" cy="480" rx="18" ry="11" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="550" cy="440" rx="22" ry="13" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="250" cy="500" rx="16" ry="10" fill="#4caf50" opacity="0.8"/>
+  
+  <!-- Lotus flowers -->
+  <circle cx="300" cy="420" r="6" fill="#e91e63"/>
+  <circle cx="550" cy="440" r="5" fill="#e91e63"/>
+  
+  <!-- Water ripples -->
+  <ellipse cx="400" cy="460" rx="60" ry="6" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="200" cy="390" rx="40" ry="4" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Monument/Memorial Hall in background -->
+  <rect x="600" y="250" width="100" height="100" fill="#f5f5f5" stroke="#bdbdbd"/>
+  <polygon points="580,250 650,200 720,250" fill="#d32f2f"/>
+  <rect x="630" y="280" width="15" height="25" fill="#8d6e63"/>
+  <rect x="655" y="280" width="15" height="25" fill="#8d6e63"/>
+  
+  <!-- Flag on boat -->
+  <rect x="420" y="400" width="3" height="30" fill="#8d6e63"/>
+  <polygon points="423,400 423,415 450,410" fill="#d32f2f"/>
+  
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" font-family="serif" font-size="36" fill="#d32f2f" font-weight="bold">嘉兴南湖</text>
+  <text x="400" y="120" text-anchor="middle" font-family="serif" font-size="18" fill="#666">Jiaxing Nanhu Lake</text>
+  
+  <!-- Clouds -->
+  <ellipse cx="150" cy="100" rx="40" ry="20" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="650" cy="110" rx="35" ry="18" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Birds -->
+  <path d="M 500 200 Q 505 195 510 200 Q 515 195 520 200" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M 300 180 Q 305 175 310 180 Q 315 175 320 180" stroke="#333" stroke-width="2" fill="none"/>
+</svg>

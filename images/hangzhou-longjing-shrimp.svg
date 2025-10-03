@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="plateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shrimpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff5252;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="teaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f1f8e9"/>
+  
+  <!-- Table surface -->
+  <ellipse cx="400" cy="500" rx="350" ry="80" fill="#8d6e63" opacity="0.3"/>
+  
+  <!-- Plate -->
+  <ellipse cx="400" cy="300" rx="200" ry="30" fill="url(#plateGrad)" stroke="#dee2e6" stroke-width="2"/>
+  
+  <!-- Shrimp pieces -->
+  <ellipse cx="350" cy="290" rx="25" ry="15" fill="url(#shrimpGrad)" transform="rotate(-20 350 290)"/>
+  <ellipse cx="400" cy="285" rx="28" ry="18" fill="url(#shrimpGrad)" transform="rotate(10 400 285)"/>
+  <ellipse cx="450" cy="295" rx="24" ry="16" fill="url(#shrimpGrad)" transform="rotate(-15 450 295)"/>
+  <ellipse cx="380" cy="310" rx="22" ry="14" fill="url(#shrimpGrad)" transform="rotate(25 380 310)"/>
+  <ellipse cx="420" cy="305" rx="26" ry="17" fill="url(#shrimpGrad)" transform="rotate(-5 420 305)"/>
+  
+  <!-- Tea leaves scattered -->
+  <ellipse cx="330" cy="280" rx="8" ry="3" fill="url(#teaGrad)" transform="rotate(45 330 280)"/>
+  <ellipse cx="470" cy="285" rx="6" ry="3" fill="url(#teaGrad)" transform="rotate(-30 470 285)"/>
+  <ellipse cx="360" cy="320" rx="7" ry="3" fill="url(#teaGrad)" transform="rotate(60 360 320)"/>
+  <ellipse cx="440" cy="320" rx="5" ry="2" fill="url(#teaGrad)" transform="rotate(-45 440 320)"/>
+  
+  <!-- Steam effect -->
+  <path d="M 320 250 Q 325 240 330 250 Q 335 240 340 250" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 460 245 Q 465 235 470 245 Q 475 235 480 245" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Title -->
+  <text x="400" y="100" text-anchor="middle" font-family="serif" font-size="36" fill="#2e7d32" font-weight="bold">龙井虾仁</text>
+  <text x="400" y="140" text-anchor="middle" font-family="serif" font-size="18" fill="#666">Longjing Shrimp</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="150" r="3" fill="#4caf50" opacity="0.7"/>
+  <circle cx="650" cy="180" r="4" fill="#4caf50" opacity="0.5"/>
+  <circle cx="100" cy="400" r="2" fill="#4caf50" opacity="0.8"/>
+  <circle cx="700" cy="420" r="3" fill="#4caf50" opacity="0.6"/>
+</svg>

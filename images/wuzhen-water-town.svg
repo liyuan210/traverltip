@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f6ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0277bd;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="houseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="800" height="300" fill="url(#skyGrad)"/>
+  
+  <!-- Water canal -->
+  <rect x="0" y="300" width="800" height="300" fill="url(#waterGrad)"/>
+  
+  <!-- Traditional houses on left side -->
+  <rect x="50" y="180" width="80" height="120" fill="url(#houseGrad)" stroke="#bdbdbd" stroke-width="1"/>
+  <rect x="140" y="170" width="70" height="130" fill="url(#houseGrad)" stroke="#bdbdbd" stroke-width="1"/>
+  <rect x="220" y="185" width="75" height="115" fill="url(#houseGrad)" stroke="#bdbdbd" stroke-width="1"/>
+  
+  <!-- Roofs -->
+  <polygon points="40,180 90,150 140,180" fill="#8d6e63"/>
+  <polygon points="130,170 175,140 220,170" fill="#8d6e63"/>
+  <polygon points="210,185 247.5,155 295,185" fill="#8d6e63"/>
+  
+  <!-- Traditional houses on right side -->
+  <rect x="500" y="175" width="85" height="125" fill="url(#houseGrad)" stroke="#bdbdbd" stroke-width="1"/>
+  <rect x="595" y="165" width="75" height="135" fill="url(#houseGrad)" stroke="#bdbdbd" stroke-width="1"/>
+  <rect x="680" y="180" width="80" height="120" fill="url(#houseGrad)" stroke="#bdbdbd" stroke-width="1"/>
+  
+  <!-- Roofs on right -->
+  <polygon points="490,175 542.5,145 595,175" fill="#8d6e63"/>
+  <polygon points="585,165 632.5,135 680,165" fill="#8d6e63"/>
+  <polygon points="670,180 720,150 770,180" fill="#8d6e63"/>
+  
+  <!-- Windows -->
+  <rect x="70" y="220" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="100" y="220" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="160" y="210" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="185" y="210" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="240" y="225" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="265" y="225" width="15" height="20" fill="#333" opacity="0.8"/>
+  
+  <rect x="520" y="215" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="545" y="215" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="615" y="205" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="640" y="205" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="700" y="220" width="15" height="20" fill="#333" opacity="0.8"/>
+  <rect x="725" y="220" width="15" height="20" fill="#333" opacity="0.8"/>
+  
+  <!-- Stone bridge -->
+  <path d="M 300 300 Q 400 250 500 300" stroke="#78909c" stroke-width="20" fill="none"/>
+  <path d="M 300 300 Q 400 260 500 300" stroke="#90a4ae" stroke-width="15" fill="none"/>
+  
+  <!-- Bridge railings -->
+  <rect x="320" y="275" width="3" height="15" fill="#78909c"/>
+  <rect x="340" y="270" width="3" height="15" fill="#78909c"/>
+  <rect x="360" y="267" width="3" height="15" fill="#78909c"/>
+  <rect x="380" y="265" width="3" height="15" fill="#78909c"/>
+  <rect x="400" y="264" width="3" height="15" fill="#78909c"/>
+  <rect x="420" y="265" width="3" height="15" fill="#78909c"/>
+  <rect x="440" y="267" width="3" height="15" fill="#78909c"/>
+  <rect x="460" y="270" width="3" height="15" fill="#78909c"/>
+  <rect x="480" y="275" width="3" height="15" fill="#78909c"/>
+  
+  <!-- Traditional boats -->
+  <ellipse cx="200" cy="380" rx="50" ry="8" fill="#8d6e63"/>
+  <rect x="150" y="375" width="100" height="5" fill="#a1887f"/>
+  <!-- Boat cover -->
+  <path d="M 160 375 Q 200 360 240 375" stroke="#6d4c41" stroke-width="3" fill="none"/>
+  
+  <ellipse cx="600" cy="420" rx="45" ry="7" fill="#8d6e63"/>
+  <rect x="555" y="416" width="90" height="4" fill="#a1887f"/>
+  <path d="M 565 416 Q 600 405 635 416" stroke="#6d4c41" stroke-width="3" fill="none"/>
+  
+  <!-- Lanterns -->
+  <ellipse cx="90" cy="160" rx="8" ry="12" fill="#f44336"/>
+  <rect x="88" y="148" width="4" height="8" fill="#8d6e63"/>
+  <ellipse cx="175" cy="155" rx="8" ry="12" fill="#f44336"/>
+  <rect x="173" y="143" width="4" height="8" fill="#8d6e63"/>
+  
+  <ellipse cx="542" cy="158" rx="8" ry="12" fill="#f44336"/>
+  <rect x="540" y="146" width="4" height="8" fill="#8d6e63"/>
+  <ellipse cx="632" cy="150" rx="8" ry="12" fill="#f44336"/>
+  <rect x="630" y="138" width="4" height="8" fill="#8d6e63"/>
+  
+  <!-- Water reflections -->
+  <ellipse cx="200" cy="390" rx="40" ry="3" fill="#ffffff" opacity="0.3"/>
+  <ellipse cx="600" cy="430" rx="35" ry="3" fill="#ffffff" opacity="0.3"/>
+  <ellipse cx="400" cy="350" rx="60" ry="4" fill="#ffffff" opacity="0.2"/>
+  
+  <!-- Willow tree -->
+  <ellipse cx="350" cy="280" rx="6" ry="30" fill="#8bc34a"/>
+  <path d="M 350 250 Q 365 265 360 290 Q 375 305 370 330" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <path d="M 350 255 Q 335 270 340 295 Q 325 310 330 335" stroke="#4caf50" stroke-width="2" fill="none"/>
+  
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" font-family="serif" font-size="36" fill="#0277bd" font-weight="bold">乌镇水乡</text>
+  <text x="400" y="120" text-anchor="middle" font-family="serif" font-size="18" fill="#666">Wuzhen Water Town</text>
+  
+  <!-- Clouds -->
+  <ellipse cx="150" cy="100" rx="40" ry="20" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="170" cy="90" rx="30" ry="15" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="650" cy="110" rx="35" ry="18" fill="#ffffff" opacity="0.8"/>
+</svg>

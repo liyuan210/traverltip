@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f6ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#29b6f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8d6e63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5d4037;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="800" height="400" fill="url(#skyGrad)"/>
+  
+  <!-- Water -->
+  <rect x="0" y="400" width="800" height="200" fill="url(#waterGrad)"/>
+  
+  <!-- Pavilion structure -->
+  <!-- Main pillars -->
+  <rect x="200" y="250" width="15" height="150" fill="#8d6e63"/>
+  <rect x="280" y="250" width="15" height="150" fill="#8d6e63"/>
+  <rect x="505" y="250" width="15" height="150" fill="#8d6e63"/>
+  <rect x="585" y="250" width="15" height="150" fill="#8d6e63"/>
+  
+  <!-- Roof -->
+  <polygon points="150,250 350,200 350,220 150,270" fill="url(#roofGrad)"/>
+  <polygon points="450,250 650,200 650,220 450,270" fill="url(#roofGrad)"/>
+  
+  <!-- Roof decorative edges -->
+  <polygon points="140,270 360,215 360,225 140,280" fill="#6d4c41"/>
+  <polygon points="440,270 660,215 660,225 440,280" fill="#6d4c41"/>
+  
+  <!-- Bridge -->
+  <ellipse cx="400" cy="420" rx="100" ry="20" fill="#8d6e63"/>
+  <rect x="300" y="410" width="200" height="10" fill="#a1887f"/>
+  
+  <!-- Bridge railings -->
+  <rect x="310" y="405" width="3" height="15" fill="#8d6e63"/>
+  <rect x="330" y="405" width="3" height="15" fill="#8d6e63"/>
+  <rect x="350" y="405" width="3" height="15" fill="#8d6e63"/>
+  <rect x="450" y="405" width="3" height="15" fill="#8d6e63"/>
+  <rect x="470" y="405" width="3" height="15" fill="#8d6e63"/>
+  <rect x="490" y="405" width="3" height="15" fill="#8d6e63"/>
+  
+  <!-- Willow tree -->
+  <ellipse cx="100" cy="350" rx="8" ry="50" fill="#8bc34a"/>
+  <!-- Willow branches -->
+  <path d="M 100 300 Q 120 320 110 350 Q 130 370 120 400" stroke="#4caf50" stroke-width="3" fill="none"/>
+  <path d="M 100 310 Q 80 330 90 360 Q 70 380 80 410" stroke="#4caf50" stroke-width="3" fill="none"/>
+  <path d="M 100 320 Q 140 340 130 370 Q 150 390 140 420" stroke="#4caf50" stroke-width="3" fill="none"/>
+  
+  <!-- Lotus leaves in water -->
+  <ellipse cx="250" cy="480" rx="25" ry="15" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="320" cy="520" rx="20" ry="12" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="480" cy="500" rx="22" ry="14" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="550" cy="540" rx="18" ry="11" fill="#4caf50" opacity="0.8"/>
+  
+  <!-- Lotus flowers -->
+  <circle cx="250" cy="480" r="8" fill="#e91e63" opacity="0.9"/>
+  <circle cx="480" cy="500" r="6" fill="#e91e63" opacity="0.9"/>
+  
+  <!-- Rocks -->
+  <ellipse cx="150" cy="420" rx="30" ry="20" fill="#78909c"/>
+  <ellipse cx="650" cy="440" rx="25" ry="18" fill="#78909c"/>
+  <ellipse cx="680" cy="460" rx="20" ry="15" fill="#90a4ae"/>
+  
+  <!-- Water ripples -->
+  <ellipse cx="400" cy="450" rx="50" ry="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+  <ellipse cx="400" cy="450" rx="80" ry="8" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" font-family="serif" font-size="36" fill="#2e7d32" font-weight="bold">苏州园林</text>
+  <text x="400" y="120" text-anchor="middle" font-family="serif" font-size="18" fill="#666">Suzhou Classical Gardens</text>
+  
+  <!-- Clouds -->
+  <ellipse cx="150" cy="100" rx="40" ry="20" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="170" cy="90" rx="30" ry="15" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="650" cy="120" rx="35" ry="18" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="670" cy="110" rx="25" ry="12" fill="#ffffff" opacity="0.8"/>
+</svg>

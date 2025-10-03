@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f6ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lakeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0277bd;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fff9c4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffeb3b;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="800" height="350" fill="url(#skyGrad)"/>
+  
+  <!-- Sun -->
+  <circle cx="650" cy="120" r="40" fill="url(#sunGrad)" opacity="0.9"/>
+  
+  <!-- Mountains in background -->
+  <polygon points="0,250 150,180 300,200 450,160 600,190 800,170 800,350 0,350" fill="url(#mountainGrad)" opacity="0.7"/>
+  
+  <!-- Lake -->
+  <rect x="0" y="350" width="800" height="250" fill="url(#lakeGrad)"/>
+  
+  <!-- Pagoda (Leifeng Tower) -->
+  <rect x="120" y="200" width="40" height="120" fill="#8d6e63"/>
+  <!-- Pagoda levels -->
+  <rect x="110" y="240" width="60" height="8" fill="#6d4c41"/>
+  <rect x="110" y="260" width="60" height="8" fill="#6d4c41"/>
+  <rect x="110" y="280" width="60" height="8" fill="#6d4c41"/>
+  <rect x="110" y="300" width="60" height="8" fill="#6d4c41"/>
+  <!-- Pagoda roof -->
+  <polygon points="140,200 110,240 170,240" fill="#d32f2f"/>
+  
+  <!-- Broken Bridge -->
+  <ellipse cx="400" cy="380" rx="80" ry="15" fill="#8d6e63"/>
+  <rect x="320" y="375" width="160" height="8" fill="#a1887f"/>
+  
+  <!-- Willow trees -->
+  <ellipse cx="250" cy="320" rx="8" ry="40" fill="#8bc34a"/>
+  <ellipse cx="550" cy="330" rx="10" ry="45" fill="#8bc34a"/>
+  
+  <!-- Willow branches -->
+  <path d="M 250 280 Q 270 300 260 330 Q 280 350 270 380" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <path d="M 250 290 Q 230 310 240 340 Q 220 360 230 390" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <path d="M 550 285 Q 570 305 560 335 Q 580 355 570 385" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <path d="M 550 295 Q 530 315 540 345 Q 520 365 530 395" stroke="#4caf50" stroke-width="2" fill="none"/>
+  
+  <!-- Boat -->
+  <ellipse cx="500" cy="450" rx="40" ry="8" fill="#8d6e63"/>
+  <rect x="480" y="445" width="40" height="5" fill="#a1887f"/>
+  <!-- Boat mast -->
+  <rect x="500" y="420" width="2" height="25" fill="#8d6e63"/>
+  
+  <!-- Lotus leaves -->
+  <ellipse cx="300" cy="420" rx="20" ry="12" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="350" cy="460" rx="18" ry="11" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="600" cy="440" rx="22" ry="13" fill="#4caf50" opacity="0.8"/>
+  <ellipse cx="650" cy="480" rx="16" ry="10" fill="#4caf50" opacity="0.8"/>
+  
+  <!-- Lotus flowers -->
+  <circle cx="300" cy="420" r="6" fill="#e91e63"/>
+  <circle cx="600" cy="440" r="5" fill="#e91e63"/>
+  
+  <!-- Water ripples -->
+  <ellipse cx="400" cy="400" rx="60" ry="6" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="400" cy="400" rx="90" ry="9" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+  <ellipse cx="500" cy="460" rx="30" ry="3" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Birds -->
+  <path d="M 600 200 Q 605 195 610 200 Q 615 195 620 200" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M 650 180 Q 655 175 660 180 Q 665 175 670 180" stroke="#333" stroke-width="2" fill="none"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="200" cy="80" rx="50" ry="25" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="220" cy="70" rx="35" ry="18" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="500" cy="100" rx="40" ry="20" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="520" cy="90" rx="30" ry="15" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="serif" font-size="36" fill="#0277bd" font-weight="bold">西湖</text>
+  <text x="400" y="580" text-anchor="middle" font-family="serif" font-size="18" fill="#ffffff">West Lake - Hangzhou</text>
+</svg>
