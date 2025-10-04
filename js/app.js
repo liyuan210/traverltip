@@ -2,7 +2,7 @@
 import { travelAPI } from './modules/supabase-client.js';
 import SearchManager from './modules/search.js';
 import HomepageManager from './modules/homepage.js';
-import LanguageSwitcher from './modules/language-switcher.js';
+// import LanguageSwitcher from './modules/language-switcher.js'; // 已禁用
 
 class TravelApp {
   constructor() {
@@ -33,7 +33,7 @@ class TravelApp {
       await this.testDatabaseConnection();
       
       // 初始化核心模块
-      this.modules.languageSwitcher = new LanguageSwitcher();
+      // this.modules.languageSwitcher = new LanguageSwitcher(); // 已禁用
       this.modules.searchManager = new SearchManager();
       
       // 根据页面类型初始化对应模块

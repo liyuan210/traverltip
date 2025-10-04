@@ -14,26 +14,10 @@ export class LanguageSwitcher {
     this.updatePageContent();
   }
 
-  // 创建语言切换器UI
+  // 创建语言切换器UI - 已禁用
   createLanguageSwitcher() {
+    // 完全禁用语言切换器创建
     return;
-    switcher.className = 'language-switcher';
-    switcher.innerHTML = `
-      <div class="lang-toggle">
-        <button class="lang-btn ${this.currentLanguage === 'zh' ? 'active' : ''}" data-lang="zh">
-          中文
-        </button>
-        <button class="lang-btn ${this.currentLanguage === 'en' ? 'active' : ''}" data-lang="en">
-          EN
-        </button>
-      </div>
-    `;
-
-    // 添加到导航栏
-    const nav = document.querySelector('nav');
-    if (nav) {
-      nav.appendChild(switcher);
-    }
   }
 
   // 绑定事件
