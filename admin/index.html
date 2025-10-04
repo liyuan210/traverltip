@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 江南旅游攻略</title>
+    <style>
+        :root {
+            --primary-color: #e83e8c;
+            --secondary-color: #2c3e50;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: #333;
+        }
+
+        .admin-header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .admin-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+
+        .admin-sidebar {
+            width: 250px;
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin: 0.5rem 0;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            padding: 0.75rem 2rem;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .admin-main {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .admin-section {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), #ff6b9d);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d63384;
+        }
+
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .articles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .articles-table th,
+        .articles-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .articles-table th {
+            background: var(--light-bg);
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-published {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-draft {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                flex-direction: column;
+            }
+            
+            .admin-sidebar {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .sidebar-menu {
+                display: flex;
+                overflow-x: auto;
+                padding: 0 1rem;
+            }
+            
+            .sidebar-menu li {
+                margin: 0 0.5rem;
+                white-space: nowrap;
+            }
+            
+            .admin-main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <h1 class="admin-title">管理后台</h1>
+        <nav class="admin-nav">
+            <button class="nav-btn" onclick="window.open('/', '_blank')">查看网站</button>
+            <button class="nav-btn" onclick="logout()">退出登录</button>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#dashboard" class="menu-link active" data-section="dashboard">仪表板</a></li>
+                <li><a href="#articles" class="menu-link" data-section="articles">文章管理</a></li>
+                <li><a href="#create" class="menu-link" data-section="create">创建文章</a></li>
+                <li><a href="#settings" class="menu-link" data-section="settings">网站设置</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <!-- 仪表板 -->
+            <section id="dashboard" class="admin-section active">
+                <h2 class="section-title">仪表板</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-articles">-</div>
+                        <div class="stat-label">总文章数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="published-articles">-</div>
+                        <div class="stat-label">已发布</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-views">-</div>
+                        <div class="stat-label">总浏览量</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-cities">-</div>
+                        <div class="stat-label">覆盖城市</div>
+                    </div>
+                </div>
+                
+                <h3>最近文章</h3>
+                <div id="recent-articles" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>加载中...</p>
+                </div>
+            </section>
+
+            <!-- 文章管理 -->
+            <section id="articles" class="admin-section">
+                <h2 class="section-title">文章管理</h2>
+                <div id="articles-list" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>加载文章列表...</p>
+                </div>
+            </section>
+
+            <!-- 创建文章 -->
+            <section id="create" class="admin-section">
+                <h2 class="section-title">创建文章</h2>
+                <form id="article-form">
+                    <div class="form-group">
+                        <label class="form-label" for="title">标题 *</label>
+                        <input type="text" id="title" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="title-en">英文标题</label>
+                        <input type="text" id="title-en" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="slug">URL别名 *</label>
+                        <input type="text" id="slug" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="category">分类 *</label>
+                        <select id="category" class="form-select" required>
+                            <option value="">选择分类</option>
+                            <option value="美食攻略">美食攻略</option>
+                            <option value="景点游览">景点游览</option>
+                            <option value="住宿推荐">住宿推荐</option>
+                            <option value="交通指南">交通指南</option>
+                            <option value="购物娱乐">购物娱乐</option>
+                            <option value="文化体验">文化体验</option>
+                            <option value="行程规划">行程规划</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="city">城市 *</label>
+                        <input type="text" id="city" class="form-input" required placeholder="如：杭州、苏州、乌镇">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="excerpt">摘要</label>
+                        <textarea id="excerpt" class="form-textarea" placeholder="文章简介，用于搜索结果和社交分享"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="content">内容 *</label>
+                        <textarea id="content" class="form-textarea" style="min-height: 300px;" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="featured-image">特色图片URL</label>
+                        <input type="url" id="featured-image" class="form-input" placeholder="https://...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">
+                            <input type="checkbox" id="featured"> 设为精选文章
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">
+                            <input type="checkbox" id="published" checked> 立即发布
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">保存文章</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">重置</button>
+                </form>
+            </section>
+
+            <!-- 网站设置 -->
+            <section id="settings" class="admin-section">
+                <h2 class="section-title">网站设置</h2>
+                <form id="settings-form">
+                    <div class="form-group">
+                        <label class="form-label" for="site-title">网站标题</label>
+                        <input type="text" id="site-title" class="form-input" value="江南旅游攻略">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="site-description">网站描述</label>
+                        <textarea id="site-description" class="form-textarea">专业的江南地区旅游攻略，包含杭州、苏州、乌镇等热门目的地</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="contact-email">联系邮箱</label>
+                        <input type="email" id="contact-email" class="form-input" value="info@traveltip.com">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">保存设置</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase, travelAPI } from '../js/modules/supabase-client.js';
+
+        // 全局变量
+        let currentEditingId = null;
+
+        // 初始化管理后台
+        async function initAdmin() {
+            try {
+                // 检查认证状态
+                checkAuth();
+                
+                // 加载仪表板数据
+                await loadDashboard();
+                
+                // 绑定事件
+                bindEvents();
+                
+                console.log('✅ 管理后台初始化完成');
+            } catch (error) {
+                console.error('❌ 管理后台初始化失败:', error);
+                showAlert('管理后台初始化失败: ' + error.message, 'error');
+            }
+        }
+
+        // 检查认证状态
+        function checkAuth() {
+            const token = localStorage.getItem('admin_token');
+            if (!token) {
+                window.location.href = '/admin/login.html';
+                return;
+            }
+        }
+
+        // 绑定事件
+        function bindEvents() {
+            // 菜单切换
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const section = e.target.getAttribute('data-section');
+                    switchSection(section);
+                });
+            });
+
+            // 文章表单提交
+            document.getElementById('article-form').addEventListener('submit', handleArticleSubmit);
+            
+            // 设置表单提交
+            document.getElementById('settings-form').addEventListener('submit', handleSettingsSubmit);
+            
+            // 标题自动生成slug
+            document.getElementById('title').addEventListener('input', (e) => {
+                const slug = generateSlug(e.target.value);
+                document.getElementById('slug').value = slug;
+            });
+        }
+
+        // 切换管理面板
+        function switchSection(sectionName) {
+            // 隐藏所有面板
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // 移除所有菜单激活状态
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // 显示目标面板
+            document.getElementById(sectionName).classList.add('active');
+            document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
+            
+            // 根据面板类型加载数据
+            switch(sectionName) {
+                case 'dashboard':
+                    loadDashboard();
+                    break;
+                case 'articles':
+                    loadArticlesList();
+                    break;
+            }
+        }
+
+        // 加载仪表板
+        async function loadDashboard() {
+            try {
+                const articles = await travelAPI.getArticles();
+                const publishedArticles = articles.filter(a => a.published);
+                const totalViews = articles.reduce((sum, a) => sum + (a.view_count || 0), 0);
+                const cities = [...new Set(articles.map(a => a.city))];
+
+                // 更新统计数据
+                document.getElementById('total-articles').textContent = articles.length;
+                document.getElementById('published-articles').textContent = publishedArticles.length;
+                document.getElementById('total-views').textContent = totalViews.toLocaleString();
+                document.getElementById('total-cities').textContent = cities.length;
+
+                // 显示最近文章
+                const recentArticles = articles.slice(0, 5);
+                renderRecentArticles(recentArticles);
+
+            } catch (error) {
+                console.error('加载仪表板失败:', error);
+                showAlert('加载仪表板数据失败', 'error');
+            }
+        }
+
+        // 渲染最近文章
+        function renderRecentArticles(articles) {
+            const container = document.getElementById('recent-articles');
+            
+            if (articles.length === 0) {
+                container.innerHTML = '<p>暂无文章</p>';
+                return;
+            }
+
+            const html = `
+                <table class="articles-table">
+                    <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th>城市</th>
+                            <th>分类</th>
+                            <th>状态</th>
+                            <th>浏览量</th>
+                            <th>创建时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${articles.map(article => `
+                            <tr>
+                                <td>${article.title}</td>
+                                <td>${article.city}</td>
+                                <td>${article.category}</td>
+                                <td>
+                                    <span class="status-badge ${article.published ? 'status-published' : 'status-draft'}">
+                                        ${article.published ? '已发布' : '草稿'}
+                                    </span>
+                                </td>
+                                <td>${article.view_count || 0}</td>
+                                <td>${new Date(article.created_at).toLocaleDateString()}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+            
+            container.innerHTML = html;
+        }
+
+        // 加载文章列表
+        async function loadArticlesList() {
+            const container = document.getElementById('articles-list');
+            container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>加载文章列表...</p></div>';
+
+            try {
+                const articles = await travelAPI.getArticles();
+                
+                if (articles.length === 0) {
+                    container.innerHTML = '<p>暂无文章，<a href="#create" onclick="switchSection(\'create\')">创建第一篇文章</a></p>';
+                    return;
+                }
+
+                const html = `
+                    <table class="articles-table">
+                        <thead>
+                            <tr>
+                                <th>标题</th>
+                                <th>城市</th>
+                                <th>分类</th>
+                                <th>状态</th>
+                                <th>浏览量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${articles.map(article => `
+                                <tr>
+                                    <td>
+                                        <strong>${article.title}</strong>
+                                        ${article.featured ? '<span style="color: #e83e8c;">★</span>' : ''}
+                                    </td>
+                                    <td>${article.city}</td>
+                                    <td>${article.category}</td>
+                                    <td>
+                                        <span class="status-badge ${article.published ? 'status-published' : 'status-draft'}">
+                                            ${article.published ? '已发布' : '草稿'}
+                                        </span>
+                                    </td>
+                                    <td>${article.view_count || 0}</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="editArticle('${article.id}')" style="margin-right: 8px; padding: 4px 8px; font-size: 12px;">编辑</button>
+                                        <button class="btn btn-danger" onclick="deleteArticle('${article.id}')" style="padding: 4px 8px; font-size: 12px;">删除</button>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+                
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('加载文章列表失败:', error);
+                container.innerHTML = '<p class="alert alert-error">加载文章列表失败</p>';
+            }
+        }
+
+        // 处理文章表单提交
+        async function handleArticleSubmit(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const articleData = {
+                title: document.getElementById('title').value,
+                title_en: document.getElementById('title-en').value || null,
+                slug: document.getElementById('slug').value,
+                category: document.getElementById('category').value,
+                city: document.getElementById('city').value,
+                excerpt: document.getElementById('excerpt').value || null,
+                content: document.getElementById('content').value,
+                featured_image: document.getElementById('featured-image').value || null,
+                featured: document.getElementById('featured').checked,
+                published: document.getElementById('published').checked,
+                meta_title: document.getElementById('title').value,
+                meta_description: document.getElementById('excerpt').value || null
+            };
+
+            try {
+                if (currentEditingId) {
+                    // 更新文章
+                    await travelAPI.updateArticle(currentEditingId, articleData);
+                    showAlert('文章更新成功！', 'success');
+                } else {
+                    // 创建新文章
+                    await travelAPI.createArticle(articleData);
+                    showAlert('文章创建成功！', 'success');
+                }
+                
+                // 重置表单
+                resetForm();
+                
+                // 刷新文章列表
+                if (document.getElementById('articles').classList.contains('active')) {
+                    loadArticlesList();
+                }
+                
+            } catch (error) {
+                console.error('保存文章失败:', error);
+                showAlert('保存文章失败: ' + error.message, 'error');
+            }
+        }
+
+        // 处理设置表单提交
+        async function handleSettingsSubmit(e) {
+            e.preventDefault();
+            showAlert('设置保存成功！', 'success');
+        }
+
+        // 编辑文章
+        window.editArticle = async function(articleId) {
+            try {
+                const { data: article, error } = await supabase
+                    .from('articles')
+                    .select('*')
+                    .eq('id', articleId)
+                    .single();
+
+                if (error) throw error;
+
+                // 填充表单
+                document.getElementById('title').value = article.title || '';
+                document.getElementById('title-en').value = article.title_en || '';
+                document.getElementById('slug').value = article.slug || '';
+                document.getElementById('category').value = article.category || '';
+                document.getElementById('city').value = article.city || '';
+                document.getElementById('excerpt').value = article.excerpt || '';
+                document.getElementById('content').value = article.content || '';
+                document.getElementById('featured-image').value = article.featured_image || '';
+                document.getElementById('featured').checked = article.featured || false;
+                document.getElementById('published').checked = article.published || false;
+
+                currentEditingId = articleId;
+                
+                // 切换到编辑面板
+                switchSection('create');
+                
+                // 更新面板标题
+                document.querySelector('#create .section-title').textContent = '编辑文章';
+
+            } catch (error) {
+                console.error('加载文章失败:', error);
+                showAlert('加载文章失败: ' + error.message, 'error');
+            }
+        };
+
+        // 删除文章
+        window.deleteArticle = async function(articleId) {
+            if (!confirm('确定要删除这篇文章吗？此操作不可恢复。')) {
+                return;
+            }
+
+            try {
+                await travelAPI.deleteArticle(articleId);
+                showAlert('文章删除成功！', 'success');
+                loadArticlesList();
+            } catch (error) {
+                console.error('删除文章失败:', error);
+                showAlert('删除文章失败: ' + error.message, 'error');
+            }
+        };
+
+        // 重置表单
+        window.resetForm = function() {
+            document.getElementById('article-form').reset();
+            currentEditingId = null;
+            document.querySelector('#create .section-title').textContent = '创建文章';
+        };
+
+        // 退出登录
+        window.logout = function() {
+            localStorage.removeItem('admin_token');
+            window.location.href = '/admin/login.html';
+        };
+
+        // 生成slug
+        function generateSlug(title) {
+            return title
+                .toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .trim('-');
+        }
+
+        // 显示提示消息
+        function showAlert(message, type = 'success') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.textContent = message;
+            
+            const main = document.querySelector('.admin-main');
+            main.insertBefore(alertDiv, main.firstChild);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
+        // 初始化
+        initAdmin();
+    </script>
+</body>
+</html>
