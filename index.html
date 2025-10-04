@@ -46,7 +46,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Jiangnan Travel Blog">
     <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="zh_CN">
+
     <meta property="article:author" content="Jiangnan Travel Blog">
     <meta property="article:publisher" content="https://facebook.com/jiangnantravel">
     <meta property="fb:app_id" content="your-facebook-app-id">
@@ -90,7 +90,7 @@
               "query-input": "required name=search_term_string"
             }
           ],
-          "inLanguage": ["en", "zh-CN"]
+          "inLanguage": ["en"]
         },
         {
           "@type": "Organization",
@@ -112,7 +112,7 @@
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer service",
-            "availableLanguage": ["English", "Chinese"]
+            "availableLanguage": ["English"]
           }
         },
         {
@@ -199,7 +199,7 @@
 
 </head>
 <body>
-    <!-- 搜索覆盖层 -->
+
     <div id="search-overlay" class="search-overlay">
         <div class="search-container">
             <div class="search-header">
@@ -211,14 +211,7 @@
         </div>
     </div>
     
-    <!-- Enhanced Language Selector -->
-    <div class="language-selector" role="navigation" aria-label="Language selection" style="display:none">
-        <img src="https://flagcdn.com/w20/us.png" alt="Current language flag" id="currentFlag">
-        <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
-            <option value="en" data-flag="https://flagcdn.com/w20/us.png">English</option>
-            <option value="zh" data-flag="https://flagcdn.com/w20/cn.png">中文</option>
-        </select>
-    </div>
+
     
     <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -240,33 +233,33 @@
             <div class="header-content">
                 <div class="logo">
                     <span lang="en">Jiangnan Travel Blog</span>
-                    <span lang="zh-CN" class="logo-chinese" style="display:none">江南旅游博客</span>
+
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                        <li><a href="#blog" data-i18n="nav.blog">Travel Blog</a></li>
-                        <li><a href="pricing_en.html" data-i18n="nav.pricing">Pricing</a></li>
-                        <li><a href="language.html" data-i18n="nav.converter">Price Converter</a></li>
-                        <li><a href="about.html" data-i18n="nav.about">About</a></li>
-                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-                        <li><a href="login_register_en.html" data-i18n="nav.login">Login/Register</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Travel Blog</a></li>
+                        <li><a href="pricing_en.html">Pricing</a></li>
+                        <li><a href="language.html">Price Converter</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login_register_en.html">Login/Register</a></li>
                         <li><button id="search-btn" class="search-btn" title="Search">🔍</button></li>
-                        <li><button id="language-toggle" class="language-toggle" title="Language">EN</button></li>
-                        <li><a href="admin/login.html" data-i18n="nav.admin">Admin</a></li>
+
+                        <li><a href="admin/login.html">Admin</a></li>
                     </ul>
                 </nav>
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
                 <div class="mobile-nav">
                     <ul>
-                        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                        <li><a href="#blog" data-i18n="nav.blog">Travel Blog</a></li>
-                        <li><a href="pricing_en.html" data-i18n="nav.pricing">Pricing</a></li>
-                        <li><a href="language.html" data-i18n="nav.converter">Price Converter</a></li>
-                        <li><a href="about.html" data-i18n="nav.about">About</a></li>
-                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-                        <li><a href="login_register_en.html" data-i18n="nav.login">Login/Register</a></li>
-                        <li><a href="#" onclick="showAdmin()" data-i18n="nav.admin">Admin</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Travel Blog</a></li>
+                        <li><a href="pricing_en.html">Pricing</a></li>
+                        <li><a href="language.html">Price Converter</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login_register_en.html">Login/Register</a></li>
+                        <li><a href="#" onclick="showAdmin()">Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -279,11 +272,11 @@
             <div class="hero-content">
                 <h1>
                     <span lang="en">Welcome to Jiangnan Travel Blog</span>
-                    <span lang="zh-CN" class="hero-title-chinese" style="display:none">欢迎来到江南旅游博客</span>
+
                 </h1>
                 <p>
                     <span lang="en">Discover the poetic charm of Jiangnan, a region where ancient water towns, exquisite gardens, and culinary delights await. Follow our journey through the enchanting landscapes of southern China, where tradition and modernity blend seamlessly.</span>
-                    <span lang="zh-CN" class="hero-desc-chinese" style="display:none">探索江南的诗意魅力，这里有古老的水乡、精美的园林和美味佳肴等待着您。跟随我们的脚步，穿越中国南方迷人的风景，感受传统与现代的完美融合。</span>
+
                 </p>
                 <div class="hero-buttons">
                     <a href="#blog" class="cta-button">Latest Articles</a>
@@ -303,15 +296,15 @@
                     <div class="blog-image">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" 
                              data-src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80&fm=webp" 
-                             alt="上海杭州商务休闲之旅" 
+                             alt="Shanghai-Hangzhou Business & Leisure Journey" 
                              class="lazy-image"
                              loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>上海杭州商务休闲之旅：工作与度假的完美平衡</h3>
-                        <div class="blog-date">2025年9月2日</div>
-                        <p class="blog-excerpt">从美国到上海再到杭州的完整旅游攻略，包含商务工作与休闲度假的完美结合，详细的交通、住宿、美食推荐。体验外滩璀璨夜景与千岛湖宁静致远，感受魔都繁华与江南韵味...</p>
-                        <a href="articles/shanghai-hangzhou-tour.html" class="read-more">阅读更多 →</a>
+                        <h3>Shanghai-Hangzhou Business & Leisure Journey: Balancing Work and Vacation</h3>
+                        <div class="blog-date">September 2, 2025</div>
+                        <p class="blog-excerpt">A complete guide from the USA to Shanghai and Hangzhou, combining business with leisure. Practical tips on transport, stays and food—from the Bund’s dazzling night skyline to the serenity of Qiandao Lake.</p>
+                        <a href="articles/shanghai-hangzhou-tour_en.html" class="read-more">Read More →</a>
                     </div>
                 </div>
                 
@@ -319,14 +312,14 @@
                     <div class="blog-image">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" 
                              data-src="https://s.coze.cn/image/laRk9ry12X4/" 
-                             alt="杭州宁波4晚5天深度游" 
+                             alt="Hangzhou & Ningbo 5-Day Deep Tour" 
                              class="lazy-image"
                              loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>杭州宁波4晚5天深度游：西湖到天一阁的完美江南之旅</h3>
-                        <div class="blog-date">2025年9月17日</div>
-                        <p class="blog-excerpt">详细的杭州宁波4晚5天旅游攻略，从西湖美景到天一阁藏书楼，从灵隐寺到宋城千古情，完整的交通、住宿、美食、景点推荐，让您的江南之旅更加完美...</p>
+                        <h3>Hangzhou–Ningbo 5 Days: From West Lake to Tianyi Pavilion</h3>
+                        <div class="blog-date">September 17, 2025</div>
+                        <p class="blog-excerpt">A detailed 5-day plan covering West Lake, Lingyin Temple, Song Dynasty Town, and Ningbo’s Tianyi Pavilion—complete with transport, hotels, dining, and sights for a seamless Jiangnan journey.</p>
                         <a href="articles/hangzhou-ningbo-tour.html" class="read-more">阅读更多 →</a>
                     </div>
                 </div>
@@ -335,14 +328,14 @@
                     <div class="blog-image">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' fill='%23e0e0e0'%3E%3Crect width='800' height='600'/%3E%3Ctext x='400' y='300' font-family='Arial' font-size='30' text-anchor='middle' fill='%23999999'%3ELoading...%3C/text%3E%3C/svg%3E" 
                              data-src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80&fm=webp" 
-                             alt="西湖美景 - West Lake scenic beauty" 
+                             alt="West Lake scenic beauty" 
                              class="lazy-image"
                              loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>西湖一日闲游：从晨光到暮色的环湖漫记</h3>
+                        <h3>West Lake in a Day: From Dawn to Dusk Around the Lake</h3>
                         <div class="blog-date">August 29, 2025</div>
-                        <p class="blog-excerpt">跟随我们的脚步，体验西湖从晨光到暮色的一日游，感受这座千年古湖的诗意与浪漫。从断桥残雪到三潭印月，从苏堤春晓到雷峰夕照，每一处景致都有着动人的故事...</p>
+                        <p class="blog-excerpt">Experience West Lake from first light to sunset—Broken Bridge, Three Pools Mirroring the Moon, Su Causeway, and Leifeng Pagoda—all wrapped in timeless poetry and romance.</p>
                         <a href="articles/xihu-tour.html" class="read-more">Read More →</a>
                     </div>
                 </div>
@@ -367,14 +360,14 @@
                     <div class="blog-image">
                         <img src="images/placeholder.svg" 
                              data-src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80&fm=webp" 
-                             alt="绍兴旅游指南 - Shaoxing Travel Guide" 
+                             alt="Shaoxing Travel Guide" 
                              class="lazy-image"
                              loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>绍兴2天深度游全攻略：跟着课本游江南</h3>
+                        <h3>Shaoxing 2-Day In‑Depth Guide: A Textbook Jiangnan Journey</h3>
                         <div class="blog-date">September 1, 2025</div>
-                        <p class="blog-excerpt">从鲁迅故里到兰亭圣地，从沈园绝唱到东湖奇景，两天时间深度体验绍兴的文化魅力与水乡风情。跟着课本游江南，穿越千年文化之旅...</p>
+                        <p class="blog-excerpt">From Lu Xun’s Former Residence to the calligraphy haven of Lanting, from the romantic Shen Garden to the unique East Lake—immerse yourself in Shaoxing’s literary heritage and water-town charm in two days.</p>
                         <a href="articles/shaoxing-travel-guide.html" class="read-more">Read More →</a>
                     </div>
                 </div>
@@ -526,11 +519,11 @@
     </div>
 
     <!-- Load JavaScript -->
-    <script src="js/i18n.js"></script>
+
     <script src="js/main.js"></script>
     <script type="module" src="js/app.js"></script>
     
-    <!-- 搜索和语言切换样式 -->
+
     <style>
         .search-overlay {
             position: fixed;
@@ -589,7 +582,7 @@
             padding: 1rem;
         }
         
-        .search-btn, .language-toggle {
+        .search-btn {
             background: none;
             border: 1px solid #ddd;
             padding: 0.5rem 1rem;
@@ -599,7 +592,7 @@
             transition: all 0.3s ease;
         }
         
-        .search-btn:hover, .language-toggle:hover {
+        .search-btn:hover {
             background: var(--primary-color, #e83e8c);
             color: white;
             border-color: var(--primary-color, #e83e8c);
@@ -611,7 +604,7 @@
                 margin: 1rem;
             }
             
-            .search-btn, .language-toggle {
+            .search-btn {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
             }

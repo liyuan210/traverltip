@@ -14,15 +14,9 @@ export class TravelAPI {
     this.currentLanguage = this.detectLanguage();
   }
 
-  // 检测当前语言
+  // 检测当前语言（站点统一英文）
   detectLanguage() {
-    const path = window.location.pathname;
-    const lang = localStorage.getItem('preferredLanguage');
-    
-    if (path.includes('_en.html') || lang === 'en') {
-      return 'en';
-    }
-    return 'zh';
+    return 'en';
   }
 
   // 设置语言

@@ -23,8 +23,8 @@ export default defineConfig({
         manualChunks: {
           // 第三方库单独打包
           vendor: ['gtag'],
-          // 工具类单独打包
-          utils: ['js/i18n.js'],
+          // 工具类单独打包（i18n 已移除）
+          // utils chunk removed
           // 主要功能
           main: ['js/main.js']
         },
@@ -139,7 +139,7 @@ export default defineConfig({
 
   // 优化配置
   optimizeDeps: {
-    include: ['js/main.js', 'js/i18n.js']
+    include: ['js/main.js']
   },
 
   // 环境变量

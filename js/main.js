@@ -231,8 +231,10 @@ class TravelBlog {
         });
     }
 
+    // Force English language; remove dependency on global i18n
     initializeLanguage() {
-        initializeLanguage();
+        document.documentElement.lang = 'en';
+        localStorage.setItem('preferredLanguage', 'en');
     }
 
     setupBreadcrumb() {
@@ -265,7 +267,7 @@ class TravelBlog {
     getCurrentPageName(path) {
         const pageNames = {
             '/pricing_en.html': 'Pricing',
-            '/pricing.html': '价格',
+            '/pricing.html': 'Pricing',
             '/language.html': 'Price Converter',
             '/login_register_en.html': 'Login/Register',
             '/search.html': 'Search',

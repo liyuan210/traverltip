@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 禁用提交按钮，防止重复提交
             submitButton.disabled = true;
-            submitButton.textContent = '保存中...';
+            submitButton.textContent = 'Saving...';
             
             try {
                 // 获取当前用户
                 const { data: { session } } = await supabase.auth.getSession();
                 
                 if (!session) {
-                    showMessage('profile-message', '您需要登录才能更新个人资料', 'error');
+                    showMessage('profile-message', 'You need to sign in to update your profile', 'error');
                     return;
                 }
                 
@@ -66,17 +66,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     .eq('id', session.user.id);
                 
                 if (error) {
-                    showMessage('profile-message', error.message || '更新个人资料失败，请稍后再试', 'error');
+                    showMessage('profile-message', error.message || 'Failed to update profile, please try again later', 'error');
                 } else {
-                    showMessage('profile-message', '个人资料已更新', 'success');
+                    showMessage('profile-message', 'Profile updated', 'success');
                 }
             } catch (err) {
-                console.error('更新个人资料错误:', err);
-                showMessage('profile-message', '更新个人资料失败，请稍后再试', 'error');
+                console.error('Profile update error:', err);
+                showMessage('profile-message', 'Failed to update profile, please try again later', 'error');
             } finally {
                 // 恢复提交按钮
                 submitButton.disabled = false;
-                submitButton.textContent = '保存更改';
+                submitButton.textContent = 'Save changes';
             }
         });
     }
@@ -94,13 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 验证表单
             if (newPassword !== confirmNewPassword) {
-                showMessage('profile-message', '两次输入的新密码不一致', 'error');
+                showMessage('profile-message', 'Passwords do not match', 'error');
                 return;
             }
             
             // 禁用提交按钮，防止重复提交
             submitButton.disabled = true;
-            submitButton.textContent = '更改中...';
+            submitButton.textContent = 'Updating...';
             
             try {
                 // 更新密码
@@ -109,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (error) {
-                    showMessage('profile-message', error.message || '更改密码失败，请稍后再试', 'error');
+                    showMessage('profile-message', error.message || 'Failed to change password, please try again later', 'error');
                 } else {
-                    showMessage('profile-message', '密码已更改', 'success');
+                    showMessage('profile-message', 'Password changed', 'success');
                     
                     // 清空表单
                     document.getElementById('current-password').value = '';
@@ -119,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('confirm-new-password').value = '';
                 }
             } catch (err) {
-                console.error('更改密码错误:', err);
-                showMessage('profile-message', '更改密码失败，请稍后再试', 'error');
+                console.error('Change password error:', err);
+                showMessage('profile-message', 'Failed to change password, please try again later', 'error');
             } finally {
                 // 恢复提交按钮
                 submitButton.disabled = false;
@@ -175,7 +175,7 @@ async function loadUserArticles(userId) {
         articlesContainer.innerHTML = '';
         
         if (!articles || articles.length === 0) {
-            articlesContainer.innerHTML = '<p>您还没有发布任何游记</p>';
+            articlesContainer.innerHTML = '<p>You have not published any posts yet</p>';
             return;
         }
         
@@ -189,8 +189,8 @@ async function loadUserArticles(userId) {
                     <span>${getStatusName(article.status)}</span>
                 </div>
                 <div class="article-actions">
-                    <a href="edit-article.html?id=${article.id}" class="btn btn-sm">编辑</a>
-                    <button class="btn btn-sm" data-id="${article.id}" onclick="deleteArticle(${article.id})">删除</button>
+                    <a href="edit-article.html?id=${article.id}" class="btn btn-sm">Edit</a>
+                    <button class="btn btn-sm" data-id="${article.id}" onclick="deleteArticle(${article.id})">Delete</button>
                 </div>
             `;
             articlesContainer.appendChild(articleElement);
@@ -220,7 +220,7 @@ async function loadUserComments(userId) {
         commentsContainer.innerHTML = '';
         
         if (!comments || comments.length === 0) {
-            commentsContainer.innerHTML = '<p>您还没有发表任何评论</p>';
+            commentsContainer.innerHTML = '<p>You have not posted any comments yet</p>';
             return;
         }
         
@@ -230,11 +230,11 @@ async function loadUserComments(userId) {
             commentElement.innerHTML = `
                 <p>${comment.content}</p>
                 <div class="comment-meta">
-                    <span>评论于: ${formatDate(comment.created_at)}</span>
-                    <span>文章: <a href="article.html?id=${comment.article_id}">${comment.articles ? comment.articles.title : '未知文章'}</a></span>
+                    <span>Commented on: ${formatDate(comment.created_at)}</span>
+                    <span>Article: <a href="article.html?id=${comment.article_id}">${comment.articles ? comment.articles.title : 'Unknown article'}</a></span>
                 </div>
                 <div class="comment-actions">
-                    <button class="btn btn-sm" data-id="${comment.id}" onclick="deleteComment(${comment.id})">删除</button>
+                    <button class="btn btn-sm" data-id="${comment.id}" onclick="deleteComment(${comment.id})">Delete</button>
                 </div>
             `;
             commentsContainer.appendChild(commentElement);
@@ -246,7 +246,7 @@ async function loadUserComments(userId) {
 
 // 删除文章
 window.deleteArticle = async function(articleId) {
-    if (!confirm('确定要删除这篇文章吗？此操作无法撤销。')) {
+    if (!confirm('Are you sure you want to delete this article? This action cannot be undone.')) {
         return;
     }
     
@@ -257,10 +257,10 @@ window.deleteArticle = async function(articleId) {
             .eq('id', articleId);
         
         if (error) {
-            console.error('删除文章错误:', error);
-            showMessage('profile-message', '删除文章失败，请稍后再试', 'error');
+            console.error('Delete article error:', error);
+            showMessage('profile-message', 'Failed to delete article, please try again later', 'error');
         } else {
-            showMessage('profile-message', '文章已删除', 'success');
+            showMessage('profile-message', 'Article deleted', 'success');
             
             // 重新加载文章列表
             const { data: { session } } = await supabase.auth.getSession();
@@ -269,14 +269,14 @@ window.deleteArticle = async function(articleId) {
             }
         }
     } catch (err) {
-        console.error('删除文章错误:', err);
-        showMessage('profile-message', '删除文章失败，请稍后再试', 'error');
+        console.error('Delete article error:', err);
+        showMessage('profile-message', 'Failed to delete article, please try again later', 'error');
     }
 };
 
 // 删除评论
 window.deleteComment = async function(commentId) {
-    if (!confirm('确定要删除这条评论吗？此操作无法撤销。')) {
+    if (!confirm('Are you sure you want to delete this comment? This action cannot be undone.')) {
         return;
     }
     
@@ -287,10 +287,10 @@ window.deleteComment = async function(commentId) {
             .eq('id', commentId);
         
         if (error) {
-            console.error('删除评论错误:', error);
-            showMessage('profile-message', '删除评论失败，请稍后再试', 'error');
+            console.error('Delete comment error:', error);
+            showMessage('profile-message', 'Failed to delete comment, please try again later', 'error');
         } else {
-            showMessage('profile-message', '评论已删除', 'success');
+            showMessage('profile-message', 'Comment deleted', 'success');
             
             // 重新加载评论列表
             const { data: { session } } = await supabase.auth.getSession();
@@ -299,16 +299,16 @@ window.deleteComment = async function(commentId) {
             }
         }
     } catch (err) {
-        console.error('删除评论错误:', err);
-        showMessage('profile-message', '删除评论失败，请稍后再试', 'error');
+        console.error('Delete comment error:', err);
+        showMessage('profile-message', 'Failed to delete comment, please try again later', 'error');
     }
 };
 
 // 格式化日期
 function formatDate(dateString) {
-    if (!dateString) return '未知';
+    if (!dateString) return 'Unknown';
     const date = new Date(dateString);
-    return date.toLocaleString('zh-CN', {
+    return date.toLocaleString('en-US', {
         year: 'numeric',
         month: '2-digit',
         day: '2-digit',
@@ -320,9 +320,9 @@ function formatDate(dateString) {
 // 获取状态名称
 function getStatusName(status) {
     const statuses = {
-        'published': '已发布',
-        'draft': '草稿'
+        'published': 'Published',
+        'draft': 'Draft'
     };
     
-    return statuses[status] || status || '未知';
+    return statuses[status] || status || 'Unknown';
 }

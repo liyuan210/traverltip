@@ -21,18 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 验证表单
             if (password !== confirmPassword) {
-                showMessage('auth-message', '两次输入的密码不一致', 'error');
+                showMessage('auth-message', 'Passwords do not match', 'error');
                 return;
             }
             
             if (!terms) {
-                showMessage('auth-message', '请同意服务条款和隐私政策', 'error');
+                showMessage('auth-message', 'Please accept the Terms of Service and Privacy Policy', 'error');
                 return;
             }
             
             // 禁用提交按钮，防止重复提交
             submitButton.disabled = true;
-            submitButton.textContent = '注册中...';
+            submitButton.textContent = 'Registering...';
             
             try {
                 // 使用Supabase注册
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (error) {
-                    showMessage('auth-message', error.message || '注册失败，请稍后再试', 'error');
+                    showMessage('auth-message', error.message || 'Registration failed, please try again later', 'error');
                 } else {
                     // 创建用户资料
                     if (data.user) {
@@ -63,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             ]);
                         
                         if (profileError) {
-                            console.error('创建用户资料错误:', profileError);
+                            console.error('Create profile error:', profileError);
                         }
                     }
                     
-                    showMessage('auth-message', '注册成功！请检查您的邮箱进行验证。', 'success');
+                    showMessage('auth-message', 'Registration successful! Please check your email to verify.', 'success');
                     
                     // 注册成功后重定向到登录页面
                     setTimeout(() => {
@@ -75,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 2000);
                 }
             } catch (err) {
-                console.error('注册错误:', err);
-                showMessage('auth-message', '注册失败，请稍后再试', 'error');
+                console.error('Registration error:', err);
+                showMessage('auth-message', 'Registration failed, please try again later', 'error');
             } finally {
                 // 恢复提交按钮
                 submitButton.disabled = false;
-                submitButton.textContent = '注册';
+                submitButton.textContent = 'Register';
             }
         });
     }

@@ -76,7 +76,7 @@ export class DatabaseManager {
         const { data, error, count } = await query
 
         if (error) {
-            console.error('获取文章列表失败:', error)
+            console.error('Failed to get article list:', error)
             throw error
         }
 
@@ -99,7 +99,7 @@ export class DatabaseManager {
             .single()
 
         if (error) {
-            console.error('获取文章详情失败:', error)
+            console.error('Failed to get article details:', error)
             throw error
         }
 
@@ -118,7 +118,7 @@ export class DatabaseManager {
         })
 
         if (error) {
-            console.error('更新浏览量失败:', error)
+            console.error('Failed to update view count:', error)
         }
     }
 
@@ -130,7 +130,7 @@ export class DatabaseManager {
             .limit(limit)
 
         if (error) {
-            console.error('获取热门文章失败:', error)
+            console.error('Failed to get popular articles:', error)
             throw error
         }
 
@@ -145,7 +145,7 @@ export class DatabaseManager {
             .limit(limit)
 
         if (error) {
-            console.error('获取最新文章失败:', error)
+            console.error('Failed to get recent articles:', error)
             throw error
         }
 
@@ -165,7 +165,7 @@ export class DatabaseManager {
             .order('sort_order')
 
         if (error) {
-            console.error('获取分类失败:', error)
+            console.error('Failed to get categories:', error)
             throw error
         }
 
@@ -186,7 +186,7 @@ export class DatabaseManager {
             .limit(limit)
 
         if (error) {
-            console.error('获取标签失败:', error)
+            console.error('Failed to get tags:', error)
             throw error
         }
 
@@ -214,7 +214,7 @@ export class DatabaseManager {
             .order('created_at', { ascending: false })
 
         if (error) {
-            console.error('获取评论失败:', error)
+            console.error('Failed to get comments:', error)
             throw error
         }
 
@@ -244,7 +244,7 @@ export class DatabaseManager {
         const { data: { user } } = await this.supabase.auth.getUser()
         
         if (!user) {
-            throw new Error('用户未登录')
+            throw new Error('User not logged in')
         }
 
         const { data, error } = await this.supabase
@@ -259,7 +259,7 @@ export class DatabaseManager {
             .single()
 
         if (error) {
-            console.error('添加评论失败:', error)
+            console.error('Failed to add comment:', error)
             throw error
         }
 
@@ -301,7 +301,7 @@ export class DatabaseManager {
             .single()
 
         if (error) {
-            console.error('更新用户资料失败:', error)
+            console.error('Failed to update user profile:', error)
             throw error
         }
 
@@ -320,7 +320,7 @@ export class DatabaseManager {
             .eq('is_public', true)
 
         if (error) {
-            console.error('获取网站设置失败:', error)
+            console.error('Failed to get site settings:', error)
             throw error
         }
 
@@ -353,7 +353,7 @@ export class DatabaseManager {
             })
 
         if (error) {
-            console.error('记录访问失败:', error)
+            console.error('Failed to record page view:', error)
         }
     }
 
@@ -393,7 +393,7 @@ export class DatabaseManager {
             .limit(limit)
 
         if (error) {
-            console.error('搜索失败:', error)
+            console.error('Search failed:', error)
             throw error
         }
 
@@ -417,7 +417,7 @@ export class DatabaseManager {
             })
 
         if (error) {
-            console.error('记录搜索事件失败:', error)
+            console.error('Failed to record search event:', error)
         }
     }
 }
@@ -435,7 +435,7 @@ export const auth = {
         })
 
         if (error) {
-            console.error('登录失败:', error)
+            console.error('Sign in failed:', error)
             throw error
         }
 
@@ -453,7 +453,7 @@ export const auth = {
         })
 
         if (error) {
-            console.error('注册失败:', error)
+            console.error('Sign up failed:', error)
             throw error
         }
 
@@ -465,7 +465,7 @@ export const auth = {
         const { error } = await supabase.auth.signOut()
 
         if (error) {
-            console.error('登出失败:', error)
+            console.error('Sign out failed:', error)
             throw error
         }
     },
