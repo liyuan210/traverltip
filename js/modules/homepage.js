@@ -54,7 +54,7 @@ export class HomepageManager {
           <img src="${article.featured_image || '../images/placeholder.svg'}" 
                alt="${article.image_alt || article.title}" 
                loading="lazy">
-          ${article.featured ? '<span class="featured-badge">精选</span>' : ''}
+          ${article.featured ? '<span class="featured-badge">Featured</span>' : ''}
         </div>
         <div class="article-content">
           <div class="article-meta">
@@ -63,9 +63,9 @@ export class HomepageManager {
             <span class="date">${article.created_at_formatted}</span>
           </div>
           <h3 class="article-title">
-            <a href="${travelAPI.generateArticleUrl(article)}">${article.title}</a>
+            <a href="${travelAPI.generateArticleUrl(article)}">${article.title_en || article.title}</a>
           </h3>
-          <p class="article-excerpt">${article.excerpt}</p>
+          <p class="article-excerpt">${article.excerpt_en || article.excerpt}</p>
           <div class="article-stats">
             <span class="view-count">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -81,9 +81,9 @@ export class HomepageManager {
 
     container.innerHTML = `
       <div class="section-header">
-        <h2>${travelAPI.currentLanguage === 'en' ? 'Featured Articles' : '精选文章'}</h2>
+        <h2>Featured Articles</h2>
         <a href="/articles/" class="view-all">
-          ${travelAPI.currentLanguage === 'en' ? 'View All' : '查看全部'} →
+          View All →
         </a>
       </div>
       <div class="articles-grid">
@@ -104,7 +104,7 @@ export class HomepageManager {
           <h4><a href="${travelAPI.generateArticleUrl(article)}">${article.title}</a></h4>
           <div class="popular-meta">
             <span class="city">${article.city}</span>
-            <span class="views">${article.view_count || 0} ${travelAPI.currentLanguage === 'en' ? 'views' : '次浏览'}</span>
+            <span class="views">${article.view_count || 0} views</span>
           </div>
         </div>
         <div class="popular-image">
@@ -117,7 +117,7 @@ export class HomepageManager {
 
     container.innerHTML = `
       <div class="section-header">
-        <h2>${travelAPI.currentLanguage === 'en' ? 'Popular Articles' : '热门文章'}</h2>
+        <h2>Popular Articles</h2>
       </div>
       <div class="popular-list">
         ${articlesHTML}
@@ -138,14 +138,14 @@ export class HomepageManager {
         <h3>${category.name}</h3>
         <p>${category.description || ''}</p>
         <button class="category-btn" onclick="filterByCategory('${category.slug}')">
-          ${travelAPI.currentLanguage === 'en' ? 'Explore' : '探索'}
+          Explore
         </button>
       </div>
     `).join('');
 
     container.innerHTML = `
       <div class="section-header">
-        <h2>${travelAPI.currentLanguage === 'en' ? 'Explore by Category' : '按分类探索'}</h2>
+        <h2>Explore by Category</h2>
       </div>
       <div class="categories-grid">
         ${categoriesHTML}
@@ -177,7 +177,7 @@ export class HomepageManager {
 
     container.innerHTML = `
       <div class="section-header">
-        <h2>${travelAPI.currentLanguage === 'en' ? 'Popular Destinations' : '热门目的地'}</h2>
+        <h2>Popular Destinations</h2>
       </div>
       <div class="cities-grid">
         ${citiesHTML}
@@ -242,7 +242,7 @@ export class HomepageManager {
         container.innerHTML = `
           <div class="loading-placeholder">
             <div class="loading-spinner"></div>
-            <p>${travelAPI.currentLanguage === 'en' ? 'Loading...' : '加载中...'}</p>
+            <p>Loading...</p>
           </div>
         `;
       }
@@ -263,9 +263,9 @@ export class HomepageManager {
     containers.forEach(container => {
       container.innerHTML = `
         <div class="error-message">
-          <p>${travelAPI.currentLanguage === 'en' ? 'Failed to load content' : '内容加载失败'}</p>
+          <p>Failed to load content</p>
           <button onclick="location.reload()" class="retry-btn">
-            ${travelAPI.currentLanguage === 'en' ? 'Retry' : '重试'}
+            Retry
           </button>
         </div>
       `;

@@ -3,7 +3,8 @@ import { travelAPI } from './supabase-client.js';
 
 export class LanguageSwitcher {
   constructor() {
-    this.currentLanguage = travelAPI.currentLanguage;
+    this.currentLanguage = 'en';
+    travelAPI.setLanguage('en');
     this.init();
   }
 
@@ -15,7 +16,7 @@ export class LanguageSwitcher {
 
   // 创建语言切换器UI
   createLanguageSwitcher() {
-    const switcher = document.createElement('div');
+    return;
     switcher.className = 'language-switcher';
     switcher.innerHTML = `
       <div class="lang-toggle">

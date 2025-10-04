@@ -203,7 +203,7 @@
     <div id="search-overlay" class="search-overlay">
         <div class="search-container">
             <div class="search-header">
-                <input type="text" id="search-input" placeholder="搜索旅游攻略..." autocomplete="off">
+                <input type="text" id="search-input" placeholder="Search travel guides..." autocomplete="off">
                 <button id="search-close" class="search-close">×</button>
             </div>
             <div id="search-results" class="search-results"></div>
@@ -212,7 +212,7 @@
     </div>
     
     <!-- Enhanced Language Selector -->
-    <div class="language-selector" role="navigation" aria-label="Language selection">
+    <div class="language-selector" role="navigation" aria-label="Language selection" style="display:none">
         <img src="https://flagcdn.com/w20/us.png" alt="Current language flag" id="currentFlag">
         <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
             <option value="en" data-flag="https://flagcdn.com/w20/us.png">English</option>
@@ -240,7 +240,7 @@
             <div class="header-content">
                 <div class="logo">
                     <span lang="en">Jiangnan Travel Blog</span>
-                    <span lang="zh-CN" class="logo-chinese">江南旅游博客</span>
+                    <span lang="zh-CN" class="logo-chinese" style="display:none">江南旅游博客</span>
                 </div>
                 <nav>
                     <ul>
@@ -251,8 +251,8 @@
                         <li><a href="about.html" data-i18n="nav.about">About</a></li>
                         <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                         <li><a href="login_register_en.html" data-i18n="nav.login">Login/Register</a></li>
-                        <li><button id="search-btn" class="search-btn" title="搜索">🔍</button></li>
-                        <li><button id="language-toggle" class="language-toggle" title="切换语言">EN</button></li>
+                        <li><button id="search-btn" class="search-btn" title="Search">🔍</button></li>
+                        <li><button id="language-toggle" class="language-toggle" title="Language">EN</button></li>
                         <li><a href="admin/login.html" data-i18n="nav.admin">Admin</a></li>
                     </ul>
                 </nav>
@@ -279,11 +279,11 @@
             <div class="hero-content">
                 <h1>
                     <span lang="en">Welcome to Jiangnan Travel Blog</span>
-                    <span lang="zh-CN" class="hero-title-chinese">欢迎来到江南旅游博客</span>
+                    <span lang="zh-CN" class="hero-title-chinese" style="display:none">欢迎来到江南旅游博客</span>
                 </h1>
                 <p>
                     <span lang="en">Discover the poetic charm of Jiangnan, a region where ancient water towns, exquisite gardens, and culinary delights await. Follow our journey through the enchanting landscapes of southern China, where tradition and modernity blend seamlessly.</span>
-                    <span lang="zh-CN" class="hero-desc-chinese">探索江南的诗意魅力，这里有古老的水乡、精美的园林和美味佳肴等待着您。跟随我们的脚步，穿越中国南方迷人的风景，感受传统与现代的完美融合。</span>
+                    <span lang="zh-CN" class="hero-desc-chinese" style="display:none">探索江南的诗意魅力，这里有古老的水乡、精美的园林和美味佳肴等待着您。跟随我们的脚步，穿越中国南方迷人的风景，感受传统与现代的完美融合。</span>
                 </p>
                 <div class="hero-buttons">
                     <a href="#blog" class="cta-button">Latest Articles</a>

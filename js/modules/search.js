@@ -28,7 +28,7 @@ export class SearchManager {
         <input 
           type="text" 
           class="search-input" 
-          placeholder="${travelAPI.currentLanguage === 'en' ? 'Search articles...' : '搜索文章...'}"
+          placeholder="Search articles..."
         >
         <button class="search-btn" type="button">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -39,7 +39,7 @@ export class SearchManager {
       </div>
       <div class="search-results" style="display: none;">
         <div class="search-results-header">
-          <span class="results-count">0 ${travelAPI.currentLanguage === 'en' ? 'results' : '个结果'}</span>
+          <span class="results-count">0 results</span>
           <button class="close-search">×</button>
         </div>
         <div class="search-results-content">
@@ -138,8 +138,8 @@ export class SearchManager {
       this.displaySearchResults(results, query);
       
     } catch (error) {
-      console.error('搜索失败:', error);
-      this.showError('搜索失败，请稍后重试');
+      console.error('Search failed:', error);
+      this.showError('Search failed, please try again later');
     }
   }
 
@@ -148,9 +148,7 @@ export class SearchManager {
     if (!this.resultsContent || !this.resultsCount) return;
 
     // 更新结果数量
-    const countText = travelAPI.currentLanguage === 'en' 
-      ? `${results.length} results for "${query}"` 
-      : `找到 ${results.length} 个关于 "${query}" 的结果`;
+    const countText = `${results.length} results for "${query}"`;
     this.resultsCount.textContent = countText;
 
     // 清空之前的结果
@@ -159,11 +157,9 @@ export class SearchManager {
     if (results.length === 0) {
       this.resultsContent.innerHTML = `
         <div class="no-results">
-          <p>${travelAPI.currentLanguage === 'en' ? 'No articles found' : '没有找到相关文章'}</p>
+          <p>No articles found</p>
           <p class="no-results-tip">
-            ${travelAPI.currentLanguage === 'en' 
-              ? 'Try different keywords or browse our categories' 
-              : '尝试使用不同的关键词或浏览我们的分类'}
+            Try different keywords or browse our categories
           </p>
         </div>
       `;
@@ -235,7 +231,7 @@ export class SearchManager {
     this.resultsContent.innerHTML = `
       <div class="search-loading">
         <div class="loading-spinner"></div>
-        <p>${travelAPI.currentLanguage === 'en' ? 'Searching...' : '搜索中...'}</p>
+        <p>Searching...</p>
       </div>
     `;
     
