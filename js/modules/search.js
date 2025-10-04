@@ -18,47 +18,19 @@ export class SearchManager {
     this.bindEvents();
   }
 
-  // 创建搜索UI
+  // 创建搜索UI - 使用现有的搜索界面
   createSearchUI() {
-    // 创建搜索框
-    const searchContainer = document.createElement('div');
-    searchContainer.className = 'search-container';
-    searchContainer.innerHTML = `
-      <div class="search-box">
-        <input 
-          type="text" 
-          class="search-input" 
-          placeholder="Search articles..."
-        >
-        <button class="search-btn" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="search-results" style="display: none;">
-        <div class="search-results-header">
-          <span class="results-count">0 results</span>
-          <button class="close-search">×</button>
-        </div>
-        <div class="search-results-content">
-          <!-- 搜索结果将在这里显示 -->
-        </div>
-      </div>
-    `;
-
-    // 添加到页面
-    const header = document.querySelector('header nav') || document.querySelector('header');
-    if (header) {
-      header.appendChild(searchContainer);
+    // 使用页面中已存在的搜索元素，避免重复创建
+    this.searchInput = document.querySelector('#search-input');
+    this.searchResults = document.querySelector('#search-results');
+    this.searchOverlay = document.querySelector('#search-overlay');
+    this.resultsContent = this.searchResults;
+    
+    // 如果没有找到现有元素，则不创建新的UI
+    if (!this.searchInput || !this.searchResults) {
+      console.warn('Search UI elements not found, search functionality disabled');
+      return;
     }
-
-    // 获取元素引用
-    this.searchInput = searchContainer.querySelector('.search-input');
-    this.searchResults = searchContainer.querySelector('.search-results');
-    this.resultsContent = searchContainer.querySelector('.search-results-content');
-    this.resultsCount = searchContainer.querySelector('.results-count');
   }
 
   // 绑定事件
@@ -70,16 +42,19 @@ export class SearchManager {
       this.handleSearchInput(e.target.value);
     });
 
-    // 搜索按钮点击
-    const searchBtn = document.querySelector('.search-btn');
+    // 搜索按钮点击（使用现有的搜索按钮）
+    const searchBtn = document.querySelector('#search-btn');
     if (searchBtn) {
       searchBtn.addEventListener('click', () => {
-        this.performSearch(this.searchInput.value);
+        if (this.searchOverlay) {
+          this.searchOverlay.classList.add('active');
+          this.searchInput.focus();
+        }
       });
     }
 
     // 关闭搜索结果
-    const closeBtn = document.querySelector('.close-search');
+    const closeBtn = document.querySelector('#search-close');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         this.hideSearchResults();
@@ -88,7 +63,7 @@ export class SearchManager {
 
     // 点击外部关闭搜索结果
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('.search-container')) {
+      if (this.searchOverlay && !e.target.closest('.search-container') && this.searchOverlay.classList.contains('active')) {
         this.hideSearchResults();
       }
     });
@@ -145,11 +120,7 @@ export class SearchManager {
 
   // 显示搜索结果
   displaySearchResults(results, query) {
-    if (!this.resultsContent || !this.resultsCount) return;
-
-    // 更新结果数量
-    const countText = `${results.length} results for "${query}"`;
-    this.resultsCount.textContent = countText;
+    if (!this.resultsContent) return;
 
     // 清空之前的结果
     this.resultsContent.innerHTML = '';
@@ -253,17 +224,15 @@ export class SearchManager {
 
   // 显示搜索结果面板
   showSearchResults() {
-    if (this.searchResults) {
-      this.searchResults.style.display = 'block';
-      this.searchResults.classList.add('show');
+    if (this.searchOverlay) {
+      this.searchOverlay.classList.add('active');
     }
   }
 
   // 隐藏搜索结果面板
   hideSearchResults() {
-    if (this.searchResults) {
-      this.searchResults.style.display = 'none';
-      this.searchResults.classList.remove('show');
+    if (this.searchOverlay) {
+      this.searchOverlay.classList.remove('active');
     }
   }
 
