@@ -521,7 +521,7 @@ insert into site_settings (key, value, description, is_public) values
   ('social_links', '{"weibo": "", "wechat": "", "douyin": ""}', '社交媒体链接', true),
   ('analytics_enabled', 'true', '是否启用分析', false),
   ('comments_enabled', 'true', '是否启用评论', true),
-  ('registration_enabled', 'true', '是否允许用户注册', false)
+  ('registration_enabled', 'true', '是否允许用户注册', true)
 on conflict (key) do nothing;
 
 -- =============================================
