@@ -517,7 +517,7 @@ insert into site_settings (key, value, description, is_public) values
   ('site_name', '"江南旅游博客"', '网站名称', true),
   ('site_description', '"探索江南美景，品味江南文化"', '网站描述', true),
   ('site_keywords', '["江南", "旅游", "古镇", "文化", "美食"]', '网站关键词', true),
-  ('contact_email', '"contact@jiangnan-travel.com"', '联系邮箱', true),
+  ('contact_email', '"danny@51ntoo.com"', '联系邮箱', true),
   ('social_links', '{"weibo": "", "wechat": "", "douyin": ""}', '社交媒体链接', true),
   ('analytics_enabled', 'true', '是否启用分析', false),
   ('comments_enabled', 'true', '是否启用评论', true),
