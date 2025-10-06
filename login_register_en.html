@@ -338,11 +338,12 @@
 
     <script>
         // Supabase configuration
-        const SUPABASE_URL = 'https://uhhztcasbbrahnmonthd.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoaHp0Y2FzYmJyYWhuTW9udGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ5NTU5NzQsImV4cCI6MjA1MDUzMTk3NH0.Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8';
+        const SUPABASE_URL = 'https://hqpcnflogdhcqddipaso.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcGNuZmxvZ2RoY3FkZGlwYXNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk1MDA2MDAsImV4cCI6MjA3NTA3NjYwMH0.kdFXyd_j0scZt2YCmbqGOTsTviMYqCW1gjCi7Fnw7P0';
 
         // Initialize Supabase client
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // Set up form event listeners
         document.addEventListener('DOMContentLoaded', function() {
@@ -413,7 +414,7 @@
             const rememberMe = document.getElementById('rememberMe').checked;
 
             try {
-                const { data, error } = await supabase.auth.signInWithPassword({
+                const { data, error } = await supabaseClient.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
@@ -457,7 +458,7 @@
             }
 
             try {
-                const { data, error } = await supabase.auth.signUp({
+                const { data, error } = await supabaseClient.auth.signUp({
                     email: email,
                     password: password,
                     options: {
@@ -495,7 +496,7 @@
             const email = document.getElementById('resetEmail').value;
 
             try {
-                const { error } = await supabase.auth.resetPasswordForEmail(email);
+                const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
 
                 if (error) {
                     authMessage.textContent = `Failed to send reset link: ${error.message}`;
@@ -523,7 +524,7 @@
             const authMessage = document.getElementById('authMessage');
             
             try {
-                const { data, error } = await supabase.auth.signInWithOAuth({
+                const { data, error } = await supabaseClient.auth.signInWithOAuth({
                     provider: 'google'
                 });
 
