@@ -443,20 +443,27 @@
         // Handle registration
         async function handleRegister(e) {
             e.preventDefault();
+            console.log('🚀 开始注册流程...');
+            
             const authMessage = document.getElementById('authMessage');
             const name = document.getElementById('registerName').value;
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 
+            console.log('📝 注册信息:', { name, email, passwordLength: password.length });
+
             // Validate passwords
             if (password !== confirmPassword) {
+                console.log('❌ 密码不匹配');
                 authMessage.textContent = 'Passwords do not match.';
                 authMessage.className = 'auth-message error';
                 authMessage.style.display = 'block';
                 return;
             }
 
+            console.log('🔄 正在向Supabase发送注册请求...');
+            
             try {
                 const { data, error } = await supabaseClient.auth.signUp({
                     email: email,
@@ -468,22 +475,27 @@
                     }
                 });
 
+                console.log('📡 Supabase响应:', { data, error });
+
                 if (error) {
+                    console.log('❌ 注册失败:', error.message);
                     authMessage.textContent = `Registration failed: ${error.message}`;
                     authMessage.className = 'auth-message error';
                 } else {
+                    console.log('✅ 注册成功!', data);
                     authMessage.textContent = 'Registration successful! Please check your email for verification.';
                     authMessage.className = 'auth-message success';
 
                     // Switch to login tab
                     setTimeout(() => {
+                        console.log('🔄 切换到登录页面');
                         switchTab('login');
-                    }, 2000);
+                    }, 3000);
                 }
                 authMessage.style.display = 'block';
             } catch (err) {
-                console.error('Registration error:', err);
-                authMessage.textContent = 'Registration failed. Please try again later.';
+                console.error('💥 注册异常:', err);
+                authMessage.textContent = `Registration failed: ${err.message}`;
                 authMessage.className = 'auth-message error';
                 authMessage.style.display = 'block';
             }
